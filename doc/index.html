@@ -534,19 +534,45 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
+            flex-wrap: nowrap;
+            gap: 0;
             margin: 25px 0;
-            padding: 20px;
+            padding: 30px 20px;
             background: rgba(6, 182, 212, 0.05);
             border-radius: 8px;
+            overflow-x: auto;
         }
 
         .commit-visual {
-            display: inline-flex;
+            display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
+            flex-shrink: 0;
+        }
+
+        .commit-visual:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 3px;
+            background: #06b6d4;
+            z-index: 1;
+        }
+
+        .commit-visual:not(:last-child)::before {
+            content: '→';
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #06b6d4;
+            font-size: 1.3rem;
+            font-weight: 700;
+            z-index: 2;
         }
 
         .commit-circle {
@@ -563,23 +589,8 @@
             box-shadow: 0 3px 8px rgba(6, 182, 212, 0.3);
             border: 3px solid white;
             position: relative;
-        }
-
-        .commit-circle::after {
-            content: '';
-            position: absolute;
-            right: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-            border-left: 12px solid #06b6d4;
-        }
-
-        .commit-chain .commit-visual:last-child .commit-circle::after {
-            display: none;
+            z-index: 3;
+            margin: 0 50px;
         }
 
         .commit-label {
@@ -594,16 +605,17 @@
             align-items: center;
             gap: 8px;
             margin: 15px 10px;
-            padding: 8px 15px;
-            background: rgba(34, 197, 94, 0.1);
-            border-radius: 6px;
+            padding: 10px 18px;
+            background: rgba(34, 197, 94, 0.15);
+            border-radius: 8px;
             border: 2px solid #22c55e;
+            box-shadow: 0 2px 6px rgba(34, 197, 94, 0.2);
         }
 
         .branch-pointer-label {
             color: #22c55e;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .head-pointer {
@@ -611,33 +623,52 @@
             align-items: center;
             gap: 8px;
             margin: 15px 10px;
-            padding: 8px 15px;
-            background: rgba(245, 158, 11, 0.1);
-            border-radius: 6px;
+            padding: 10px 18px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 8px;
             border: 2px solid #f59e0b;
+            box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);
         }
 
         .head-pointer-label {
             color: #f59e0b;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .pointer-line {
-            width: 30px;
+            width: 25px;
             height: 3px;
             background: #06b6d4;
             position: relative;
+            margin: 0 5px;
         }
 
         .pointer-line::after {
             content: '→';
             position: absolute;
-            right: -15px;
-            top: -8px;
+            right: -12px;
+            top: -9px;
             color: #06b6d4;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
+        }
+
+        /* Visual connector from pointers to commits */
+        .pointer-connector {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .pointer-connector::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -40px;
+            width: 2px;
+            height: 35px;
+            background: linear-gradient(to bottom, rgba(6, 182, 212, 0.4), transparent);
+            transform: translateX(-50%);
         }
 
         /* Real-world Scenario Box */
@@ -839,6 +870,53 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Responsive adjustments for commit chain */
+        @media (max-width: 900px) {
+            .commit-chain {
+                padding: 20px 10px;
+            }
+
+            .commit-circle {
+                width: 55px;
+                height: 55px;
+                font-size: 0.75rem;
+                margin: 0 35px;
+            }
+
+            .commit-visual:not(:last-child)::after {
+                right: -40px;
+                width: 30px;
+            }
+
+            .commit-visual:not(:last-child)::before {
+                right: -30px;
+                font-size: 1.1rem;
+            }
+
+            .commit-label {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .commit-circle {
+                width: 45px;
+                height: 45px;
+                font-size: 0.65rem;
+                margin: 0 25px;
+            }
+
+            .commit-visual:not(:last-child)::after {
+                right: -30px;
+                width: 20px;
+            }
+
+            .commit-visual:not(:last-child)::before {
+                right: -22px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -942,36 +1020,38 @@
                 <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">See how commits, branches, and HEAD connect</p>
 
                 <div class="visual-git-diagram">
-                    <div class="diagram-title">📊 After 3 Commits</div>
+                    <div class="diagram-title">After 3 Commits</div>
                     
-                    <div style="text-align: center; margin: 20px 0;">
-                        <div class="branch-pointer">
+                    <div style="text-align: center; margin: 20px 0 10px 0;">
+                        <div class="branch-pointer" style="position: relative;">
                             <span class="branch-pointer-label">main</span>
                             <span class="pointer-line"></span>
+                            <div style="position: absolute; left: 50%; bottom: -45px; width: 2px; height: 40px; background: linear-gradient(to bottom, rgba(34, 197, 94, 0.5), transparent); transform: translateX(-50%);"></div>
                         </div>
                     </div>
 
                     <div class="commit-chain">
                         <div class="commit-visual">
-                            <div class="commit-circle">C3</div>
-                            <div class="commit-label">commit3</div>
+                            <div class="commit-circle">C1</div>
+                            <div class="commit-label">commit1</div>
                         </div>
                         <div class="commit-visual">
                             <div class="commit-circle">C2</div>
                             <div class="commit-label">commit2</div>
                         </div>
                         <div class="commit-visual">
-                            <div class="commit-circle">C1</div>
-                            <div class="commit-label">commit1</div>
+                            <div class="commit-circle">C3</div>
+                            <div class="commit-label">commit3</div>
                         </div>
                     </div>
 
-                    <div style="text-align: center; margin: 20px 0;">
-                        <div class="head-pointer">
+                    <div style="text-align: center; margin: 10px 0 20px 0;">
+                        <div class="head-pointer" style="position: relative;">
                             <span class="head-pointer-label">HEAD</span>
                             <span class="pointer-line"></span>
+                            <div style="position: absolute; left: 50%; top: -45px; width: 2px; height: 40px; background: linear-gradient(to top, rgba(245, 158, 11, 0.5), transparent); transform: translateX(-50%);"></div>
                         </div>
-                        <span style="color: #64748b; font-size: 0.9rem;">points to commit3</span>
+                        <span style="color: #64748b; font-size: 0.9rem; display: block; margin-top: 5px;">points to commit3</span>
                     </div>
 
                     <div style="margin-top: 25px; padding: 20px; background: rgba(6, 182, 212, 0.08); border-radius: 8px;">
@@ -998,44 +1078,47 @@
                 <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">See how branches share history</p>
 
                 <div class="visual-git-diagram">
-                    <div class="diagram-title">📊 After Creating Feature Branch</div>
+                    <div class="diagram-title">After Creating Feature Branch</div>
                     
-                    <div style="text-align: center; margin: 20px 0;">
-                        <div class="branch-pointer" style="margin-right: 20px;">
+                    <div style="text-align: center; margin: 20px 0 10px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                        <div class="branch-pointer" style="position: relative;">
                             <span class="branch-pointer-label">feature</span>
                             <span class="pointer-line"></span>
+                            <div style="position: absolute; left: 50%; bottom: -45px; width: 2px; height: 40px; background: linear-gradient(to bottom, rgba(34, 197, 94, 0.5), transparent); transform: translateX(-50%);"></div>
                         </div>
-                        <div class="branch-pointer">
+                        <div class="branch-pointer" style="position: relative;">
                             <span class="branch-pointer-label">main</span>
                             <span class="pointer-line"></span>
+                            <div style="position: absolute; left: 50%; bottom: -45px; width: 2px; height: 40px; background: linear-gradient(to bottom, rgba(34, 197, 94, 0.5), transparent); transform: translateX(-50%);"></div>
                         </div>
                     </div>
 
                     <div class="commit-chain">
                         <div class="commit-visual">
-                            <div class="commit-circle" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">C4</div>
-                            <div class="commit-label">commit4</div>
-                        </div>
-                        <div class="commit-visual">
-                            <div class="commit-circle">C3</div>
-                            <div class="commit-label">commit3</div>
+                            <div class="commit-circle">C1</div>
+                            <div class="commit-label">commit1</div>
                         </div>
                         <div class="commit-visual">
                             <div class="commit-circle">C2</div>
                             <div class="commit-label">commit2</div>
                         </div>
                         <div class="commit-visual">
-                            <div class="commit-circle">C1</div>
-                            <div class="commit-label">commit1</div>
+                            <div class="commit-circle">C3</div>
+                            <div class="commit-label">commit3</div>
+                        </div>
+                        <div class="commit-visual">
+                            <div class="commit-circle" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-color: #22c55e; box-shadow: 0 3px 8px rgba(34, 197, 94, 0.3);">C4</div>
+                            <div class="commit-label">commit4</div>
                         </div>
                     </div>
 
-                    <div style="text-align: center; margin: 20px 0;">
-                        <div class="head-pointer">
+                    <div style="text-align: center; margin: 10px 0 20px 0;">
+                        <div class="head-pointer" style="position: relative;">
                             <span class="head-pointer-label">HEAD</span>
                             <span class="pointer-line"></span>
+                            <div style="position: absolute; left: 50%; top: -45px; width: 2px; height: 40px; background: linear-gradient(to top, rgba(245, 158, 11, 0.5), transparent); transform: translateX(-50%);"></div>
                         </div>
-                        <span style="color: #64748b; font-size: 0.9rem;">points to commit4 (on feature branch)</span>
+                        <span style="color: #64748b; font-size: 0.9rem; display: block; margin-top: 5px;">points to commit4 (on feature branch)</span>
                     </div>
 
                     <div style="margin-top: 25px; padding: 20px; background: rgba(34, 197, 94, 0.08); border-radius: 8px;">
@@ -2018,6 +2101,46 @@
                 <strong>SPEAKER NOTE:</strong> Open this up. Take questions. If someone asks about a specific scenario, navigate to git log and demonstrate. Real-time problem solving reinforces learning. This is where mastery sticks.
             </div>
         </div>
+
+        <!-- SLIDE 29: Conclusion -->
+        <div class="slide slide-dark">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Conclusion</h2>
+                <p class="subtitle" style="margin-top: 40px; margin-bottom: 50px;">Your Git Journey Starts Now</p>
+                
+                <div class="highlight-box" style="margin-top: 40px; margin-bottom: 40px;">
+                    <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">🎯 Key Takeaways</h3>
+                    <ul style="font-size: 1.2rem; line-height: 2; margin: 0; padding-left: 30px; text-align: left;">
+                        <li><strong>Reflog is your safety net</strong> - Nothing is ever truly lost</li>
+                        <li><strong>Branches are free</strong> - Experiment without fear</li>
+                        <li><strong>Local vs Shared matters</strong> - Reset locally, revert on shared branches</li>
+                        <li><strong>Detached HEAD is safe</strong> - It's a playground, not a trap</li>
+                        <li><strong>Stash is your pause button</strong> - Context switch with confidence</li>
+                    </ul>
+                </div>
+
+                <div class="two-column" style="margin-top: 50px;">
+                    <div class="column">
+                        <h3 style="color: #22c55e; margin-top: 0;">✅ Practice Daily</h3>
+                        <p style="font-size: 1.15rem;">Try these commands in a test repository. Break things. Recover them. Build muscle memory.</p>
+                    </div>
+                    <div class="column">
+                        <h3 style="color: #0891b2; margin-top: 0;">📚 Keep Learning</h3>
+                        <p style="font-size: 1.15rem;">Git has many more features. But with these fundamentals, you're ready for anything.</p>
+                    </div>
+                </div>
+
+                <div class="presenter-info" style="margin-top: 60px;">
+                    <p style="font-size: 1.4rem; font-weight: 700; color: #0891b2; margin-bottom: 15px;">Thank You!</p>
+                    <p style="font-size: 1.2rem;"><strong>Nick Zavlagkas | Agile Actors</strong></p>
+                    <p style="font-size: 1.1rem; opacity: 0.9; margin-top: 10px;">You now have the Git superpowers to work fearlessly.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is your closing moment. Recap the key points. Encourage practice. Thank the audience. End on a high note. The goal was to remove fear—mission accomplished if they feel confident now.
+            </div>
+        </div>
     </div>
 
     <div class="slide-counter">
@@ -2025,34 +2148,90 @@
     </div>
 
     <div class="controls">
-        <button onclick="previousSlide()">← Previous</button>
-        <button onclick="nextSlide()">Next →</button>
+        <button id="prevBtn" onclick="previousSlide()">← Previous</button>
+        <button id="nextBtn" onclick="nextSlide()">Next →</button>
     </div>
 
     <script>
+        const STORAGE_KEY = 'git-superpowers-current-slide';
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
+
+        // Load saved slide from localStorage
+        function loadSavedSlide() {
+            const savedSlide = localStorage.getItem(STORAGE_KEY);
+            if (savedSlide !== null) {
+                const slideIndex = parseInt(savedSlide, 10);
+                if (slideIndex >= 0 && slideIndex < totalSlides) {
+                    return slideIndex;
+                }
+            }
+            return 0;
+        }
+
+        // Save current slide to localStorage
+        function saveCurrentSlide() {
+            localStorage.setItem(STORAGE_KEY, currentSlide.toString());
+        }
+
+        // Update button visibility based on current slide
+        function updateButtonVisibility() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            // Hide Previous button on first slide
+            if (currentSlide === 0) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'inline-block';
+            }
+            
+            // Hide Next button on last slide
+            if (currentSlide === totalSlides - 1) {
+                nextBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'inline-block';
+            }
+        }
 
         function showSlide(n) {
             slides[currentSlide].classList.remove('active');
             currentSlide = (n + totalSlides) % totalSlides;
             slides[currentSlide].classList.add('active');
             document.getElementById('current').textContent = currentSlide + 1;
+            
+            // Save to localStorage
+            saveCurrentSlide();
+            
+            // Update button visibility
+            updateButtonVisibility();
         }
 
         function nextSlide() {
-            showSlide(currentSlide + 1);
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
         }
 
         function previousSlide() {
-            showSlide(currentSlide - 1);
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
         }
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
-            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                if (currentSlide < totalSlides - 1) {
+                    nextSlide();
+                }
+            }
+            if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) {
+                    previousSlide();
+                }
+            }
         });
 
         // Check for speaker notes parameter in URL
@@ -2093,7 +2272,10 @@
 
         // Initialize
         document.getElementById('total').textContent = totalSlides;
-        showSlide(0);
+        
+        // Load saved slide or start at beginning
+        const savedSlideIndex = loadSavedSlide();
+        showSlide(savedSlideIndex);
         checkSpeakerNotes();
     </script>
 </body>
