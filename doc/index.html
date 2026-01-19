@@ -865,6 +865,67 @@
             margin-top: 8px;
         }
 
+        /* Interactive Hint Styles */
+        .interactive-hint {
+            background: rgba(6, 182, 212, 0.1);
+            border-left: 4px solid #06b6d4;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 900px;
+            font-size: 1.1rem;
+            color: #0891b2;
+            font-weight: 500;
+        }
+
+        /* Quick Reference Card Styles */
+        .quick-reference {
+            font-size: 1rem;
+        }
+
+        .quick-reference table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .quick-reference th,
+        .quick-reference td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .quick-reference th {
+            background: rgba(6, 182, 212, 0.1);
+            color: #0891b2;
+            font-weight: 600;
+        }
+
+        .quick-reference code {
+            background: rgba(6, 182, 212, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #0891b2;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+            }
+            .quick-reference {
+                font-size: 0.9rem;
+            }
+            .controls,
+            .slide-counter,
+            .keyboard-hint,
+            .logo,
+            .superpower-progress {
+                display: none;
+            }
+        }
+
         @media (max-width: 1200px) {
             .code-before-after {
                 grid-template-columns: 1fr;
@@ -921,6 +982,11 @@
 </head>
 <body>
     <div class="keyboard-hint">Use Arrow Keys or Buttons to Navigate • Speaker Notes Below</div>
+    
+    <div id="superpower-progress" class="superpower-progress">
+        <div class="progress-item" style="font-weight: 600; margin-bottom: 8px; color: #0891b2;">Learning Progress</div>
+        <div id="progress-items"></div>
+    </div>
     
     <div class="presentation-container">
         <!-- SLIDE 1: Title Slide -->
@@ -1165,6 +1231,52 @@
             </div>
         </div>
 
+        <!-- SLIDE 5b: Common Confusions -->
+        <div class="slide slide-light">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Common Confusions—Clarified</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Simple answers to questions students often ask</p>
+
+                <div class="three-column" style="margin-top: 40px;">
+                    <div class="column-card">
+                        <h4>❓ "Branches copy files"</h4>
+                        <p><strong style="color: #22c55e;">No!</strong> Branches are just pointers—like bookmarks. They don't copy anything. Creating a branch is instant and free.</p>
+                    </div>
+                    <div class="column-card">
+                        <h4>❓ "Deleted commits are gone forever"</h4>
+                        <p><strong style="color: #22c55e;">No!</strong> Reflog keeps them for 90 days. Even if you delete a branch, commits persist in reflog. Nothing is truly lost.</p>
+                    </div>
+                    <div class="column-card">
+                        <h4>❓ "Detached HEAD is dangerous"</h4>
+                        <p><strong style="color: #22c55e;">No!</strong> It's a safe playground. Explore freely. If you want to keep work, create a branch. If not, just checkout main.</p>
+                    </div>
+                </div>
+
+                <div class="three-column" style="margin-top: 30px;">
+                    <div class="column-card">
+                        <h4>❓ "Reset and revert do the same thing"</h4>
+                        <p><strong style="color: #22c55e;">No!</strong> Reset rewrites history (local only). Revert creates a new commit that undoes changes (safe for shared branches).</p>
+                    </div>
+                    <div class="column-card">
+                        <h4>❓ "I need to understand everything before using Git"</h4>
+                        <p><strong style="color: #22c55e;">No!</strong> Experiment freely. Git protects you. Reflog is your safety net. Branches isolate experiments. Nothing is permanent until you push.</p>
+                    </div>
+                    <div class="column-card">
+                        <h4>❓ "Git is complicated and scary"</h4>
+                        <p><strong style="color: #22c55e;">No!</strong> Git rewards experimentation. It punishes nothing. Once you understand reflog and branches, fear disappears.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
+                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>The Pattern:</strong> Most Git fears come from misunderstanding. Once you know the truth, Git becomes your friend.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Address these directly. Many students hold these misconceptions. Clear them up now before they cause anxiety. Say: "Raise your hand if you thought branches copy files." Normalize the confusion. Then explain clearly.
+            </div>
+        </div>
+
         <!-- SLIDE 6: Real-World Scenario - Reflog (NEW) -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
@@ -1248,6 +1360,10 @@
                     <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
                         <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ We have a new commit: <strong>abc1234</strong>. This is our "lost" commit we'll recover.</p>
                     </div>
+
+                    <div class="interactive-hint">
+                        💡 Try this yourself: Open a terminal and run these commands in a test repository. Create a commit, then watch how reflog tracks it.
+                    </div>
                 </div>
             </div>
             <div class="speaker-note">
@@ -1266,6 +1382,11 @@
                     <div class="code-step" style="margin: 25px auto; border-left-color: #ef4444;">
                         <div class="code-step-label" style="color: #ef4444;">⚠️ The "Mistake" Command</div>
                         <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #ef4444;">git reset --hard HEAD~1</div>
+                        <div style="margin-top: 10px; padding: 12px; background: rgba(6, 182, 212, 0.08); border-radius: 6px;">
+                            <p style="font-size: 0.95rem; margin: 0; color: #64748b; font-style: italic;">
+                                <strong>Breaking it down:</strong> "reset" = move HEAD back, "--hard" = discard all changes, "HEAD~1" = one commit ago
+                            </p>
+                        </div>
                     </div>
 
                     <div class="code-step" style="margin: 25px auto;">
@@ -1294,6 +1415,11 @@
                     <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
                         <div class="code-step-label" style="color: #22c55e;">✨ The Magic Command</div>
                         <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git reflog</div>
+                        <div style="margin-top: 10px; padding: 12px; background: rgba(6, 182, 212, 0.08); border-radius: 6px;">
+                            <p style="font-size: 0.95rem; margin: 0; color: #64748b; font-style: italic;">
+                                <strong>Breaking it down:</strong> "reflog" = reference log. Shows every time HEAD moved. Format: [hash] HEAD@{number}: [action]. The number shows how many moves ago.
+                            </p>
+                        </div>
                     </div>
 
                     <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
@@ -1457,6 +1583,10 @@
                     <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
                         <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ We're now on an old commit. Detached HEAD means we're not on a branch—we're exploring directly.</p>
                     </div>
+
+                    <div class="interactive-hint">
+                        💡 Try this yourself: Checkout an old commit in your test repo. See the warning? Don't panic—it's just Git being helpful. Explore freely.
+                    </div>
                 </div>
             </div>
             <div class="speaker-note">
@@ -1518,6 +1648,11 @@
                     <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
                         <div class="code-step-label" style="color: #22c55e;">✨ Option A: Save Work as Branch</div>
                         <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git checkout -b chaos-experiments</div>
+                        <div style="margin-top: 10px; padding: 12px; background: rgba(6, 182, 212, 0.08); border-radius: 6px;">
+                            <p style="font-size: 0.95rem; margin: 0; color: #64748b; font-style: italic;">
+                                <strong>Breaking it down:</strong> "checkout" = switch to, "-b" = create new branch, "chaos-experiments" = branch name. This creates a branch from your current position.
+                            </p>
+                        </div>
                     </div>
 
                     <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
@@ -2070,6 +2205,10 @@
                     <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
                         <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ Branches are just pointers—creating them costs nothing. No data is copied.</p>
                     </div>
+
+                    <div class="interactive-hint">
+                        💡 Try this yourself: Create multiple experimental branches in your test repo. Notice how fast it is? That's because branches are just pointers, not copies.
+                    </div>
                 </div>
             </div>
             <div class="speaker-note">
@@ -2289,6 +2428,10 @@
                     <div class="highlight-box" style="margin-top: 30px; border-left-color: #f59e0b;">
                         <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">⚠️ Work is incomplete, broken, messy—not ready to commit. But you need to switch branches NOW.</p>
                     </div>
+
+                    <div class="interactive-hint">
+                        💡 Try this yourself: Make some incomplete changes in your test repo. Then try to switch branches. See what happens? Stash will save you!
+                    </div>
                 </div>
             </div>
             <div class="speaker-note">
@@ -2312,6 +2455,11 @@
                     <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
                         <div class="code-step-label" style="color: #22c55e;">✨ The Solution: Stash</div>
                         <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git stash</div>
+                        <div style="margin-top: 10px; padding: 12px; background: rgba(6, 182, 212, 0.08); border-radius: 6px;">
+                            <p style="font-size: 0.95rem; margin: 0; color: #64748b; font-style: italic;">
+                                <strong>Breaking it down:</strong> "stash" = temporarily save. Saves uncommitted changes (both staged and unstaged) and clears your working directory. Your work is safe in the stash stack.
+                            </p>
+                        </div>
                     </div>
 
                     <div class="code-step" style="margin: 25px auto;">
@@ -2514,6 +2662,10 @@
                     <div class="highlight-box" style="margin-top: 30px; border-left-color: #f59e0b;">
                         <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">⚠️ Perfect commit is on the wrong branch. We need it on main, not feature-x.</p>
                     </div>
+
+                    <div class="interactive-hint">
+                        💡 Try this yourself: Make a commit on a feature branch, then cherry-pick it to main. See how surgical it is? You get exactly one commit, not the whole branch.
+                    </div>
                 </div>
             </div>
             <div class="speaker-note">
@@ -2565,6 +2717,11 @@
                     <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
                         <div class="code-step-label" style="color: #22c55e;">✨ Cherry-pick the Commit</div>
                         <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git cherry-pick abc1234</div>
+                        <div style="margin-top: 10px; padding: 12px; background: rgba(6, 182, 212, 0.08); border-radius: 6px;">
+                            <p style="font-size: 0.95rem; margin: 0; color: #64748b; font-style: italic;">
+                                <strong>Breaking it down:</strong> "cherry-pick" = select and apply. Takes the changes from commit abc1234 and creates a NEW commit on your current branch with those same changes. The original commit stays untouched.
+                            </p>
+                        </div>
                     </div>
 
                     <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
@@ -2788,7 +2945,89 @@
             </div>
         </div>
 
-        <!-- SLIDE 29: Conclusion -->
+        <!-- SLIDE 29: Quick Reference Card -->
+        <div class="slide slide-light quick-reference">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Quick Reference Card</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Print this page for your desk</p>
+
+                <div class="two-column" style="margin-top: 30px;">
+                    <div class="column">
+                        <h3 style="color: #0891b2; margin-top: 0; margin-bottom: 20px;">Decision Tree</h3>
+                        <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4;">
+                            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; color: #1a1a1a;">Need to undo something?</p>
+                            <ul style="font-size: 1rem; line-height: 1.8; margin-left: 20px; color: #1a1a1a;">
+                                <li><strong style="color: #22c55e;">Local branch?</strong> → <code>git reset</code></li>
+                                <li><strong style="color: #f59e0b;">Shared branch?</strong> → <code>git revert</code></li>
+                                <li><strong style="color: #06b6d4;">Not committed?</strong> → <code>git checkout [file]</code></li>
+                            </ul>
+                            <p style="font-size: 1rem; font-weight: 600; margin-top: 20px; margin-bottom: 10px; color: #1a1a1a;">Lost a commit?</p>
+                            <p style="font-size: 1rem; margin: 0; color: #1a1a1a;">→ <code>git reflog</code> → Find hash → <code>git reset --hard [hash]</code></p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 style="color: #0891b2; margin-top: 0; margin-bottom: 20px;">Command Reference</h3>
+                        <table class="quick-reference">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>When to Use</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>git reflog</code></td>
+                                    <td>Find lost commits</td>
+                                </tr>
+                                <tr>
+                                    <td><code>git reset --hard HEAD~1</code></td>
+                                    <td>Undo commit (local only)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>git revert [commit]</code></td>
+                                    <td>Undo commit (shared branch)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>git checkout [file]</code></td>
+                                    <td>Discard uncommitted changes</td>
+                                </tr>
+                                <tr>
+                                    <td><code>git checkout -b [branch]</code></td>
+                                    <td>Create branch from detached HEAD</td>
+                                </tr>
+                                <tr>
+                                    <td><code>git stash</code></td>
+                                    <td>Save uncommitted work</td>
+                                </tr>
+                                <tr>
+                                    <td><code>git stash pop</code></td>
+                                    <td>Restore stashed work</td>
+                                </tr>
+                                <tr>
+                                    <td><code>git cherry-pick [commit]</code></td>
+                                    <td>Copy one commit to current branch</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #0891b2;">
+                    <p style="font-size: 1.1rem; margin: 0; color: #1a1a1a; font-weight: 600;">Safety Rules:</p>
+                    <ul style="font-size: 1rem; line-height: 1.8; margin: 10px 0 0 25px; color: #1a1a1a;">
+                        <li><strong style="color: #22c55e;">✅ Safe:</strong> Reset, rebase, force push on YOUR branches</li>
+                        <li><strong style="color: #f59e0b;">⚠️ Careful:</strong> Never rewrite history on shared branches (main, develop)</li>
+                        <li><strong style="color: #22c55e;">✅ Always:</strong> Reflog keeps commits for 90 days—nothing is truly lost</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "Print this slide. Keep it at your desk. When you're unsure which command to use, check this reference. It's your cheat sheet for fearless Git usage."
+            </div>
+        </div>
+
+        <!-- SLIDE 30: Conclusion -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2881,6 +3120,37 @@
             }
         }
 
+        // Update progress indicator showing which superpower is being covered
+        function updateProgressIndicator() {
+            const progressContainer = document.getElementById('progress-items');
+            if (!progressContainer) return;
+            
+            const superpowers = [
+                { name: 'Reflog', slideRange: [7, 9] },
+                { name: 'Detached HEAD', slideRange: [10, 12] },
+                { name: 'Reset/Revert/Checkout', slideRange: [13, 20] },
+                { name: 'Branches', slideRange: [21, 22] },
+                { name: 'Stash', slideRange: [23, 24] },
+                { name: 'Cherry-pick', slideRange: [25, 26] }
+            ];
+            
+            let html = '';
+            superpowers.forEach((sp, index) => {
+                const slideNum = currentSlide + 1; // Convert to 1-based
+                let status = '';
+                if (slideNum >= sp.slideRange[0] && slideNum <= sp.slideRange[1]) {
+                    status = 'current';
+                } else if (slideNum > sp.slideRange[1]) {
+                    status = 'completed';
+                }
+                
+                const className = status ? `progress-item ${status}` : 'progress-item';
+                html += `<div class="${className}">${index + 1}. ${sp.name}</div>`;
+            });
+            
+            progressContainer.innerHTML = html;
+        }
+
         function showSlide(n) {
             slides[currentSlide].classList.remove('active');
             currentSlide = (n + totalSlides) % totalSlides;
@@ -2892,6 +3162,9 @@
             
             // Update button visibility
             updateButtonVisibility();
+            
+            // Update progress indicator
+            updateProgressIndicator();
         }
 
         function nextSlide() {
@@ -2963,6 +3236,9 @@
         const savedSlideIndex = loadSavedSlide();
         showSlide(savedSlideIndex);
         checkSpeakerNotes();
+        
+        // Initialize progress indicator
+        updateProgressIndicator();
     </script>
 </body>
 </html>
