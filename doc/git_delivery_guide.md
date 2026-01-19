@@ -410,21 +410,34 @@ Before Friday, run through:
 
 ---
 
-## PRESENTATION TIMING
+## PRESENTATION TIMING (Updated for 28 Slides)
 
-**Total: ~60 minutes including Q&A**
+**Total: ~75 minutes including Q&A** (Extended due to enhanced content)
 
-- Slides 1-3: Introduction & Mental Model (5 min)
-- Slide 4: Project Setup (2 min live demo)
-- Slide 5: Myth Debunking (2 min)
-- Slides 6-7: Reflog (7 min live demo) ← KEY MOMENT
-- Slides 8-9: Detached HEAD (6 min live demo)
-- Slides 10-11: Reset/Revert/Checkout (8 min live demo)
-- Slide 12: Branches (5 min live demo)
-- Slides 13-14: Stash & Cherry-pick (4 min live demo)
-- Slide 15: Professional Rules (3 min discussion)
-- Slide 16: Emotional Closure (2 min)
-- Slide 17: Q&A (15 min open discussion)
+- Slide 1: Title & Welcome (3 min)
+- Slide 2: Project Setup Demo (4 min live demo) ← MOVED EARLIER
+- Slide 3: Git Is Not Dangerous (3 min)
+- Slide 4: How Git Really Works (3 min)
+- Slide 5: Visual Git State Diagram (3 min) ← NEW
+- Slide 6: Debunk Myths (2 min)
+- Slide 7: Real-World Scenario - Reflog (2 min) ← NEW
+- Slides 8-9: Reflog Superpower + Demo (7 min live demo) ← KEY MOMENT
+- Slide 10: Check Your Understanding - Reflog (3 min) ← NEW
+- Slide 11: Real-World Scenario - Detached HEAD (2 min) ← NEW
+- Slides 12-13: Detached HEAD + Demo (6 min live demo)
+- Slide 14: Real-World Scenario - Three Ways (2 min) ← NEW
+- Slides 15-18: Reset/Revert/Checkout + Decision Matrix (10 min) ← BROKEN DOWN
+- Slide 19: Demo - Three Undo Strategies (5 min) ← ENHANCED
+- Slide 20: Real-World Scenario - Branches (2 min) ← NEW
+- Slide 21: Branches Are Cheap (5 min live demo)
+- Slide 22: Real-World Scenario - Stash (2 min) ← NEW
+- Slide 23: Stash (4 min live demo)
+- Slide 24: Real-World Scenario - Cherry-pick (2 min) ← NEW
+- Slide 25: Cherry-pick (4 min live demo)
+- Slide 26: Common Mistakes & Recoveries (4 min) ← NEW
+- Slide 27: Professional Safety Rules (3 min discussion)
+- Slide 28: Emotional Closure (2 min)
+- Slide 29: Q&A (15 min open discussion)
 
 ---
 

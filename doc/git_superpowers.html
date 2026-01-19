@@ -469,6 +469,247 @@
         .slide::-webkit-scrollbar-thumb:hover {
             background: rgba(6, 182, 212, 0.6);
         }
+
+        /* Visual Diagram Styles */
+        .git-diagram {
+            background: rgba(255,255,255,0.95);
+            padding: 30px 40px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 1000px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            line-height: 2;
+            border-left: 5px solid #06b6d4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .git-diagram .state-label {
+            font-weight: 700;
+            color: #0891b2;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .git-diagram .commit-node {
+            display: inline-block;
+            background: #06b6d4;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin: 5px;
+            font-weight: 600;
+        }
+
+        .git-diagram .branch-label {
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .git-diagram .head-label {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        /* Real-world Scenario Box */
+        .scenario-box {
+            background: rgba(6, 182, 212, 0.08);
+            padding: 25px 35px;
+            border-radius: 10px;
+            border-left: 5px solid #f59e0b;
+            margin: 30px auto;
+            max-width: 950px;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #1a1a1a;
+        }
+
+        .scenario-box h3 {
+            color: #f59e0b;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Check Understanding Box */
+        .check-understanding {
+            background: rgba(34, 197, 94, 0.1);
+            padding: 30px 40px;
+            border-radius: 10px;
+            border-left: 5px solid #22c55e;
+            margin: 30px auto;
+            max-width: 950px;
+        }
+
+        .check-understanding h3 {
+            color: #22c55e;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .check-understanding .question {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .check-understanding .answer {
+            color: #0891b2;
+            margin-left: 20px;
+            font-style: italic;
+        }
+
+        /* Before/After Code Blocks */
+        .code-before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px auto;
+            max-width: 1100px;
+        }
+
+        .code-before, .code-after {
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+        }
+
+        .code-before h4, .code-after h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #0891b2;
+            font-size: 1.1rem;
+        }
+
+        .code-before {
+            border-left-color: #f59e0b;
+        }
+
+        .code-after {
+            border-left-color: #22c55e;
+        }
+
+        .code-before h4 {
+            color: #f59e0b;
+        }
+
+        .code-after h4 {
+            color: #22c55e;
+        }
+
+        /* Interactive Elements */
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(6, 182, 212, 0.2);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #0891b2;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .copy-button:hover {
+            background: rgba(6, 182, 212, 0.3);
+        }
+
+        .code-step {
+            position: relative;
+        }
+
+        .expandable-output {
+            margin-top: 10px;
+            padding: 15px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 6px;
+            display: none;
+        }
+
+        .expandable-output.show {
+            display: block;
+        }
+
+        .toggle-output {
+            background: none;
+            border: none;
+            color: #0891b2;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            margin-top: 8px;
+            padding: 0;
+        }
+
+        /* Progress Indicator */
+        .superpower-progress {
+            position: fixed;
+            top: 60px;
+            right: 35px;
+            background: rgba(255,255,255,0.95);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 50;
+            font-size: 0.9rem;
+        }
+
+        .superpower-progress .progress-item {
+            margin: 5px 0;
+            color: #64748b;
+        }
+
+        .superpower-progress .progress-item.completed {
+            color: #22c55e;
+        }
+
+        .superpower-progress .progress-item.current {
+            color: #0891b2;
+            font-weight: 600;
+        }
+
+        /* Common Mistakes Styles */
+        .mistake-item {
+            background: rgba(255,255,255,0.9);
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 15px auto;
+            max-width: 1000px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .mistake-item h4 {
+            color: #ef4444;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .mistake-item .problem {
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .mistake-item .recovery {
+            color: #0891b2;
+            margin-left: 20px;
+            font-style: italic;
+        }
+
+        .mistake-item .prevention {
+            color: #22c55e;
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 1200px) {
+            .code-before-after {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -486,16 +727,42 @@
                 </p>
                 <div class="presenter-info">
                     <p><strong>Presented by Nick Zavlagkas</strong></p>
-                    <p>Senior Software Engineer, Git Expert</p>
+                    <p>Software Engineer, Git Expert</p>
                     <p style="margin-top: 30px; font-size: 1rem; opacity: 0.85;">Friday Workshop | Live Project Demonstrations</p>
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Welcome with confidence. Set tone: calm, professional, mentor-like. This is NOT a lecture—it's a confidence journey. Smile. Make eye contact. Ask: "Who feels nervous about Git?" Normalize the fear. Then say: "By the end of today, you'll see fear wasn't justified."
+                <strong>SPEAKER NOTE:</strong> Welcome with confidence. Set tone: calm, professional, mentor-like. This is NOT a lecture—it's a confidence journey. Smile. Make eye contact. Ask: "Who feels nervous about Git?" Normalize the fear. Then say: "By the end of today, you'll see fear wasn't justified." <strong>Common Questions:</strong> "What if I break something?" → "You can't. We'll prove it." <strong>Timing:</strong> Pause after asking about fear. Let silence sit. Then transition: "Let's start by seeing Git in action."
             </div>
         </div>
 
-        <!-- SLIDE 2: Git Is Not Dangerous -->
+        <!-- SLIDE 2: Project Setup Live Demo (MOVED EARLIER - Concrete First) -->
+        <div class="slide slide-light">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Git Is Not Dangerous</h2>
+                <p class="subtitle" style="margin-top: 40px; margin-bottom: 50px;">Think of Git as two essential concepts:</p>
+                <div class="two-column">
+                    <div class="column">
+                        <h3>🕐 A Time Machine</h3>
+                        <p style="font-size: 1.25rem;">Every commit is a snapshot. You can travel back to any moment in your code history.</p>
+                    </div>
+                    <div class="column">
+                        <h3>🛡️ A Safety System</h3>
+                        <p style="font-size: 1.25rem;">Nothing is ever deleted. Mistakes are recorded so you can undo them.</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 60px;">
+                    <h3 style="margin-top: 0; margin-bottom: 15px;">💡 The Core Truth</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">Git rewards experimentation. It punishes nothing.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Execute these commands LIVE. Go slowly. Pause after each step. Show output. Ask: "What does git init do?" Answer: "Creates the .git folder—the database that stores everything." Show git log output. Point out the commit hash. Say: "This snapshot can never disappear. It's immutable." <strong>Show actual output:</strong> Display `git log` output showing the commit hash, author, date. <strong>Common Questions:</strong> "Where is this stored?" → ".git folder, which is a database." <strong>Timing:</strong> Take 3-4 minutes. Don't rush. This is foundational.
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Git Is Not Dangerous (MOVED - After seeing it work) -->
         <div class="slide slide-teal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -517,11 +784,11 @@
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Reframe Git in the mind. Most fear comes from "I might break things forever." Not true. Show git log of your initial commit to prove snapshots exist. Explain: each commit is immutable—it can never change or disappear.
+                <strong>SPEAKER NOTE:</strong> Reframe Git in the mind. Most fear comes from "I might break things forever." Not true. Show git log of your initial commit to prove snapshots exist. Explain: each commit is immutable—it can never change or disappear. <strong>Alternative explanation:</strong> If students look confused, say: "Think of Git like a photo album. Each photo (commit) is permanent. You can't delete photos, only add new ones." <strong>Common Questions:</strong> "What if I delete a file?" → "The commit still has it. You can recover it."
             </div>
         </div>
 
-        <!-- SLIDE 3: Mental Model -->
+        <!-- SLIDE 4: How Git Really Works (Mental Model - After Experience) -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -537,66 +804,56 @@
                 </ul>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> This is crucial. Many developers don't truly understand snapshots vs. diffs. Explain: "When you commit, Git saves the ENTIRE state of your project, not just changes." Then: "Live demo time. Watch as I create the project from scratch."
+                <strong>SPEAKER NOTE:</strong> This is crucial. Many developers don't truly understand snapshots vs. diffs. Explain: "When you commit, Git saves the ENTIRE state of your project, not just changes." <strong>If confused:</strong> Use analogy: "Like saving a game. Each save is complete, not just what changed." <strong>Common Questions:</strong> "Doesn't that waste space?" → "Git compresses efficiently. Don't worry about it."
             </div>
         </div>
 
-        <!-- SLIDE 4: Project Setup Live Demo -->
+        <!-- SLIDE 5: Visual Git State Diagram (NEW) -->
         <div class="slide slide-light">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Live Demo: Project Setup</h2>
-                <p style="margin-top: 30px; margin-bottom: 50px; font-size: 1.2rem; text-align: center;">Creating the git-superpowers project step by step</p>
+                <h2>Visual: Git State Diagram</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Understanding commits, branches, and HEAD visually</p>
 
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <div class="code-step">
-                        <div class="code-step-label">Step 1: Create Directory</div>
-                        <div class="code-step-content">mkdir git-superpowers && cd git-superpowers</div>
+                <div class="git-diagram">
+                    <div class="state-label">Example: After 3 commits</div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span class="branch-label">main</span> → 
+                        <span class="commit-node">commit3</span> → 
+                        <span class="commit-node">commit2</span> → 
+                        <span class="commit-node">commit1</span>
+                        <br>
+                        <span class="head-label">HEAD</span> → <span class="commit-node">commit3</span>
                     </div>
+                    <p style="margin-top: 20px; font-size: 1rem; color: #64748b;">
+                        <strong>Key Points:</strong><br>
+                        • Each commit points to the previous one (chain)<br>
+                        • Branch (main) is just a pointer to commit3<br>
+                        • HEAD points to where you are (commit3)<br>
+                        • All commits are immutable—they never change
+                    </p>
+                </div>
 
-                    <div class="code-step">
-                        <div class="code-step-label">Step 2: Initialize Git Repository</div>
-                        <div class="code-step-content">git init</div>
+                <div class="git-diagram" style="margin-top: 30px;">
+                    <div class="state-label">After creating a branch</div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span class="branch-label">feature</span> → <span class="commit-node">commit4</span><br>
+                        <span class="branch-label">main</span> → <span class="commit-node">commit3</span> → 
+                        <span class="commit-node">commit2</span> → <span class="commit-node">commit1</span>
+                        <br>
+                        <span class="head-label">HEAD</span> → <span class="commit-node">commit4</span> (on feature branch)
                     </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 3: Create Project Structure</div>
-                        <div class="code-step-content">mkdir src && touch README.md</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 4: Create Main.java</div>
-                        <div class="code-step-content">cat > src/Main.java << 'EOF'<br>public class Main {<br>&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello Git");<br>&nbsp;&nbsp;}<br>}<br>EOF</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 5: Configure Git</div>
-                        <div class="code-step-content">git config user.name "Nick Zavlagkas"</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 6: Configure Git Email</div>
-                        <div class="code-step-content">git config user.email "nick@agileactors.com"</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 7: Add All Files</div>
-                        <div class="code-step-content">git add .</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 8: Create Initial Commit</div>
-                        <div class="code-step-content">git commit -m "Initial commit: Basic Java project"</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 9: View Your Commit History</div>
-                        <div class="code-step-content">git log</div>
-                    </div>
+                    <p style="margin-top: 20px; font-size: 1rem; color: #64748b;">
+                        <strong>Key Points:</strong><br>
+                        • Creating a branch just creates a new pointer<br>
+                        • Both branches share commit history (commit1-3)<br>
+                        • HEAD moves to the new branch<br>
+                        • No data is copied—branches are lightweight!
+                    </p>
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Execute these commands LIVE. Go slowly. Pause after each step. Show output. Ask: "What does git init do?" Answer: "Creates the .git folder—the database that stores everything." Show git log output. Point out the commit hash. Say: "This snapshot can never disappear. It's immutable."
+                <strong>SPEAKER NOTE:</strong> Visual learners need this. Point to each element: "See how main points to commit3? That's all a branch is—a pointer." Then: "When we create feature branch, we just add another pointer. No copying." <strong>Common Questions:</strong> "What if I delete a branch?" → "The commits stay. Only the pointer is deleted. We'll prove this with reflog." <strong>Timing:</strong> Spend 2-3 minutes here. Let it sink in.
             </div>
         </div>
 
@@ -628,7 +885,37 @@
             </div>
         </div>
 
-        <!-- SLIDE 6: Superpower #1 - Git Reflog -->
+        <!-- SLIDE 6: Real-World Scenario - Reflog (NEW) -->
+        <div class="slide slide-dark">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Real-World Scenario</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Panic Moment</p>
+
+                <div class="scenario-box">
+                    <h3>💼 The Situation</h3>
+                    <p>You just spent <strong>2 hours</strong> working on a feature. You commit it:</p>
+                    <div class="code-step" style="margin: 20px auto;">
+                        <div class="code-step-content">git commit -m "Add user authentication feature"</div>
+                    </div>
+                    <p style="margin-top: 20px;">Then, by accident, you run:</p>
+                    <div class="code-step" style="margin: 20px auto;">
+                        <div class="code-step-content">git reset --hard HEAD~1</div>
+                    </div>
+                    <p style="margin-top: 20px; font-weight: 600; color: #ef4444;">Your commit appears <strong>gone</strong>. You panic.</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3 style="margin-top: 0; margin-bottom: 15px;">✅ The Solution</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">But wait... <span class="emphasis">git reflog</span> shows it's still there. You recover it in <strong>30 seconds</strong>. Crisis averted.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Set the scene. Make it relatable. "Raise your hand if this has happened to you or you're afraid it will." This creates emotional connection. Then: "Good news—Git has your back. Let me show you how."
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Superpower #1 - Git Reflog -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -645,61 +932,64 @@
                 </ul>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "This is the most powerful tool. With reflog, you literally cannot lose work. You can intentionally break things because recovery is guaranteed. Now we demo this."
+                <strong>SPEAKER NOTE:</strong> "This is the most powerful tool. With reflog, you literally cannot lose work. You can intentionally break things because recovery is guaranteed. Now we demo this." <strong>Common Questions:</strong> "How long does reflog keep commits?" → "90 days default, configurable." "Can teammates see my reflog?" → "No, it's local only."
             </div>
         </div>
 
-        <!-- SLIDE 7: Demo - Reflog Recovery (THE KEY MOMENT) -->
+        <!-- SLIDE 8: Demo - Reflog Recovery (THE KEY MOMENT) - ENHANCED -->
         <div class="slide slide-teal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
                 <h2>Demo: Reflog Recovery ⭐ KEY MOMENT</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">We'll intentionally "break" history and recover</p>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">We'll intentionally "break" history and recover</p>
 
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <div class="code-step">
-                        <div class="code-step-label">Step 1: Make a Real Commit</div>
-                        <div class="code-step-content">echo "v2 - Major feature" > src/Main.java</div>
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <h3 style="margin-top: 0; margin-bottom: 20px;">Step 1: Make a Real Commit</h3>
+                    <div class="code-before-after">
+                        <div class="code-before">
+                            <h4>BEFORE: Current State</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git log --oneline<br>def5678 (HEAD -> main) Initial commit</div>
+                            </div>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ cat src/Main.java<br>public class Main {<br>    public static void main(String[] args) {<br>        System.out.println("Hello Git");<br>    }<br>}</div>
+                            </div>
+                        </div>
+                        <div class="code-after">
+                            <h4>AFTER: Make Changes & Commit</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ echo "Feature: User Auth" >> src/Main.java<br>$ git add src/Main.java<br>$ git commit -m "Add major feature"</div>
+                            </div>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git log --oneline<br>abc1234 (HEAD -> main) Add major feature<br>def5678 Initial commit</div>
+                            </div>
+                        </div>
                     </div>
 
+                    <h3 style="margin-top: 30px; margin-bottom: 20px;">Step 2: "Accidentally" Reset Hard</h3>
                     <div class="code-step">
-                        <div class="code-step-label">Step 2: Stage and Commit</div>
-                        <div class="code-step-content">git add src/Main.java && git commit -m "Add major feature"</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 3: Check Git Log</div>
-                        <div class="code-step-content">git log --oneline</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 4: "Accidentally" Reset Hard</div>
+                        <div class="code-step-label">Command</div>
                         <div class="code-step-content">git reset --hard HEAD~1</div>
                     </div>
-
                     <div class="code-step">
-                        <div class="code-step-label">Step 5: Check Log (Appears Gone)</div>
-                        <div class="code-step-content">git log --oneline</div>
+                        <div class="code-step-label">Result: Commit Appears Gone</div>
+                        <div class="code-step-content">$ git log --oneline<br>def5678 (HEAD -> main) Initial commit<br># abc1234 appears "gone"</div>
                     </div>
 
+                    <h3 style="margin-top: 30px; margin-bottom: 20px;">Step 3: Check Reflog (It's Still There!)</h3>
                     <div class="code-step">
-                        <div class="code-step-label">Step 6: Check Reflog (It's Still There!)</div>
-                        <div class="code-step-content">git reflog</div>
+                        <div class="code-step-label">Reflog Shows Everything</div>
+                        <div class="code-step-content">$ git reflog<br>def5678 HEAD@{0}: reset: moving to HEAD~1<br>abc1234 HEAD@{1}: commit: Add major feature  ← STILL HERE!<br>def5678 HEAD@{2}: commit: Initial commit</div>
                     </div>
 
+                    <h3 style="margin-top: 30px; margin-bottom: 20px;">Step 4: Recover It</h3>
                     <div class="code-step">
-                        <div class="code-step-label">Step 7: Find the Commit Hash</div>
-                        <div class="code-step-content"># Look for the commit in reflog output</div>
+                        <div class="code-step-label">Recovery Command</div>
+                        <div class="code-step-content">git reset --hard abc1234  # Use hash from reflog</div>
                     </div>
-
                     <div class="code-step">
-                        <div class="code-step-label">Step 8: Recover It</div>
-                        <div class="code-step-content">git reset --hard abc1234  # (use your actual hash)</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 9: Proof - Check Log Again</div>
-                        <div class="code-step-content">git log --oneline</div>
+                        <div class="code-step-label">Proof: It's Back!</div>
+                        <div class="code-step-content">$ git log --oneline<br>abc1234 (HEAD -> main) Add major feature  ← BACK!<br>def5678 Initial commit</div>
                     </div>
 
                     <div class="highlight-box" style="margin-top: 35px; text-align: center;">
@@ -708,11 +998,70 @@
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Execute line by line. After reset hard, say: "It's gone. You just deleted it." Audience will gasp. Then say: "Or did we?" Show reflog. Watch their faces. Recover. They'll see: NOTHING is ever lost. This moment shifts fear to confidence.
+                <strong>SPEAKER NOTE:</strong> Execute line by line. After reset hard, say: "It's gone. You just deleted it." Audience will gasp. Then say: "Or did we?" Show reflog. Watch their faces. Recover. They'll see: NOTHING is ever lost. This moment shifts fear to confidence. <strong>Timing:</strong> This is THE moment. Take your time. Pause after showing reflog. Let it sink in. <strong>Common Questions:</strong> "What if reflog is cleared?" → "It's very rare. Default 90 days is plenty."
             </div>
         </div>
 
-        <!-- SLIDE 8: Superpower #2 - Detached HEAD -->
+        <!-- SLIDE 9: Check Your Understanding - Reflog (NEW) -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Check Your Understanding</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Reflog Recovery</p>
+
+                <div class="check-understanding">
+                    <h3>Quick Quiz</h3>
+                    <div class="question">1. If you delete a branch, where are the commits?</div>
+                    <div class="answer">→ Answer: In reflog, recoverable forever. The branch pointer is deleted, but commits persist.</div>
+
+                    <div class="question">2. How long does reflog keep commits?</div>
+                    <div class="answer">→ Answer: 90 days by default. Configurable with `git config gc.reflogExpire`.</div>
+
+                    <div class="question">3. Can teammates see your reflog?</div>
+                    <div class="answer">→ Answer: No, reflog is local only. It's your personal safety net.</div>
+
+                    <div class="question">4. What if I force push to a shared branch?</div>
+                    <div class="answer">→ Answer: Your reflog still has it locally. But teammates' reflogs have the old commits too—they can recover.</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>Key Takeaway:</strong> Once committed, nothing is ever truly lost. Reflog is your safety net.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Real-World Scenario - Detached HEAD (NEW) -->
+        <div class="slide slide-dark">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Real-World Scenario</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Investigation</p>
+
+                <div class="scenario-box">
+                    <h3>💼 The Situation</h3>
+                    <p>A bug appeared in production. You need to check: <strong>"Did this bug exist 5 commits ago?"</strong></p>
+                    <p style="margin-top: 15px;">You want to explore old code, but you're afraid of breaking things.</p>
+                    <div class="code-step" style="margin: 20px auto;">
+                        <div class="code-step-content">git checkout abc1234  # Old commit</div>
+                    </div>
+                    <p style="margin-top: 20px; font-weight: 600; color: #ef4444;">Git warns: "You are in 'detached HEAD' state."</p>
+                    <p style="margin-top: 15px;">You panic. Is this dangerous?</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3 style="margin-top: 0; margin-bottom: 15px;">✅ The Solution</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">Detached HEAD is <span class="emphasis">safe</span>. It's a playground. Explore freely. If you want to keep changes, create a branch. If not, just checkout main.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This scenario is common. Developers see "detached HEAD" warning and panic. Normalize it: "This warning is Git being helpful, not scary." Then explain why it's safe.
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Superpower #2 - Detached HEAD -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -729,11 +1078,11 @@
                 </ul>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Detached HEAD sounds scary. It's actually liberating. You're not on a branch—you're exploring a point in time. Want to see if a bug existed 5 commits ago? Detached HEAD. Want to understand old code? Detached HEAD. And it's 100% safe."
+                <strong>SPEAKER NOTE:</strong> "Detached HEAD sounds scary. It's actually liberating. You're not on a branch—you're exploring a point in time. Want to see if a bug existed 5 commits ago? Detached HEAD. Want to understand old code? Detached HEAD. And it's 100% safe." <strong>Common Questions:</strong> "What if I commit in detached HEAD?" → "Create a branch to save it, or just checkout main to discard."
             </div>
         </div>
 
-        <!-- SLIDE 9: Demo - Detached HEAD -->
+        <!-- SLIDE 12: Demo - Detached HEAD -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -791,109 +1140,317 @@
             </div>
         </div>
 
-        <!-- SLIDE 10: Superpower #3 - Three Ways to Undo -->
-        <div class="slide slide-light">
+        <!-- SLIDE 13: Real-World Scenario - Three Ways to Undo (NEW) -->
+        <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Superpower #3: Three Ways to Undo</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">Same mistake. Three different recovery tools.</p>
+                <h2>Real-World Scenario</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Mistake</p>
 
-                <div style="max-width: 1000px; margin: 0 auto;">
-                    <div class="column-card">
-                        <h4 style="margin-top: 0; margin-bottom: 15px;">git reset [commit]</h4>
-                        <p><strong>Use when:</strong> You want to move HEAD and undo commits (locally only)</p>
-                        <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 0;">Modes: --soft (keep changes), --mixed (staged changes), --hard (delete changes)</p>
-                    </div>
-
-                    <div class="column-card">
-                        <h4 style="margin-top: 0; margin-bottom: 15px;">git revert [commit]</h4>
-                        <p><strong>Use when:</strong> You want to UNDO a commit's changes (safe for shared branches)</p>
-                        <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 0;">Creates NEW commit that undoes the changes—history stays intact</p>
-                    </div>
-
-                    <div class="column-card">
-                        <h4 style="margin-top: 0; margin-bottom: 15px;">git checkout [file]</h4>
-                        <p><strong>Use when:</strong> You want to discard changes in UNCOMMITTED files</p>
-                        <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 0;">Restores file to last commit—only affects unstaged changes</p>
-                    </div>
+                <div class="scenario-box">
+                    <h3>💼 The Situation</h3>
+                    <p>You just committed code that breaks the build. You need to undo it.</p>
+                    <p style="margin-top: 15px;"><strong>But wait...</strong> Is this commit:</p>
+                    <ul style="margin-left: 30px; margin-top: 15px;">
+                        <li>On your local branch only? → Use <strong>reset</strong></li>
+                        <li>Already pushed to shared branch? → Use <strong>revert</strong></li>
+                        <li>Not committed yet (just modified)? → Use <strong>checkout</strong></li>
+                    </ul>
+                    <p style="margin-top: 20px;">Same problem. Three different solutions. Let's see each one.</p>
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "These three are confused constantly. Reset rewrites history (local). Revert adds a new commit (safe for shared code). Checkout discards unstaged changes (file level). I'll demo all three fixing the SAME mistake—then you'll know when to use each."
+                <strong>SPEAKER NOTE:</strong> This is critical decision-making. Students need to know WHEN to use each tool. Set up the scenario clearly. Then we'll demo each solution separately.
             </div>
         </div>
 
-        <!-- SLIDE 11: Demo - Three Undo Strategies -->
+        <!-- SLIDE 14: Superpower #3a - Reset (Local Only) -->
+        <div class="slide slide-light">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Superpower #3a: Reset</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Local History Rewriting</p>
+
+                <div class="highlight-box">
+                    <p style="color: #1a1a1a;"><strong>Use when:</strong> You want to undo commits on a LOCAL branch (not shared with teammates)</p>
+                </div>
+
+                <div style="max-width: 1000px; margin: 30px auto;">
+                    <div class="column-card">
+                        <h4 style="margin-top: 0; margin-bottom: 15px;">git reset --soft HEAD~1</h4>
+                        <p>Moves HEAD back, keeps changes staged</p>
+                    </div>
+                    <div class="column-card">
+                        <h4 style="margin-top: 0; margin-bottom: 15px;">git reset --mixed HEAD~1</h4>
+                        <p>Moves HEAD back, keeps changes unstaged (default)</p>
+                    </div>
+                    <div class="column-card">
+                        <h4 style="margin-top: 0; margin-bottom: 15px;">git reset --hard HEAD~1</h4>
+                        <p>Moves HEAD back, discards all changes</p>
+                    </div>
+                </div>
+
+                <div class="git-diagram" style="margin-top: 30px;">
+                    <div class="state-label">Reset Flow</div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span class="branch-label">main</span> → 
+                        <span class="commit-node">commit3</span> → 
+                        <span class="commit-node">commit2</span> → 
+                        <span class="commit-node">commit1</span>
+                        <br>
+                        <span style="color: #64748b;">↓ git reset --hard HEAD~1</span>
+                        <br>
+                        <span class="branch-label">main</span> → 
+                        <span class="commit-node">commit2</span> → 
+                        <span class="commit-node">commit1</span>
+                        <br>
+                        <span style="color: #64748b; font-size: 0.9rem;">(commit3 still in reflog!)</span>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px; border-left-color: #f59e0b;">
+                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>⚠️ Remember:</strong> Only use reset on LOCAL branches. Never on shared branches (main, develop).</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "Reset rewrites history. That's fine on YOUR branch. But if teammates have that commit, reset breaks their history. That's why we have revert for shared branches." <strong>Common Questions:</strong> "What's the difference between --soft, --mixed, --hard?" → "Soft keeps staged, mixed keeps unstaged, hard deletes everything."
+            </div>
+        </div>
+
+        <!-- SLIDE 15: Superpower #3b - Revert (Shared Safe) -->
+        <div class="slide slide-light">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Superpower #3b: Revert</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Safe Undo for Shared Branches</p>
+
+                <div class="highlight-box">
+                    <p style="color: #1a1a1a;"><strong>Use when:</strong> You need to undo a commit that's already on a SHARED branch (main, develop)</p>
+                </div>
+
+                <div style="max-width: 1000px; margin: 30px auto;">
+                    <div class="column-card" style="border-left-color: #22c55e;">
+                        <h4 style="margin-top: 0; margin-bottom: 15px;">git revert [commit]</h4>
+                        <p>Creates a NEW commit that undoes the changes</p>
+                        <p style="font-size: 1rem; opacity: 0.8; margin-top: 10px; margin-bottom: 0;">History stays intact. Safe for teammates.</p>
+                    </div>
+                </div>
+
+                <div class="git-diagram" style="margin-top: 30px;">
+                    <div class="state-label">Revert Flow</div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span class="branch-label">main</span> → 
+                        <span class="commit-node">commit3</span> → 
+                        <span class="commit-node">commit2</span> → 
+                        <span class="commit-node">commit1</span>
+                        <br>
+                        <span style="color: #64748b;">↓ git revert commit3</span>
+                        <br>
+                        <span class="branch-label">main</span> → 
+                        <span class="commit-node">commit4</span> (undoes commit3) → 
+                        <span class="commit-node">commit3</span> → 
+                        <span class="commit-node">commit2</span> → 
+                        <span class="commit-node">commit1</span>
+                        <br>
+                        <span style="color: #22c55e; font-size: 0.9rem;">(History preserved! Safe for shared branches)</span>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>✅ Perfect for:</strong> Undoing commits on main, develop, or any branch teammates use.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "Revert doesn't delete history. It adds a new commit that undoes changes. This way, teammates' history stays consistent. They can pull safely." <strong>Common Questions:</strong> "What if I revert a revert?" → "You undo the undo. It works fine."
+            </div>
+        </div>
+
+        <!-- SLIDE 16: Superpower #3c - Checkout (File Level) -->
+        <div class="slide slide-light">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Superpower #3c: Checkout</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Discard Uncommitted Changes</p>
+
+                <div class="highlight-box">
+                    <p style="color: #1a1a1a;"><strong>Use when:</strong> You want to discard changes in UNCOMMITTED files (not yet committed)</p>
+                </div>
+
+                <div style="max-width: 1000px; margin: 30px auto;">
+                    <div class="column-card">
+                        <h4 style="margin-top: 0; margin-bottom: 15px;">git checkout [file]</h4>
+                        <p>Restores file to the state of the last commit</p>
+                        <p style="font-size: 1rem; opacity: 0.8; margin-top: 10px; margin-bottom: 0;">Only affects unstaged changes. Safe anytime.</p>
+                    </div>
+                </div>
+
+                <div class="code-before-after" style="margin-top: 30px;">
+                    <div class="code-before">
+                        <h4>BEFORE: Modified File</h4>
+                        <div class="code-step" style="margin: 10px 0;">
+                            <div class="code-step-content">$ git status<br>modified: src/Main.java</div>
+                        </div>
+                        <div class="code-step" style="margin: 10px 0;">
+                            <div class="code-step-content">$ cat src/Main.java<br>// Modified content<br>// That you want to discard</div>
+                        </div>
+                    </div>
+                    <div class="code-after">
+                        <h4>AFTER: Restored File</h4>
+                        <div class="code-step" style="margin: 10px 0;">
+                            <div class="code-step-content">$ git checkout src/Main.java</div>
+                        </div>
+                        <div class="code-step" style="margin: 10px 0;">
+                            <div class="code-step-content">$ git status<br>nothing to commit, working tree clean</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>Key Point:</strong> Checkout only affects files. It doesn't change commit history.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "Checkout is for uncommitted changes. If you haven't committed yet, checkout discards your modifications. Simple and safe." <strong>Common Questions:</strong> "What if I want to discard all files?" → "git checkout . (but be careful!)"
+            </div>
+        </div>
+
+        <!-- SLIDE 17: Decision Matrix - Three Ways to Undo (NEW) -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Decision Matrix: Which Tool?</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Choose the right tool for your situation</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <table style="width: 100%; border-collapse: collapse; margin: 30px 0;">
+                        <thead>
+                            <tr style="background: rgba(6, 182, 212, 0.1);">
+                                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #06b6d4;">Situation</th>
+                                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #06b6d4;">Tool</th>
+                                <th style="padding: 15px; text-align: left; border-bottom: 2px solid #06b6d4;">Why</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;">Undo commit on LOCAL branch</td>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;"><strong>reset</strong></td>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;">Rewrites history (safe locally)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;">Undo commit on SHARED branch</td>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;"><strong>revert</strong></td>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;">Preserves history (safe for teammates)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;">Discard UNCOMMITTED changes</td>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;"><strong>checkout</strong></td>
+                                <td style="padding: 15px; border-bottom: 1px solid #e5e7eb;">File-level operation (no history change)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;"><strong>Remember:</strong> Local branches = reset OK. Shared branches = use revert. Uncommitted = use checkout.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "This is your cheat sheet. Print it. Memorize it. When in doubt: Is it local? Reset. Is it shared? Revert. Not committed? Checkout." <strong>Common Questions:</strong> "What if I'm not sure?" → "If others might have pulled it, use revert. When in doubt, revert is safer."
+            </div>
+        </div>
+
+        <!-- SLIDE 18: Demo - Three Undo Strategies (ENHANCED) -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
                 <h2>Demo: Three Undo Strategies</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">Fixing the same mistake three different ways</p>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Fixing the same mistake three different ways</p>
 
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <div class="code-step">
-                        <div class="code-step-label">Create a Bad Commit</div>
-                        <div class="code-step-content">echo "BAD CODE" > src/Main.java && git add . && git commit -m "Mistake!"</div>
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <h3 style="margin-top: 0; margin-bottom: 20px;">Strategy 1: Reset (Local Branch)</h3>
+                    <div class="code-before-after">
+                        <div class="code-before">
+                            <h4>BEFORE</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git log --oneline<br>abc1234 (HEAD -> feature) Mistake!<br>def5678 Initial commit</div>
+                            </div>
+                        </div>
+                        <div class="code-after">
+                            <h4>AFTER reset --hard HEAD~1</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git log --oneline<br>def5678 (HEAD -> feature) Initial commit<br># Mistake commit gone (but in reflog!)</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <h3 style="margin-top: 40px; margin-bottom: 30px;">Strategy 1: Reset (Rewrite History Locally)</h3>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Move HEAD Back</div>
-                        <div class="code-step-content">git reset --hard HEAD~1</div>
+                    <h3 style="margin-top: 30px; margin-bottom: 20px;">Strategy 2: Revert (Shared Branch)</h3>
+                    <div class="code-before-after">
+                        <div class="code-before">
+                            <h4>BEFORE</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git log --oneline<br>abc1234 (HEAD -> main) Mistake!<br>def5678 Initial commit</div>
+                            </div>
+                        </div>
+                        <div class="code-after">
+                            <h4>AFTER git revert HEAD</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git log --oneline<br>xyz9876 (HEAD -> main) Revert "Mistake!"<br>abc1234 Mistake!<br>def5678 Initial commit<br># Both commits visible, history intact</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="code-step">
-                        <div class="code-step-label">Check Log</div>
-                        <div class="code-step-content">git log --oneline</div>
-                    </div>
-
-                    <h3 style="margin-top: 40px; margin-bottom: 30px;">Strategy 2: Revert (Create Undo Commit - Shared Safe)</h3>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Recreate Bad Commit</div>
-                        <div class="code-step-content">echo "BAD CODE" > src/Main.java && git add . && git commit -m "Mistake!"</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Create Undo Commit</div>
-                        <div class="code-step-content">git revert HEAD</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Check Log (Both Commits Visible)</div>
-                        <div class="code-step-content">git log --oneline</div>
-                    </div>
-
-                    <h3 style="margin-top: 40px; margin-bottom: 30px;">Strategy 3: Checkout (Discard Unstaged Changes)</h3>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Make Uncommitted Changes</div>
-                        <div class="code-step-content">echo "UNCOMMITTED MISTAKE" > src/Main.java</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Check Status</div>
-                        <div class="code-step-content">git status</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Discard Changes</div>
-                        <div class="code-step-content">git checkout src/Main.java</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Verify Clean</div>
-                        <div class="code-step-content">git status</div>
+                    <h3 style="margin-top: 30px; margin-bottom: 20px;">Strategy 3: Checkout (Uncommitted)</h3>
+                    <div class="code-before-after">
+                        <div class="code-before">
+                            <h4>BEFORE</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git status<br>modified: src/Main.java<br>$ cat src/Main.java<br>UNCOMMITTED MISTAKE</div>
+                            </div>
+                        </div>
+                        <div class="code-after">
+                            <h4>AFTER git checkout src/Main.java</h4>
+                            <div class="code-step" style="margin: 10px 0;">
+                                <div class="code-step-content">$ git status<br>nothing to commit, working tree clean<br># File restored to last commit</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Same problem. Three solutions. Reset for LOCAL recovery. Revert for SHARED branches (creates undo history). Checkout for UNSTAGED files. Knowing which to use makes you dangerous—in a good way."
+                <strong>SPEAKER NOTE:</strong> "Same problem. Three solutions. Reset for LOCAL recovery. Revert for SHARED branches (creates undo history). Checkout for UNSTAGED files. Knowing which to use makes you dangerous—in a good way." <strong>Timing:</strong> This demo can be quick since we've already explained each tool. Show the before/after clearly.
             </div>
         </div>
 
-        <!-- SLIDE 12: Superpower #4 - Branches Are Cheap -->
+        <!-- SLIDE 21: Real-World Scenario - Branches (NEW) -->
+        <div class="slide slide-dark">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Real-World Scenario</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Experiment</p>
+
+                <div class="scenario-box">
+                    <h3>💼 The Situation</h3>
+                    <p>You have a <strong>crazy idea</strong> for refactoring. You're not sure it will work.</p>
+                    <p style="margin-top: 15px;">You're afraid to try it because:</p>
+                    <ul style="margin-left: 30px; margin-top: 15px;">
+                        <li>"What if I break the code?"</li>
+                        <li>"What if I can't undo it?"</li>
+                        <li>"What if I waste time?"</li>
+                    </ul>
+                    <p style="margin-top: 20px;">So you don't try. The idea never gets tested.</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3 style="margin-top: 0; margin-bottom: 15px;">✅ The Solution</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">Create a branch. Break everything. If it works, merge it. If not, delete the branch. <span class="emphasis">Zero risk. Maximum experimentation.</span></p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is about removing fear of experimentation. Branches enable fearless coding. Make this relatable—everyone has ideas they're afraid to try.
+            </div>
+        </div>
+
+        <!-- SLIDE 22: Superpower #4 - Branches Are Cheap -->
         <div class="slide slide-teal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -910,11 +1467,40 @@
                 </ul>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Branches cost nothing. They're pointers. Want to test an idea? Branch. Break code? No problem. Discard? Delete. The commits are still in reflog. This is liberation."
+                <strong>SPEAKER NOTE:</strong> "Branches cost nothing. They're pointers. Want to test an idea? Branch. Break code? No problem. Discard? Delete. The commits are still in reflog. This is liberation." <strong>Common Questions:</strong> "How many branches can I have?" → "As many as you want. They're just pointers."
             </div>
         </div>
 
-        <!-- SLIDE 13: Superpower #5 - Stash -->
+        <!-- SLIDE 23: Real-World Scenario - Stash (NEW) -->
+        <div class="slide slide-dark">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Real-World Scenario</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Emergency</p>
+
+                <div class="scenario-box">
+                    <h3>💼 The Situation</h3>
+                    <p>You're <strong>halfway through</strong> implementing a feature. Your code is broken, incomplete, messy.</p>
+                    <p style="margin-top: 15px;">Then: <strong>"URGENT: Fix production bug NOW!"</strong></p>
+                    <p style="margin-top: 15px;">You panic:</p>
+                    <ul style="margin-left: 30px; margin-top: 15px;">
+                        <li>"I can't commit this broken code!"</li>
+                        <li>"I'll lose my work if I switch branches!"</li>
+                        <li>"What do I do?!"</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3 style="margin-top: 0; margin-bottom: 15px;">✅ The Solution</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">Stash your work. Switch branches. Fix the emergency. Come back. Pop the stash. <span class="emphasis">Your work is safe.</span></p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is THE panic moment every developer faces. Stash removes that panic. It's the "pause button" for your work.
+            </div>
+        </div>
+
+        <!-- SLIDE 24: Superpower #5 - Stash -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -931,11 +1517,36 @@
                 </ul>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Stash is psychological relief. You're halfway through code. Emergency happens. Instead of panicking, stash. It's safe. You come back. It's still there. No pressure."
+                <strong>SPEAKER NOTE:</strong> "Stash is psychological relief. You're halfway through code. Emergency happens. Instead of panicking, stash. It's safe. You come back. It's still there. No pressure." <strong>Common Questions:</strong> "How many stashes can I have?" → "As many as you want. Use `git stash list` to see them."
             </div>
         </div>
 
-        <!-- SLIDE 14: Superpower #6 - Cherry-pick -->
+        <!-- SLIDE 25: Real-World Scenario - Cherry-pick (NEW) -->
+        <div class="slide slide-dark">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Real-World Scenario</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Wrong Branch</p>
+
+                <div class="scenario-box">
+                    <h3>💼 The Situation</h3>
+                    <p>You made a <strong>perfect commit</strong> on the wrong branch.</p>
+                    <p style="margin-top: 15px;">You're on <code>feature-x</code>, but the commit should be on <code>main</code>.</p>
+                    <p style="margin-top: 15px;">You don't want to merge the whole branch—just that ONE commit.</p>
+                    <p style="margin-top: 20px; font-weight: 600; color: #ef4444;">Do you copy-paste the code? Recreate the commit? There must be a better way...</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3 style="margin-top: 0; margin-bottom: 15px;">✅ The Solution</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">Cherry-pick that commit. It grabs the exact commit and applies it to your current branch. <span class="emphasis">Surgical precision.</span></p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is a common scenario. Developers often make commits on wrong branches. Cherry-pick is the elegant solution.
+            </div>
+        </div>
+
+        <!-- SLIDE 26: Superpower #6 - Cherry-pick -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -952,11 +1563,57 @@
                 </ul>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Cherry-pick is for selective, intentional recovery. You don't want the whole branch—just that ONE commit. It's precise. Powerful. Professional."
+                <strong>SPEAKER NOTE:</strong> "Cherry-pick is for selective, intentional recovery. You don't want the whole branch—just that ONE commit. It's precise. Powerful. Professional." <strong>Common Questions:</strong> "What if cherry-pick has conflicts?" → "Resolve them like a merge conflict. Git will guide you."
             </div>
         </div>
 
-        <!-- SLIDE 15: Professional Safety Rules -->
+        <!-- SLIDE 19: Common Mistakes & Recoveries (NEW) -->
+        <div class="slide slide-light">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Common Mistakes & Recoveries</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">What NOT to do, and how to fix it</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="mistake-item">
+                        <h4>❌ Mistake #1: Force Push to Shared Branch</h4>
+                        <div class="problem"><strong>Problem:</strong> You force pushed to main/develop. Teammates' local branches are now inconsistent.</div>
+                        <div class="recovery"><strong>Recovery:</strong> Teammates can recover with their reflog. Coordinate carefully. Consider reverting instead.</div>
+                        <div class="prevention"><strong>Prevention:</strong> Never force push to shared branches. Use revert for shared branches.</div>
+                    </div>
+
+                    <div class="mistake-item">
+                        <h4>❌ Mistake #2: Reset on Shared Branch</h4>
+                        <div class="problem"><strong>Problem:</strong> You reset main locally. When you push, teammates' history breaks.</div>
+                        <div class="recovery"><strong>Recovery:</strong> Use reflog to restore. Then use revert instead. Coordinate with team.</div>
+                        <div class="prevention"><strong>Prevention:</strong> Only reset on local branches. Use revert for shared branches.</div>
+                    </div>
+
+                    <div class="mistake-item">
+                        <h4>❌ Mistake #3: Committing on Detached HEAD Without Branching</h4>
+                        <div class="problem"><strong>Problem:</strong> You checked out an old commit, made changes, committed. Then checked out main. Work is "lost".</div>
+                        <div class="recovery"><strong>Recovery:</strong> Use reflog to find the commit. Create a branch from it: <code>git checkout -b recovery-branch [hash]</code></div>
+                        <div class="prevention"><strong>Prevention:</strong> Always create a branch when committing in detached HEAD: <code>git checkout -b new-branch</code></div>
+                    </div>
+
+                    <div class="mistake-item">
+                        <h4>❌ Mistake #4: Deleting Branch Before Merging</h4>
+                        <div class="problem"><strong>Problem:</strong> You deleted a branch thinking the work was lost.</div>
+                        <div class="recovery"><strong>Recovery:</strong> Commits are in reflog! Find the commit hash and recreate: <code>git checkout -b recovered [hash]</code></div>
+                        <div class="prevention"><strong>Prevention:</strong> Remember: deleting a branch only deletes the pointer. Commits persist in reflog.</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>Remember:</strong> Most mistakes are recoverable with reflog. Don't panic. Git has your back.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "These are real mistakes developers make. The good news: Git can recover from almost all of them. The key is knowing HOW." <strong>Common Questions:</strong> "What if I can't find it in reflog?" → "Check if it's been more than 90 days. Otherwise, it should be there."
+            </div>
+        </div>
+
+        <!-- SLIDE 20: Professional Safety Rules -->
         <div class="slide slide-light">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -984,11 +1641,11 @@
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "The golden rule: You can break your own house. You cannot break your teammate's house. Local branches are yours. Shared branches (main, develop) are everyone's. Revert there, not reset."
+                <strong>SPEAKER NOTE:</strong> "The golden rule: You can break your own house. You cannot break your teammate's house. Local branches are yours. Shared branches (main, develop) are everyone's. Revert there, not reset." <strong>Common Questions:</strong> "How do I know if a branch is shared?" → "If others might pull from it, it's shared. When in doubt, assume it's shared."
             </div>
         </div>
 
-        <!-- SLIDE 16: Emotional Closure -->
+        <!-- SLIDE 27: Emotional Closure -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -1010,11 +1667,11 @@
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Close with conviction. Look at the audience. Say each line slowly. Let it sink in. They came in afraid. They leave empowered. That's the goal. Ask: "Who feels better about Git now?" See hands go up. Mission accomplished. Then: "Questions?"
+                <strong>SPEAKER NOTE:</strong> Close with conviction. Look at the audience. Say each line slowly. Let it sink in. They came in afraid. They leave empowered. That's the goal. Ask: "Who feels better about Git now?" See hands go up. Mission accomplished. Then: "Questions?" <strong>Timing:</strong> This is emotional closure. Don't rush. Let the message land.
             </div>
         </div>
 
-        <!-- SLIDE 17: Q&A -->
+        <!-- SLIDE 28: Q&A -->
         <div class="slide slide-teal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -1039,7 +1696,7 @@
     </div>
 
     <div class="slide-counter">
-        <span id="current">1</span> / <span id="total">17</span>
+        <span id="current">1</span> / <span id="total">28</span>
     </div>
 
     <div class="controls">
@@ -1084,6 +1741,30 @@
                 });
             }
         }
+
+        // Copy to clipboard functionality
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback could be added here
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        // Add copy buttons to code steps
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.code-step-content').forEach(step => {
+                const text = step.textContent.trim();
+                if (text && !text.startsWith('$') && !text.startsWith('#') && text.length > 10) {
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'copy-button';
+                    copyBtn.textContent = 'Copy';
+                    copyBtn.onclick = () => copyToClipboard(text);
+                    step.parentElement.style.position = 'relative';
+                    step.parentElement.appendChild(copyBtn);
+                }
+            });
+        });
 
         // Initialize
         document.getElementById('total').textContent = totalSlides;

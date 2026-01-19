@@ -214,21 +214,34 @@ git branch -v                # Show branches
 
 ---
 
-## TIMING GUIDE
+## TIMING GUIDE (Updated for 28 Slides)
 
-- **5 min:** Title + Mental Model (Slides 1-3)
-- **2 min:** Project Setup (Slide 4)
-- **2 min:** Debunk Myths (Slide 5)
-- **7 min:** Reflog Demo (Slides 6-7) ← KEY
-- **6 min:** Detached HEAD (Slides 8-9)
-- **8 min:** Reset/Revert/Checkout (Slides 10-11)
-- **5 min:** Branches (Slide 12)
-- **4 min:** Stash & Cherry-pick (Slides 13-14)
-- **3 min:** Professional Rules (Slide 15)
-- **2 min:** Emotional Closure (Slide 16)
-- **15 min:** Q&A (Slide 17)
+- **3 min:** Title & Welcome (Slide 1)
+- **4 min:** Project Setup Demo (Slide 2) ← MOVED EARLIER
+- **3 min:** Git Is Not Dangerous (Slide 3)
+- **3 min:** How Git Really Works (Slide 4)
+- **3 min:** Visual Git State Diagram (Slide 5) ← NEW
+- **2 min:** Debunk Myths (Slide 6)
+- **2 min:** Real-World Scenario - Reflog (Slide 7) ← NEW
+- **7 min:** Reflog Demo (Slides 8-9) ← KEY
+- **3 min:** Check Your Understanding (Slide 10) ← NEW
+- **2 min:** Real-World Scenario - Detached HEAD (Slide 11) ← NEW
+- **6 min:** Detached HEAD (Slides 12-13)
+- **2 min:** Real-World Scenario - Three Ways (Slide 14) ← NEW
+- **10 min:** Reset/Revert/Checkout + Matrix (Slides 15-18) ← BROKEN DOWN
+- **5 min:** Demo - Three Undo Strategies (Slide 19) ← ENHANCED
+- **2 min:** Real-World Scenario - Branches (Slide 20) ← NEW
+- **5 min:** Branches (Slide 21)
+- **2 min:** Real-World Scenario - Stash (Slide 22) ← NEW
+- **4 min:** Stash (Slide 23)
+- **2 min:** Real-World Scenario - Cherry-pick (Slide 24) ← NEW
+- **4 min:** Cherry-pick (Slide 25)
+- **4 min:** Common Mistakes (Slide 26) ← NEW
+- **3 min:** Professional Rules (Slide 27)
+- **2 min:** Emotional Closure (Slide 28)
+- **15 min:** Q&A (Slide 29)
 
-**Total: ~60 minutes**
+**Total: ~75 minutes** (Extended due to enhanced content)
 
 ---
 

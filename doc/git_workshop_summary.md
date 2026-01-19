@@ -3,14 +3,14 @@
 ## Summary Document
 **Prepared for: Nick Zavlagkas | Agile Actors**
 **Date: Friday Workshop**
-**Duration: 60 minutes | 17 slides | 6 live demos**
+**Duration: 75 minutes | 28 slides | 6 live demos** (Enhanced with visual diagrams, real-world scenarios, and checkpoints)
 
 ---
 
 ## 📦 WHAT YOU HAVE (4 Complete Files)
 
 ### 1. **git_superpowers.html** — THE PRESENTATION
-- **17 interactive slides**
+- **28 interactive slides** (Enhanced with visual diagrams, real-world scenarios, checkpoints)
 - Agile Actors brand colors (teal, cyan, dark charcoal)
 - Speaker notes on every slide
 - Keyboard navigation (arrow keys)
