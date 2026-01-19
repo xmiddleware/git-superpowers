@@ -1431,61 +1431,187 @@
             </div>
         </div>
 
-        <!-- SLIDE 12: Demo - Detached HEAD -->
+        <!-- SLIDE 12a: Demo - Detached HEAD Step 1-2 -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Demo: Detached HEAD Safety</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">Explore without breaking anything</p>
+                <h2>Demo: Detached HEAD Safety ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 1-2: View History & Checkout Old Commit</p>
 
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <div class="code-step">
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
                         <div class="code-step-label">Step 1: View Current History</div>
-                        <div class="code-step-content">git log --oneline</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br>def5678 (HEAD -> main) Initial commit<br>abc1234 Previous commit<br><span style="color: #0891b2;"># We want to explore abc1234</span></div>
                     </div>
 
-                    <div class="code-step">
-                        <div class="code-step-label">Step 2: Checkout an Old Commit (Detached HEAD)</div>
-                        <div class="code-step-content">git checkout abc1234  # (use your actual commit hash)</div>
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #f59e0b;">
+                        <div class="code-step-label" style="color: #f59e0b;">⚠️ Step 2: Checkout Old Commit (Detached HEAD)</div>
+                        <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git checkout abc1234</div>
                     </div>
 
-                    <div class="code-step">
-                        <div class="code-step-label">Step 3: Check Status</div>
-                        <div class="code-step-content">git status</div>
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Git Warns About Detached HEAD</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">Note: switching to 'abc1234'.<br><br>You are in 'detached HEAD' state...<br><span style="color: #22c55e; font-weight: 600;"># This warning is helpful, not scary!</span></div>
                     </div>
 
-                    <div class="code-step">
-                        <div class="code-step-label">Step 4: Modify Code Intentionally</div>
-                        <div class="code-step-content">echo "CHAOS" > src/Main.java</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 5: Stage and Commit</div>
-                        <div class="code-step-content">git add src/Main.java && git commit -m "Broke everything!"</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 6: Option A - Save Work as Branch</div>
-                        <div class="code-step-content">git checkout -b chaos-experiments</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 7: Option B - Discard and Return</div>
-                        <div class="code-step-content">git checkout main</div>
-                    </div>
-
-                    <div class="code-step">
-                        <div class="code-step-label">Step 8: Verify Clean State</div>
-                        <div class="code-step-content">git status</div>
-                    </div>
-
-                    <div class="highlight-box" style="margin-top: 35px; text-align: center;">
-                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;"><strong>✅ NO DAMAGE. YOU'RE COMPLETELY SAFE.</strong></p>
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ We're now on an old commit. Detached HEAD means we're not on a branch—we're exploring directly.</p>
                     </div>
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Key moment: "Normally, HEAD is on a branch. Detached HEAD means you're NOT on a branch—you're on a commit directly. This is a playground. You can break everything. If you want to keep it, branch it. If you don't, discard it. Zero risk."
+                <strong>SPEAKER NOTE:</strong> Show the checkout. Show the warning. Say: "See this warning? Git is being helpful, not scary. Detached HEAD means you're not on a branch—you're on a commit directly. This is a playground." <strong>Common Questions:</strong> "Is this dangerous?" → "No. It's safe. We'll prove it."
+            </div>
+        </div>
+
+        <!-- SLIDE 12b: Demo - Detached HEAD Step 3-4 -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Detached HEAD Safety ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 3-4: Check Status & Modify Code</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Step 3: Check Status</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git status<br>HEAD detached at abc1234<br>nothing to commit, working tree clean<br><span style="color: #0891b2;"># We're in detached HEAD state</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #ef4444;">
+                        <div class="code-step-label" style="color: #ef4444;">⚠️ Step 4: Modify Code Intentionally</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ echo "CHAOS" > src/Main.java<br>$ git add src/Main.java</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Check Status After Modification</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git status<br>HEAD detached at abc1234<br>Changes to be committed:<br>&nbsp;&nbsp;modified: src/Main.java<br><span style="color: #f59e0b;"># We can modify code in detached HEAD</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ We can modify and stage code in detached HEAD. This is safe—it's isolated from all branches.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Show the modification. Say: "I'm intentionally breaking code. Watch what happens. This is safe because we're in detached HEAD—no branch is affected." Show git status. <strong>Common Questions:</strong> "What if I commit this?" → "We'll show you two options next."
+            </div>
+        </div>
+
+        <!-- SLIDE 12c: Demo - Detached HEAD Step 5-6 -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Detached HEAD Safety ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 5-6: Commit & Option A - Save as Branch</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Step 5: Commit in Detached HEAD</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git commit -m "Broke everything!"</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Commit Created</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">[detached HEAD xyz9999] Broke everything!<br>1 file changed, 1 insertion(+)<br><span style="color: #f59e0b;"># Commit exists, but HEAD is still detached</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
+                        <div class="code-step-label" style="color: #22c55e;">✨ Option A: Save Work as Branch</div>
+                        <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git checkout -b chaos-experiments</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
+                        <div class="code-step-label">Work is Saved!</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git branch<br>* chaos-experiments<br>&nbsp;&nbsp;main<br><span style="color: #22c55e; font-weight: 600;"># Work is now on a branch. Safe!</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.1);">
+                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">✅ If you want to keep the work, create a branch. The commit is now safely on chaos-experiments.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Show the commit. Show creating the branch. Say: "See? We committed in detached HEAD. Then we created a branch. The work is saved. This is Option A—keep the work." <strong>Common Questions:</strong> "What if I don't create a branch?" → "We'll show Option B next."
+            </div>
+        </div>
+
+        <!-- SLIDE 12d: Demo - Detached HEAD Step 7-8 -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Detached HEAD Safety ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 7-8: Option B - Discard & Verify Clean State</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Reset to Show Option B</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git checkout main<br>$ git checkout abc1234<br><span style="color: #64748b;"># Back in detached HEAD for demo</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #f59e0b;">
+                        <div class="code-step-label" style="color: #f59e0b;">Option B: Discard and Return</div>
+                        <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git checkout main</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Step 8: Verify Clean State</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git status<br>On branch main<br>nothing to commit, working tree clean<br><span style="color: #22c55e; font-weight: 600;"># Main is untouched. Clean.</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Check History</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br>def5678 (HEAD -> main) Initial commit<br><span style="color: #22c55e;"># No broken code. Main is safe.</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 35px; text-align: center; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.15);">
+                        <p style="font-size: 1.5rem; margin-bottom: 0; color: #1a1a1a; font-weight: 700;">✅ NO DAMAGE. YOU'RE COMPLETELY SAFE.</p>
+                        <p style="font-size: 1.2rem; margin-top: 15px; margin-bottom: 0; color: #64748b;">Detached HEAD is a playground. Experiment safely. Keep it or discard it—your choice.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Show returning to main. Show it's clean. Say: "See? Main is untouched. The experiment in detached HEAD didn't affect it. If you don't want the work, just checkout main. If you do, create a branch. Zero risk." This proves detached HEAD is safe. <strong>Timing:</strong> Take your time. Let this sink in.
+            </div>
+        </div>
+
+        <!-- SLIDE 12e: Check Your Understanding - Detached HEAD -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Check Your Understanding</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Detached HEAD Safety</p>
+
+                <div class="check-understanding">
+                    <h3>Quick Quiz</h3>
+                    <div class="question">1. What is detached HEAD?</div>
+                    <div class="answer">→ Answer: When HEAD points directly to a commit instead of a branch. You're exploring a point in time, not on a branch.</div>
+
+                    <div class="question">2. Is detached HEAD dangerous?</div>
+                    <div class="answer">→ Answer: No! It's a safe playground. You can experiment freely. If you want to keep work, create a branch. If not, just checkout main.</div>
+
+                    <div class="question">3. What happens if you commit in detached HEAD without creating a branch?</div>
+                    <div class="answer">→ Answer: The commit exists, but when you checkout main, it appears "lost". However, it's still in reflog! You can recover it by creating a branch from that commit.</div>
+
+                    <div class="question">4. How do you recover work from detached HEAD?</div>
+                    <div class="answer">→ Answer: Use `git reflog` to find the commit hash, then `git checkout -b new-branch [hash]` to create a branch from it. The work is recoverable.</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 2rem; line-height: 1;">📝</span>
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
+                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Detached HEAD is a playground. Experiment safely. Keep it or discard it—your choice. Nothing is lost.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
+                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore three ways to undo commits—reset, revert, and checkout</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
             </div>
         </div>
 
@@ -1829,6 +1955,50 @@
             </div>
         </div>
 
+        <!-- SLIDE 20e: Check Your Understanding - Reset/Revert/Checkout -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Check Your Understanding</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Three Ways to Undo</p>
+
+                <div class="check-understanding">
+                    <h3>Quick Quiz</h3>
+                    <div class="question">1. When should you use reset vs revert vs checkout?</div>
+                    <div class="answer">→ Answer: Reset for LOCAL branches (rewrites history). Revert for SHARED branches (preserves history). Checkout for UNCOMMITTED file changes (no history impact).</div>
+
+                    <div class="question">2. What's the key difference between reset and revert?</div>
+                    <div class="answer">→ Answer: Reset moves HEAD and rewrites history (safe on local only). Revert creates a new commit that undoes changes (safe for shared branches).</div>
+
+                    <div class="question">3. Can you reset on a shared branch like main?</div>
+                    <div class="answer">→ Answer: Technically yes, but DON'T. Reset rewrites history, which breaks teammates' local branches. Use revert on shared branches instead.</div>
+
+                    <div class="question">4. What happens if you checkout a file that has uncommitted changes?</div>
+                    <div class="answer">→ Answer: Checkout discards the uncommitted changes and restores the file to the state of the last commit. The changes are lost unless you stash or commit them first.</div>
+
+                    <div class="question">5. If you reset a commit, is it truly deleted?</div>
+                    <div class="answer">→ Answer: No! The commit is removed from the branch history, but it remains in reflog. You can recover it using `git reflog` and `git reset --hard [hash]`.</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 2rem; line-height: 1;">📝</span>
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
+                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Local branches: reset OK. Shared branches: use revert. Uncommitted changes: use checkout. Choose the right tool for the context.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
+                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore branches—free experimentation without risk</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
+            </div>
+        </div>
+
         <!-- SLIDE 21: Real-World Scenario - Branches (NEW) -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
@@ -1876,6 +2046,175 @@
             </div>
             <div class="speaker-note">
                 <strong>SPEAKER NOTE:</strong> "Branches cost nothing. They're pointers. Want to test an idea? Branch. Break code? No problem. Discard? Delete. The commits are still in reflog. This is liberation." <strong>Common Questions:</strong> "How many branches can I have?" → "As many as you want. They're just pointers."
+            </div>
+        </div>
+
+        <!-- SLIDE 22a: Demo - Branches Are Cheap Step 1 -->
+        <div class="slide slide-teal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Branches Are Cheap ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 1: Create Multiple Experimental Branches</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Create Experimental Branches</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git checkout -b feature-experiment-1<br>$ git checkout -b feature-experiment-2<br>$ git checkout -b crazy-refactor</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">View All Branches</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git branch<br>* crazy-refactor<br>&nbsp;&nbsp;feature-experiment-1<br>&nbsp;&nbsp;feature-experiment-2<br>&nbsp;&nbsp;main</div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ Branches are just pointers—creating them costs nothing. No data is copied.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Execute this live. Show how quickly branches are created. Say: "See that? Three branches created instantly. No copying. Just pointers. This is why branches are free." <strong>Common Questions:</strong> "Doesn't this waste space?" → "No. Branches are just labels pointing to commits."
+            </div>
+        </div>
+
+        <!-- SLIDE 22b: Demo - Branches Are Cheap Step 2 -->
+        <div class="slide slide-teal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Branches Are Cheap ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 2: Break Code on Experimental Branch</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Switch to Experimental Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git checkout crazy-refactor<br>Switched to branch 'crazy-refactor'</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #ef4444;">
+                        <div class="code-step-label" style="color: #ef4444;">⚠️ Intentionally Break Code</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ echo "CHAOS!!!" > src/Main.java<br>$ git add src/Main.java<br>$ git commit -m "Testing extreme changes"</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">View History on This Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br><strong style="color: #ef4444;">xyz9999</strong> (HEAD -> crazy-refactor) Testing extreme changes<br>def5678 Initial commit</div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ The broken code is isolated on this branch. Main is untouched.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is the key moment. Say: "I'm intentionally breaking code. Watch what happens. This is safe because it's isolated on this branch." Show git log. Point out main is safe. <strong>Common Questions:</strong> "What if I commit this?" → "It stays on this branch. Main doesn't see it."
+            </div>
+        </div>
+
+        <!-- SLIDE 22c: Demo - Branches Are Cheap Step 3 -->
+        <div class="slide slide-teal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Branches Are Cheap ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 3: Return to Main (Safe)</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Switch Back to Main</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git checkout main</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Main History is Clean</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br>def5678 (HEAD -> main) Initial commit<br><span style="color: #22c55e;"># No broken code here!</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Check Working Directory</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ cat src/Main.java<br>public class Main {<br>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello Git");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><span style="color: #22c55e;"># Original code is intact!</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.1);">
+                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">✅ Main is completely safe. The broken code is isolated on the experimental branch.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Show the switch. Show main is clean. Say: "See? Main is untouched. The broken code exists only on crazy-refactor. This is isolation. This is safety." <strong>Common Questions:</strong> "Can I see the broken code again?" → "Yes, checkout crazy-refactor. It's still there."
+            </div>
+        </div>
+
+        <!-- SLIDE 22d: Demo - Branches Are Cheap Step 4 -->
+        <div class="slide slide-teal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Branches Are Cheap ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 4: Delete Branch and Verify in Reflog</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #ef4444;">
+                        <div class="code-step-label" style="color: #ef4444;">🗑️ Delete the Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git branch -D crazy-refactor<br>Deleted branch crazy-refactor (was xyz9999)</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Branch is Gone from List</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git branch<br>* main<br>&nbsp;&nbsp;feature-experiment-1<br>&nbsp;&nbsp;feature-experiment-2<br><span style="color: #64748b;"># crazy-refactor is deleted</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
+                        <div class="code-step-label" style="color: #22c55e;">✨ But Commits Are Still in Reflog!</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git reflog<br>def5678 HEAD@{0}: checkout: moving from crazy-refactor to main<br><strong style="color: #22c55e; font-size: 1.15rem;">xyz9999 HEAD@{1}: commit: Testing extreme changes  ← STILL HERE!</strong><br>def5678 HEAD@{2}: checkout: moving from main to crazy-refactor</div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 35px; text-align: center; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.15);">
+                        <p style="font-size: 1.5rem; margin-bottom: 0; color: #1a1a1a; font-weight: 700;">✅ DELETING A BRANCH ONLY DELETES THE POINTER.</p>
+                        <p style="font-size: 1.2rem; margin-top: 15px; margin-bottom: 0; color: #64748b;">Commits persist in reflog. Nothing is ever truly lost.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is THE moment. Delete the branch. Show it's gone. Then show reflog. Say: "The branch is deleted. But look—the commit is still in reflog. The branch was just a pointer. The commit is permanent." This proves branches are truly free. <strong>Timing:</strong> Take your time. Let this sink in.
+            </div>
+        </div>
+
+        <!-- SLIDE 22e: Check Your Understanding - Branches Are Cheap -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Check Your Understanding</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Branches Are Cheap</p>
+
+                <div class="check-understanding">
+                    <h3>Quick Quiz</h3>
+                    <div class="question">1. What happens when you create a branch?</div>
+                    <div class="answer">→ Answer: Git creates a pointer to the current commit. No data is copied. It's instant and free.</div>
+
+                    <div class="question">2. If you delete a branch, are the commits lost?</div>
+                    <div class="answer">→ Answer: No. The branch pointer is deleted, but commits remain in reflog. You can recover them forever.</div>
+
+                    <div class="question">3. How many branches can you create?</div>
+                    <div class="answer">→ Answer: As many as you want. Branches are just pointers—they cost nothing. Experiment freely.</div>
+
+                    <div class="question">4. What happens if you break code on an experimental branch?</div>
+                    <div class="answer">→ Answer: The broken code stays isolated on that branch. Main and other branches are unaffected. Just delete the branch if you don't want it.</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 2rem; line-height: 1;">📝</span>
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
+                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Branches are free. Experiment fearlessly. Delete without guilt. Commits persist in reflog.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
+                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore stash—your pause button for uncommitted work</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
             </div>
         </div>
 
@@ -1929,6 +2268,180 @@
             </div>
         </div>
 
+        <!-- SLIDE 24a: Demo - Stash Step 1 -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Stash - The Panic Button ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 1: Start Work (Halfway Through Feature)</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Working on Feature</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ echo "// Halfway through feature..." >> src/Main.java<br>$ echo "// Code is broken, incomplete" >> src/Main.java</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Check Status - Work Not Ready</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git status<br>On branch main<br>Changes not staged for commit:<br>&nbsp;&nbsp;modified: src/Main.java<br><span style="color: #ef4444;"># Work is incomplete, broken, messy</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #f59e0b;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">⚠️ Work is incomplete, broken, messy—not ready to commit. But you need to switch branches NOW.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Set the scene. Show incomplete work. Say: "This is the panic moment. You're halfway through. Code is broken. You can't commit it. But you need to switch branches. What do you do?" Build the tension. <strong>Common Questions:</strong> "Why not just commit?" → "Because it's broken. You don't want broken code in history."
+            </div>
+        </div>
+
+        <!-- SLIDE 24b: Demo - Stash Step 2 -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Stash - The Panic Button ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 2: Emergency Hits (Need to Switch Branches)</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="scenario-box" style="margin-bottom: 30px;">
+                        <h3 style="margin-top: 0; margin-bottom: 15px; color: #ef4444;">🚨 URGENT: Fix production bug NOW!</h3>
+                        <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">You need to switch to a different branch immediately. But your work isn't committed...</p>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
+                        <div class="code-step-label" style="color: #22c55e;">✨ The Solution: Stash</div>
+                        <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git stash</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Working Directory is Now Clean</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git status<br>On branch main<br>nothing to commit, working tree clean<br><span style="color: #22c55e;"># Your work is safely stashed!</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.1);">
+                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">✅ Your work is saved. Working directory is clean. You can switch branches safely.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is THE relief moment. Say: "Stash saves your work without committing. Watch—working directory is clean. You can switch branches now. Your work is safe." Show git status. <strong>Common Questions:</strong> "Where is my work?" → "In the stash. We'll get it back."
+            </div>
+        </div>
+
+        <!-- SLIDE 24c: Demo - Stash Step 3 -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Stash - The Panic Button ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 3: Fix Emergency on Different Branch</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Create Hotfix Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git checkout -b hotfix-production</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Fix the Bug</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ echo "// Fixed production bug" > src/BugFix.java<br>$ git add src/BugFix.java<br>$ git commit -m "Fix critical production bug"</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Verify Fix is Isolated</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br>abc9999 (HEAD -> hotfix-production) Fix critical production bug<br>def5678 Initial commit<br><span style="color: #22c55e;"># Fix is on hotfix branch, separate from incomplete work</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ Emergency is fixed. The fix is isolated. Your incomplete work is still safely stashed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Show the fix. Show it's isolated. Say: "See? The fix is on hotfix branch. Your incomplete work is still stashed. They don't interfere. This is context switching without fear." <strong>Common Questions:</strong> "What if I forget about the stash?" → "Use git stash list to see all stashes."
+            </div>
+        </div>
+
+        <!-- SLIDE 24d: Demo - Stash Step 4 -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Stash - The Panic Button ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 4: Return and Restore Work</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Return to Original Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git checkout main</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">View Stashed Work</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git stash list<br>stash@{0}: WIP on main: def5678 Initial commit<br><span style="color: #22c55e;"># Your work is still here!</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
+                        <div class="code-step-label" style="color: #22c55e;">✨ Restore Your Work</div>
+                        <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git stash pop</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
+                        <div class="code-step-label">Work is Back!</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git status<br>On branch main<br>Changes not staged for commit:<br>&nbsp;&nbsp;modified: src/Main.java<br><span style="color: #22c55e; font-weight: 600;"># Your incomplete work is restored!</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 35px; text-align: center; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.15);">
+                        <p style="font-size: 1.5rem; margin-bottom: 0; color: #1a1a1a; font-weight: 700;">✅ YOUR WORK IS SAFE. NOTHING IS LOST.</p>
+                        <p style="font-size: 1.2rem; margin-top: 15px; margin-bottom: 0; color: #64748b;">Stash is your pause button. Context switch without fear.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is THE moment of relief. Show stash list. Show stash pop. Show work is back. Say: "It's back. Your incomplete work is exactly as you left it. Stash saved it. Nothing was lost. This is why stash removes panic." <strong>Timing:</strong> Take your time. Let this sink in.
+            </div>
+        </div>
+
+        <!-- SLIDE 24e: Check Your Understanding - Stash -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Check Your Understanding</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Stash - The Panic Button</p>
+
+                <div class="check-understanding">
+                    <h3>Quick Quiz</h3>
+                    <div class="question">1. When should you use stash?</div>
+                    <div class="answer">→ Answer: When you have uncommitted work that's not ready to commit, but you need to switch branches or context. Stash saves it temporarily.</div>
+
+                    <div class="question">2. Can you have multiple stashes?</div>
+                    <div class="answer">→ Answer: Yes! Use `git stash list` to see all stashes. Each stash is saved separately. Apply them with `git stash pop` or `git stash apply`.</div>
+
+                    <div class="question">3. What's the difference between stash and commit?</div>
+                    <div class="answer">→ Answer: Commit creates permanent history. Stash is temporary storage for uncommitted work. Use stash when work isn't ready to commit.</div>
+
+                    <div class="question">4. What if you forget you have a stash?</div>
+                    <div class="answer">→ Answer: Use `git stash list` to see all stashes. They persist until you explicitly drop them or pop them. Your work is safe.</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 2rem; line-height: 1;">📝</span>
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
+                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Stash is your pause button. Context switch without fear. Your work is safe until you restore it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
+                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore cherry-pick—surgical commit recovery</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
+            </div>
+        </div>
+
         <!-- SLIDE 25: Real-World Scenario - Cherry-pick (NEW) -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
@@ -1972,6 +2485,179 @@
             </div>
             <div class="speaker-note">
                 <strong>SPEAKER NOTE:</strong> "Cherry-pick is for selective, intentional recovery. You don't want the whole branch—just that ONE commit. It's precise. Powerful. Professional." <strong>Common Questions:</strong> "What if cherry-pick has conflicts?" → "Resolve them like a merge conflict. Git will guide you."
+            </div>
+        </div>
+
+        <!-- SLIDE 26a: Demo - Cherry-pick Step 1 -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Cherry-pick - Surgical Precision ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 1: Make Perfect Commit on Wrong Branch</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Current Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git branch<br>* feature-x<br>&nbsp;&nbsp;main<br><span style="color: #f59e0b;"># We're on feature-x, but commit should be on main</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Make Perfect Commit</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ echo "Perfect feature" > src/Feature.java<br>$ git add src/Feature.java<br>$ git commit -m "Add perfect feature"</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Commit is on Wrong Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br><strong style="color: #f59e0b;">abc1234</strong> (HEAD -> feature-x) Add perfect feature<br>def5678 Initial commit<br><span style="color: #ef4444;"># This commit should be on main!</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #f59e0b;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">⚠️ Perfect commit is on the wrong branch. We need it on main, not feature-x.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Set the scene. Show the commit on wrong branch. Say: "This is a common mistake. You made a perfect commit, but it's on the wrong branch. You don't want to merge the whole branch—just this ONE commit. Watch how cherry-pick solves this." <strong>Common Questions:</strong> "Why not just merge?" → "Because you only want this one commit, not everything on feature-x."
+            </div>
+        </div>
+
+        <!-- SLIDE 26b: Demo - Cherry-pick Step 2 -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Cherry-pick - Surgical Precision ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 2: Identify the Commit to Move</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">View Commit History</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br><strong style="color: #0891b2; font-size: 1.15rem;">abc1234</strong> (HEAD -> feature-x) Add perfect feature<br>def5678 Initial commit</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">View Commit Details</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git show abc1234 --stat<br>commit abc1234<br>Author: Your Name<br>Date: [timestamp]<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Add perfect feature<br><br>src/Feature.java | 1 +<br>1 file changed, 1 insertion(+)<br><span style="color: #22c55e;"># This is the commit we want</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ We identified the commit: <strong>abc1234</strong>. We want this ONE commit, not the whole branch.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Show the commit hash clearly. Say: "See this commit? abc1234. This is what we want. We don't want the whole feature-x branch—just this one commit. Cherry-pick will grab it surgically." <strong>Common Questions:</strong> "What if I want multiple commits?" → "Cherry-pick them one by one, or use a range."
+            </div>
+        </div>
+
+        <!-- SLIDE 26c: Demo - Cherry-pick Step 3 -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Cherry-pick - Surgical Precision ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 3: Switch to Target Branch and Cherry-pick</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Switch to Target Branch</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git checkout main</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; border-left-color: #22c55e;">
+                        <div class="code-step-label" style="color: #22c55e;">✨ Cherry-pick the Commit</div>
+                        <div class="code-step-content" style="font-size: 1.2rem; font-weight: 700; color: #0891b2;">git cherry-pick abc1234</div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
+                        <div class="code-step-label">Commit Applied Successfully</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">[main xyz9876] Add perfect feature<br>1 file changed, 1 insertion(+)<br><span style="color: #22c55e; font-weight: 600;"># Commit is now on main!</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Verify on Main</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br><strong style="color: #22c55e; font-size: 1.15rem;">xyz9876</strong> (HEAD -> main) Add perfect feature<br>def5678 Initial commit<br><span style="color: #22c55e;"># Commit is on main with new hash!</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.1);">
+                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">✅ The commit is now on main! Cherry-pick created a new commit (xyz9876) with the same changes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Execute the cherry-pick. Show it works. Point out the new hash. Say: "See that? The commit is on main now. Notice it has a new hash—xyz9876. Cherry-pick creates a new commit with the same changes. The original commit stays on feature-x." <strong>Common Questions:</strong> "Why different hash?" → "Because it's a new commit. Same changes, different parent."
+            </div>
+        </div>
+
+        <!-- SLIDE 26d: Demo - Cherry-pick Step 4 -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Cherry-pick - Surgical Precision ⭐</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 4: Verify Both Branches Have the Commit</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Main Branch Has the Commit</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline main<br><strong style="color: #22c55e;">xyz9876</strong> (HEAD -> main) Add perfect feature<br>def5678 Initial commit<br><span style="color: #22c55e;"># Commit is on main</span></div>
+                    </div>
+
+                    <div class="code-step" style="margin: 25px auto;">
+                        <div class="code-step-label">Feature-x Branch Still Has Original</div>
+                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline feature-x<br><strong style="color: #0891b2;">abc1234</strong> (HEAD -> feature-x) Add perfect feature<br>def5678 Initial commit<br><span style="color: #0891b2;"># Original commit still on feature-x</span></div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ Both branches have the commit! Cherry-pick created a new commit on main. The original stays on feature-x.</p>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 35px; text-align: center; border-left-color: #0891b2; background: rgba(6, 182, 212, 0.1);">
+                        <p style="font-size: 1.5rem; margin-bottom: 0; color: #1a1a1a; font-weight: 700;">✅ CHERRY-PICK IS SURGICAL. SELECT EXACTLY WHAT YOU NEED.</p>
+                        <p style="font-size: 1.2rem; margin-top: 15px; margin-bottom: 0; color: #64748b;">One commit. One branch. Precision. No merge needed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Show both branches. Point out both have the commit. Say: "See? Main has xyz9876. Feature-x has abc1234. Same changes, different commits. Cherry-pick is surgical—you get exactly what you need, where you need it." This proves cherry-pick's precision. <strong>Timing:</strong> Take your time. Let this sink in.
+            </div>
+        </div>
+
+        <!-- SLIDE 26e: Check Your Understanding - Cherry-pick -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Check Your Understanding</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Cherry-pick - Surgical Precision</p>
+
+                <div class="check-understanding">
+                    <h3>Quick Quiz</h3>
+                    <div class="question">1. What's the difference between cherry-pick and merge?</div>
+                    <div class="answer">→ Answer: Merge brings all commits from a branch. Cherry-pick selects ONE specific commit and applies it. Use cherry-pick when you want precision, not the whole branch.</div>
+
+                    <div class="question">2. What if cherry-pick has conflicts?</div>
+                    <div class="answer">→ Answer: Git will pause and ask you to resolve conflicts, just like a merge. Resolve them, then continue with `git cherry-pick --continue`.</div>
+
+                    <div class="question">3. Can you cherry-pick multiple commits?</div>
+                    <div class="answer">→ Answer: Yes! Use `git cherry-pick commit1 commit2 commit3` or `git cherry-pick commit1..commit3` for a range. Each commit is applied individually.</div>
+
+                    <div class="question">4. What happens to the original commit after cherry-picking?</div>
+                    <div class="answer">→ Answer: The original commit stays on its original branch. Cherry-pick creates a NEW commit with the same changes on the target branch. Both exist independently.</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 2rem; line-height: 1;">📝</span>
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
+                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Cherry-pick is surgical. Select exactly what you need. One commit. One branch. Precision.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
+                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll review common mistakes and how to recover from them</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
             </div>
         </div>
 
@@ -2094,7 +2780,7 @@
                 </ul>
                 <div class="presenter-info" style="margin-top: 100px;">
                     <p style="font-size: 1.15rem;"><strong>Nick Zavlagkas | Agile Actors</strong></p>
-                    <p style="font-size: 1.15rem;">Senior Software Engineer, Git Expert</p>
+                    <p style="font-size: 1.15rem;">Senior Software Engineer</p>
                 </div>
             </div>
             <div class="speaker-note">
@@ -2144,7 +2830,7 @@
     </div>
 
     <div class="slide-counter">
-        <span id="current">1</span> / <span id="total">32</span>
+        <span id="current">1</span> / <span id="total">54</span>
     </div>
 
     <div class="controls">
