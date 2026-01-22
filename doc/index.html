@@ -1365,65 +1365,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 4: Visual Git State Diagram -->
-        <div class="slide slide-light">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Visual: Git State Diagram</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">See how commits, branches, and HEAD connect</p>
-
-                <div class="visual-git-diagram">
-                    <div class="diagram-title">After 3 Commits</div>
-                    
-                    <div style="text-align: center; margin: 20px 0 10px 0;">
-                        <div class="branch-pointer" style="position: relative;">
-                            <span class="branch-pointer-label">main</span>
-                            <span class="pointer-line"></span>
-                            <div style="position: absolute; left: 50%; bottom: -45px; width: 2px; height: 40px; background: linear-gradient(to bottom, rgba(34, 197, 94, 0.5), transparent); transform: translateX(-50%);"></div>
-                        </div>
-                    </div>
-
-                    <div class="commit-chain">
-                        <div class="commit-visual">
-                            <div class="commit-circle">C1</div>
-                            <div class="commit-label">commit1</div>
-                        </div>
-                        <div class="commit-visual">
-                            <div class="commit-circle">C2</div>
-                            <div class="commit-label">commit2</div>
-                        </div>
-                        <div class="commit-visual">
-                            <div class="commit-circle">C3</div>
-                            <div class="commit-label">commit3</div>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; margin: 10px 0 20px 0;">
-                        <div class="head-pointer" style="position: relative;">
-                            <span class="head-pointer-label">HEAD</span>
-                            <span class="pointer-line"></span>
-                            <div style="position: absolute; left: 50%; top: -45px; width: 2px; height: 40px; background: linear-gradient(to top, rgba(245, 158, 11, 0.5), transparent); transform: translateX(-50%);"></div>
-                        </div>
-                        <span style="color: #64748b; font-size: 0.9rem; display: block; margin-top: 5px;">points to commit3</span>
-                    </div>
-
-                    <div style="margin-top: 25px; padding: 20px; background: rgba(6, 182, 212, 0.08); border-radius: 8px;">
-                        <p style="font-size: 1.1rem; line-height: 1.8; color: #1a1a1a; margin: 0;">
-                            <strong style="color: #0891b2;">Key Points:</strong><br>
-                            • Each commit (circle) points to the previous one ← chain<br>
-                            • Branch <span style="color: #22c55e; font-weight: 600;">main</span> is just a pointer to commit3<br>
-                            • <span style="color: #f59e0b; font-weight: 600;">HEAD</span> shows where you are right now<br>
-                            • All commits are immutable—they never change
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Visual learners need this. Point to each element: "See how main points to commit3? That's all a branch is—a pointer." Then: "When we create feature branch, we just add another pointer. No copying." <strong>Common Questions:</strong> "What if I delete a branch?" → "The commits stay. Only the pointer is deleted. We'll prove this with reflog." <strong>Timing:</strong> Spend 2-3 minutes here. Let it sink in.
-            </div>
-        </div>
-
-        <!-- SLIDE 5: Debunk Myths -->
+        <!-- SLIDE 4: Debunk Myths -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -1469,11 +1411,6 @@
                         <div class="code-step-content">git reset --hard HEAD~1</div>
                     </div>
                     <p style="margin-top: 20px; font-weight: 600; color: #ef4444;">Your commit appears <strong>gone</strong>. You panic.</p>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 40px;">
-                    <h3 style="margin-top: 0; margin-bottom: 15px;">✅ The Solution</h3>
-                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">But wait... <span class="emphasis">git reflog</span> shows it's still there. You recover it in <strong>30 seconds</strong>. Crisis averted.</p>
                 </div>
             </div>
             <div class="speaker-note">
