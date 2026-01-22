@@ -68,7 +68,7 @@ Date:   [timestamp]
 
 ---
 
-## PRESENTATION STRUCTURE (17 Slides)
+## PRESENTATION STRUCTURE (44 Slides)
 
 ### Slide Breakdown & Speaker Notes
 
@@ -105,40 +105,35 @@ Date:   [timestamp]
 - **Demo:** Checkout old commit → modify code → create branch or discard
 - **Key insight:** "If you want to keep work, branch it. If you don't, discard it. Zero risk."
 
-#### SLIDES 10-11: Superpower #3 - Reset vs Revert vs Checkout
+#### SLIDES 13-16: Superpower #3 - Reset vs Revert
 - **THIS IS CRITICAL DECISION FRAMEWORK**
 - **Reset:** Local history rewriting (safe on local only)
 - **Revert:** Create undo commit (safe on shared branches)
-- **Checkout:** Discard uncommitted changes (file level)
-- **Demo same mistake three ways** so they see when to use each
+- **Decision Matrix:** Shows when to use each tool
+- **Demo same mistake two ways** so they see when to use each
 
-#### SLIDE 12: Superpower #4 - Branches Are Cheap
-- **Key:** "A branch is just a pointer. Cost = nothing. Delete without guilt."
-- **Demo:** Create many branches → break code → delete branches → check reflog (still there)
-- **Message:** "Branches enable fearless experimentation."
-
-#### SLIDE 13: Superpower #5 - Stash
+#### SLIDE 18: Superpower #4 - Stash
 - **Context:** "Halfway through code. Emergency happens."
 - **Solution:** Stash → context switch → come back → unstash
 - **Message:** "Stash is psychological relief. Your work is safe."
 
-#### SLIDE 14: Superpower #6 - Cherry-pick
+#### SLIDE 20: Superpower #5 - Cherry-pick
 - **Use case:** "One good commit is on the wrong branch"
 - **Solution:** "Cherry-pick it to current branch"
 - **Message:** "Cherry-pick is selective, surgical recovery."
 
-#### SLIDE 15: Professional Safety Rules
+#### SLIDE 23: Professional Safety Rules
 - **RULE 1:** Rewrite history on LOCAL branches (reset, rebase, force push = OK)
 - **RULE 2:** NEVER rewrite on SHARED branches (use revert instead)
 - **Message:** "You can break your house. You cannot break your teammate's house."
 
-#### SLIDE 16: Emotional Closure
+#### SLIDE 24: Emotional Closure
 - **Message:** "Git doesn't punish mistakes. It records them so you can undo them."
 - **Proof:** List all superpowers and what each enables
 - **Final statement:** "Nothing is ever truly lost. You control Git now."
 - **Close with:** "Questions?"
 
-#### SLIDE 17: Q&A Open Floor
+#### SLIDE 25: Q&A Open Floor
 - **Your role:** Take real questions. Use git to demonstrate live.
 - **Message:** "Real-time problem-solving reinforces learning."
 
@@ -270,34 +265,7 @@ echo "File is clean. Unstaged changes are gone."
 
 ---
 
-### Demo 5: Branches Are Cheap (5 minutes)
-```bash
-# Create many experimental branches
-git checkout -b feature-experiment-1
-git checkout -b feature-experiment-2
-git checkout -b crazy-refactor
-
-# Break code on crazy-refactor
-echo "CHAOS!!!" > src/Main.java
-git add .
-git commit -m "Testing extreme changes"
-
-# Go back to main
-git checkout main
-git log --oneline
-
-# Delete the crazy branch
-git branch -D crazy-refactor
-
-# Check reflog (commits still exist)
-git reflog
-echo "The commits are still in reflog. Nothing lost."
-```
-**Message:** "Branches are free. Delete without guilt."
-
----
-
-### Demo 6: Stash & Cherry-pick (4 minutes)
+### Demo 5: Stash & Cherry-pick (4 minutes)
 ```bash
 # --- STASH DEMO ---
 echo "HALFWAY THROUGH" > src/Main.java
@@ -410,9 +378,9 @@ Before Friday, run through:
 
 ---
 
-## PRESENTATION TIMING (Updated for 28 Slides)
+## PRESENTATION TIMING (Updated for 44 Slides)
 
-**Total: ~75 minutes including Q&A** (Extended due to enhanced content)
+**Total: ~60 minutes including Q&A**
 
 - Slide 1: Title & Welcome (3 min)
 - Slide 2: Project Setup Demo (4 min live demo) ← MOVED EARLIER
@@ -428,16 +396,14 @@ Before Friday, run through:
 - Slide 14: Real-World Scenario - Three Ways (2 min) ← NEW
 - Slides 15-18: Reset/Revert/Checkout + Decision Matrix (10 min) ← BROKEN DOWN
 - Slide 19: Demo - Three Undo Strategies (5 min) ← ENHANCED
-- Slide 20: Real-World Scenario - Branches (2 min) ← NEW
-- Slide 21: Branches Are Cheap (5 min live demo)
-- Slide 22: Real-World Scenario - Stash (2 min) ← NEW
-- Slide 23: Stash (4 min live demo)
-- Slide 24: Real-World Scenario - Cherry-pick (2 min) ← NEW
-- Slide 25: Cherry-pick (4 min live demo)
-- Slide 26: Common Mistakes & Recoveries (4 min) ← NEW
-- Slide 27: Professional Safety Rules (3 min discussion)
-- Slide 28: Emotional Closure (2 min)
-- Slide 29: Q&A (15 min open discussion)
+- Slide 18: Real-World Scenario - Stash (2 min)
+- Slide 19: Stash (4 min live demo)
+- Slide 20: Real-World Scenario - Cherry-pick (2 min)
+- Slide 21: Cherry-pick (4 min live demo)
+- Slide 22: Common Mistakes & Recoveries (4 min)
+- Slide 23: Professional Safety Rules (3 min discussion)
+- Slide 24: Emotional Closure (2 min)
+- Slide 25: Q&A (15 min open discussion)
 
 ---
 
@@ -457,7 +423,7 @@ By the end of Friday, attendees should:
 
 ## FILES INCLUDED
 
-1. **git_superpowers.html** - The full presentation (17 slides, all speaker notes)
+1. **index.html** - The full presentation (44 slides, all speaker notes)
 2. **git_superpowers_setup.md** - Preparation checklist and reference guide
 3. **This file** - Complete delivery guide with demo scripts
 

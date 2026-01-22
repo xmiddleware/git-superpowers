@@ -3,14 +3,14 @@
 ## Summary Document
 **Prepared for: Nick Zavlagkas | Agile Actors**
 **Date: Friday Workshop**
-**Duration: 75 minutes | 28 slides | 6 live demos** (Enhanced with visual diagrams, real-world scenarios, and checkpoints)
+**Duration: 60 minutes | 44 slides | 5 live demos** (Focused on advanced recovery techniques)
 
 ---
 
 ## 📦 WHAT YOU HAVE (4 Complete Files)
 
-### 1. **git_superpowers.html** — THE PRESENTATION
-- **28 interactive slides** (Enhanced with visual diagrams, real-world scenarios, checkpoints)
+### 1. **index.html** — THE PRESENTATION
+- **44 interactive slides** (Focused on advanced recovery techniques and fear removal)
 - Agile Actors brand colors (teal, cyan, dark charcoal)
 - Speaker notes on every slide
 - Keyboard navigation (arrow keys)
@@ -170,16 +170,7 @@ POINT: "Exploration playground"
 POINT: "Three tools, different contexts"
 ```
 
-### Demo 5: Branches Are Cheap (5 min)
-```
-- Create multiple branches
-- Break code intentionally
-- Delete branches
-- Show commits in reflog
-POINT: "Free to experiment"
-```
-
-### Demo 6: Stash & Cherry-pick (4 min)
+### Demo 5: Stash & Cherry-pick (4 min)
 ```
 - Stash work mid-stream
 - Pop it back
@@ -229,8 +220,8 @@ SLIDE 5:       Myth Debunking                 (2 min)
 SLIDES 6-7:    Reflog Demo ⭐                 (7 min) 
 SLIDES 8-9:    Detached HEAD Demo             (6 min)
 SLIDES 10-11:  Reset/Revert/Checkout Demo     (8 min)
-SLIDE 12:      Branches Demo                  (5 min)
-SLIDES 13-14:  Stash & Cherry-pick Demo       (4 min)
+SLIDES 18-19:  Stash Demo                     (4 min)
+SLIDES 20-21:  Cherry-pick Demo               (4 min)
 ───────────────────────────────────────────────────
 SLIDE 15:      Professional Rules             (3 min)
 SLIDE 16:      Emotional Closure              (2 min)

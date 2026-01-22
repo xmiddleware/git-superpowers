@@ -9,8 +9,8 @@ This is a **production-ready, comprehensive Git Superpowers workshop** designed 
 
 ### Files Included:
 
-1. **git_superpowers.html** (50 KB)
-   - 17-slide interactive presentation
+1. **index.html** (180 KB)
+   - 44-slide interactive presentation
    - Agile Actors branding (teal/cyan/charcoal)
    - Speaker notes on every slide
    - Keyboard navigation + button controls
@@ -108,8 +108,8 @@ Feel: Confidence building ✅
 ## ⏱️ PRESENTATION OVERVIEW
 
 **Duration:** 60 minutes (including Q&A)
-**Slides:** 17 (interactive, keyboard navigable)
-**Demos:** 6 (all live, all with POJO Java project)
+**Slides:** 44 (interactive, keyboard navigable)
+**Demos:** 5 (all live, all with POJO Java project)
 **Format:** Live coding + slides
 **Audience:** Developers using Git daily
 
@@ -212,7 +212,7 @@ This is where fear dies. An audience member will see:
 - [ ] Verify git log shows your commit
 
 ### 2 Hours Before:
-- [ ] Run all 6 demos from git_quick_reference.md
+- [ ] Run all 5 demos from git_quick_reference.md
 - [ ] Test terminal font size
 - [ ] Open presentation, verify it works
 - [ ] Print git_quick_reference.md (or keep on phone)
@@ -225,16 +225,15 @@ This is where fear dies. An audience member will see:
 
 ---
 
-## 🎬 THE 6 DEMOS (Quick Summary)
+## 🎬 THE 5 DEMOS (Quick Summary)
 
 | Demo | Focus | Time | Key Message |
 |------|-------|------|-------------|
 | 1 | Project Setup | 2 min | "Snapshot is immutable" |
 | 2 ⭐ | Reflog Recovery | 7 min | "Nothing is ever lost" |
 | 3 | Detached HEAD | 6 min | "Safe exploration" |
-| 4 | Reset/Revert/Checkout | 8 min | "Choose the right tool" |
-| 5 | Branches Are Cheap | 5 min | "Free to experiment" |
-| 6 | Stash & Cherry-pick | 4 min | "Flexibility & precision" |
+| 4 | Reset/Revert | 8 min | "Choose the right tool" |
+| 5 | Stash & Cherry-pick | 4 min | "Flexibility & precision" |
 
 ---
 
@@ -413,7 +412,7 @@ And yes, you can do that. Because you understand Git deeply. Because you've prep
 5. **Present** with confidence
 6. **Change** how that room thinks about Git
 
-**The presentation starts when you open git_superpowers.html in a browser.**
+**The presentation starts when you open index.html in a browser.**
 
 **Everything else supports it.**
 

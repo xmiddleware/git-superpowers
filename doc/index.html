@@ -1136,73 +1136,6 @@
             </div>
         </div>
 
-        <!-- SLIDE 4b: Visual Git State Diagram - With Branch -->
-        <div class="slide slide-light">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Visual: After Creating a Branch</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">See how branches share history</p>
-
-                <div class="visual-git-diagram">
-                    <div class="diagram-title">After Creating Feature Branch</div>
-                    
-                    <div style="text-align: center; margin: 20px 0 10px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                        <div class="branch-pointer" style="position: relative;">
-                            <span class="branch-pointer-label">feature</span>
-                            <span class="pointer-line"></span>
-                            <div style="position: absolute; left: 50%; bottom: -45px; width: 2px; height: 40px; background: linear-gradient(to bottom, rgba(34, 197, 94, 0.5), transparent); transform: translateX(-50%);"></div>
-                        </div>
-                        <div class="branch-pointer" style="position: relative;">
-                            <span class="branch-pointer-label">main</span>
-                            <span class="pointer-line"></span>
-                            <div style="position: absolute; left: 50%; bottom: -45px; width: 2px; height: 40px; background: linear-gradient(to bottom, rgba(34, 197, 94, 0.5), transparent); transform: translateX(-50%);"></div>
-                        </div>
-                    </div>
-
-                    <div class="commit-chain">
-                        <div class="commit-visual">
-                            <div class="commit-circle">C1</div>
-                            <div class="commit-label">commit1</div>
-                        </div>
-                        <div class="commit-visual">
-                            <div class="commit-circle">C2</div>
-                            <div class="commit-label">commit2</div>
-                        </div>
-                        <div class="commit-visual">
-                            <div class="commit-circle">C3</div>
-                            <div class="commit-label">commit3</div>
-                        </div>
-                        <div class="commit-visual">
-                            <div class="commit-circle" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-color: #22c55e; box-shadow: 0 3px 8px rgba(34, 197, 94, 0.3);">C4</div>
-                            <div class="commit-label">commit4</div>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; margin: 10px 0 20px 0;">
-                        <div class="head-pointer" style="position: relative;">
-                            <span class="head-pointer-label">HEAD</span>
-                            <span class="pointer-line"></span>
-                            <div style="position: absolute; left: 50%; top: -45px; width: 2px; height: 40px; background: linear-gradient(to top, rgba(245, 158, 11, 0.5), transparent); transform: translateX(-50%);"></div>
-                        </div>
-                        <span style="color: #64748b; font-size: 0.9rem; display: block; margin-top: 5px;">points to commit4 (on feature branch)</span>
-                    </div>
-
-                    <div style="margin-top: 25px; padding: 20px; background: rgba(34, 197, 94, 0.08); border-radius: 8px;">
-                        <p style="font-size: 1.1rem; line-height: 1.8; color: #1a1a1a; margin: 0;">
-                            <strong style="color: #22c55e;">Key Points:</strong><br>
-                            • Creating a branch just adds a new pointer (no copying!)<br>
-                            • Both branches share commit history (C1-C3)<br>
-                            • <span style="color: #f59e0b; font-weight: 600;">HEAD</span> moved to feature branch<br>
-                            • Branches are lightweight—just labels pointing to commits
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Point out: "See how both branches point to the same commits? That's sharing. No data is copied. When we create feature branch, we just add a new pointer. That's why branches are free." <strong>Common Questions:</strong> "What if I delete feature branch?" → "Only the pointer is deleted. Commits C1-C4 stay. We'll prove this with reflog." <strong>Timing:</strong> 2-3 minutes.
-            </div>
-        </div>
-
         <!-- SLIDE 5: Debunk Myths -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
@@ -1228,52 +1161,6 @@
             </div>
             <div class="speaker-note">
                 <strong>SPEAKER NOTE:</strong> These myths drive Git anxiety. Address each one with conviction. "I'm about to prove every single one is false. Watch."
-            </div>
-        </div>
-
-        <!-- SLIDE 5b: Common Confusions -->
-        <div class="slide slide-light">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Common Confusions—Clarified</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Simple answers to questions students often ask</p>
-
-                <div class="three-column" style="margin-top: 40px;">
-                    <div class="column-card">
-                        <h4>❓ "Branches copy files"</h4>
-                        <p><strong style="color: #22c55e;">No!</strong> Branches are just pointers—like bookmarks. They don't copy anything. Creating a branch is instant and free.</p>
-                    </div>
-                    <div class="column-card">
-                        <h4>❓ "Deleted commits are gone forever"</h4>
-                        <p><strong style="color: #22c55e;">No!</strong> Reflog keeps them for 90 days. Even if you delete a branch, commits persist in reflog. Nothing is truly lost.</p>
-                    </div>
-                    <div class="column-card">
-                        <h4>❓ "Detached HEAD is dangerous"</h4>
-                        <p><strong style="color: #22c55e;">No!</strong> It's a safe playground. Explore freely. If you want to keep work, create a branch. If not, just checkout main.</p>
-                    </div>
-                </div>
-
-                <div class="three-column" style="margin-top: 30px;">
-                    <div class="column-card">
-                        <h4>❓ "Reset and revert do the same thing"</h4>
-                        <p><strong style="color: #22c55e;">No!</strong> Reset rewrites history (local only). Revert creates a new commit that undoes changes (safe for shared branches).</p>
-                    </div>
-                    <div class="column-card">
-                        <h4>❓ "I need to understand everything before using Git"</h4>
-                        <p><strong style="color: #22c55e;">No!</strong> Experiment freely. Git protects you. Reflog is your safety net. Branches isolate experiments. Nothing is permanent until you push.</p>
-                    </div>
-                    <div class="column-card">
-                        <h4>❓ "Git is complicated and scary"</h4>
-                        <p><strong style="color: #22c55e;">No!</strong> Git rewards experimentation. It punishes nothing. Once you understand reflog and branches, fear disappears.</p>
-                    </div>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
-                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>The Pattern:</strong> Most Git fears come from misunderstanding. Once you know the truth, Git becomes your friend.</p>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Address these directly. Many students hold these misconceptions. Clear them up now before they cause anxiety. Say: "Raise your hand if you thought branches copy files." Normalize the confusion. Then explain clearly.
             </div>
         </div>
 
@@ -1875,56 +1762,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 16: Superpower #3c - Checkout (File Level) -->
-        <div class="slide slide-light">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Superpower #3c: Checkout</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Discard Uncommitted Changes</p>
-
-                <div class="highlight-box">
-                    <p style="color: #1a1a1a;"><strong>Use when:</strong> You want to discard changes in UNCOMMITTED files (not yet committed)</p>
-                </div>
-
-                <div style="max-width: 1000px; margin: 30px auto;">
-                    <div class="column-card">
-                        <h4 style="margin-top: 0; margin-bottom: 15px;">git checkout [file]</h4>
-                        <p>Restores file to the state of the last commit</p>
-                        <p style="font-size: 1rem; opacity: 0.8; margin-top: 10px; margin-bottom: 0;">Only affects unstaged changes. Safe anytime.</p>
-                    </div>
-                </div>
-
-                <div class="code-before-after" style="margin-top: 30px;">
-                    <div class="code-before">
-                        <h4>BEFORE: Modified File</h4>
-                        <div class="code-step" style="margin: 10px 0;">
-                            <div class="code-step-content">$ git status<br>modified: src/Main.java</div>
-                        </div>
-                        <div class="code-step" style="margin: 10px 0;">
-                            <div class="code-step-content">$ cat src/Main.java<br>// Modified content<br>// That you want to discard</div>
-                        </div>
-                    </div>
-                    <div class="code-after">
-                        <h4>AFTER: Restored File</h4>
-                        <div class="code-step" style="margin: 10px 0;">
-                            <div class="code-step-content">$ git checkout src/Main.java</div>
-                        </div>
-                        <div class="code-step" style="margin: 10px 0;">
-                            <div class="code-step-content">$ git status<br>nothing to commit, working tree clean</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 30px;">
-                    <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;"><strong>Key Point:</strong> Checkout only affects files. It doesn't change commit history.</p>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Checkout is for uncommitted changes. If you haven't committed yet, checkout discards your modifications. Simple and safe." <strong>Common Questions:</strong> "What if I want to discard all files?" → "git checkout . (but be careful!)"
-            </div>
-        </div>
-
-        <!-- SLIDE 20: Decision Matrix - Three Ways to Undo -->
+        <!-- SLIDE 16: Decision Matrix - Three Ways to Undo -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -1985,45 +1823,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 21: Summary - Reset/Revert/Checkout -->
-        <div class="slide slide-light">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Summary: Three Ways to Undo</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">What we learned</p>
-
-                <div style="max-width: 1000px; margin: 0 auto;">
-                    <div class="highlight-box" style="margin-bottom: 30px; border-left-color: #22c55e;">
-                        <h3 style="margin-top: 0; margin-bottom: 15px; color: #22c55e;">✅ Reset (Local Only)</h3>
-                        <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Rewrites history. Safe on YOUR branches only. Commits stay in reflog.</p>
-                    </div>
-
-                    <div class="highlight-box" style="margin-bottom: 30px; border-left-color: #f59e0b;">
-                        <h3 style="margin-top: 0; margin-bottom: 15px; color: #f59e0b;">⚠️ Revert (Shared Safe)</h3>
-                        <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Creates new commit that undoes changes. Safe for teammates. History preserved.</p>
-                    </div>
-
-                    <div class="highlight-box" style="margin-bottom: 30px; border-left-color: #06b6d4;">
-                        <h3 style="margin-top: 0; margin-bottom: 15px; color: #06b6d4;">📄 Checkout (File Level)</h3>
-                        <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Discards uncommitted file changes. No history impact. Always safe.</p>
-                    </div>
-
-                    <div style="margin-top: 40px; padding: 25px; background: rgba(6, 182, 212, 0.1); border-radius: 10px; border-left: 5px solid #0891b2;">
-                        <p style="font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a; font-weight: 600;">🎯 The Rule:</p>
-                        <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a; line-height: 1.8;">
-                            <strong style="color: #22c55e;">Local branch?</strong> Reset OK.<br>
-                            <strong style="color: #f59e0b;">Shared branch?</strong> Use revert.<br>
-                            <strong style="color: #06b6d4;">Not committed?</strong> Use checkout.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Summarize the three tools clearly. This is a checkpoint slide. Make sure students understand when to use each. <strong>Timing:</strong> 2-3 minutes.
-            </div>
-        </div>
-
-        <!-- SLIDE 22: Demo - Three Undo Strategies -->
+        <!-- SLIDE 17: Demo - Three Undo Strategies -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2126,229 +1926,6 @@
                 </div>
 
                 <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
-                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore branches—free experimentation without risk</p>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
-            </div>
-        </div>
-
-        <!-- SLIDE 21: Real-World Scenario - Branches (NEW) -->
-        <div class="slide slide-dark">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Real-World Scenario</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Experiment</p>
-
-                <div class="scenario-box">
-                    <h3>💼 The Situation</h3>
-                    <p>You have a <strong>crazy idea</strong> for refactoring. You're not sure it will work.</p>
-                    <p style="margin-top: 15px;">You're afraid to try it because:</p>
-                    <ul style="margin-left: 30px; margin-top: 15px;">
-                        <li>"What if I break the code?"</li>
-                        <li>"What if I can't undo it?"</li>
-                        <li>"What if I waste time?"</li>
-                    </ul>
-                    <p style="margin-top: 20px;">So you don't try. The idea never gets tested.</p>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 40px;">
-                    <h3 style="margin-top: 0; margin-bottom: 15px;">✅ The Solution</h3>
-                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">Create a branch. Break everything. If it works, merge it. If not, delete the branch. <span class="emphasis">Zero risk. Maximum experimentation.</span></p>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> This is about removing fear of experimentation. Branches enable fearless coding. Make this relatable—everyone has ideas they're afraid to try.
-            </div>
-        </div>
-
-        <!-- SLIDE 22: Superpower #4 - Branches Are Cheap -->
-        <div class="slide slide-teal">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Superpower #4: Branches Are Cheap</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">Experiment Without Risk</p>
-                <div class="highlight-box">
-                    <p style="color: #1a1a1a;"><strong>Key Truth:</strong> A branch is just a pointer to a commit. Create as many as you want. Delete without guilt.</p>
-                </div>
-                <ul style="font-size: 1.2rem; line-height: 2; margin-top: 40px;">
-                    <li>Create experimental branches for any idea</li>
-                    <li>Break code intentionally—it's isolated</li>
-                    <li>Delete the branch if the idea fails</li>
-                    <li>The commits stay in reflog—nothing is lost</li>
-                </ul>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Branches cost nothing. They're pointers. Want to test an idea? Branch. Break code? No problem. Discard? Delete. The commits are still in reflog. This is liberation." <strong>Common Questions:</strong> "How many branches can I have?" → "As many as you want. They're just pointers."
-            </div>
-        </div>
-
-        <!-- SLIDE 22a: Demo - Branches Are Cheap Step 1 -->
-        <div class="slide slide-teal">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Demo: Branches Are Cheap ⭐</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 1: Create Multiple Experimental Branches</p>
-
-                <div style="max-width: 1100px; margin: 0 auto;">
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">Create Experimental Branches</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git checkout -b feature-experiment-1<br>$ git checkout -b feature-experiment-2<br>$ git checkout -b crazy-refactor</div>
-                    </div>
-
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">View All Branches</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git branch<br>* crazy-refactor<br>&nbsp;&nbsp;feature-experiment-1<br>&nbsp;&nbsp;feature-experiment-2<br>&nbsp;&nbsp;main</div>
-                    </div>
-
-                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
-                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ Branches are just pointers—creating them costs nothing. No data is copied.</p>
-                    </div>
-
-                    <div class="interactive-hint">
-                        💡 Try this yourself: Create multiple experimental branches in your test repo. Notice how fast it is? That's because branches are just pointers, not copies.
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Execute this live. Show how quickly branches are created. Say: "See that? Three branches created instantly. No copying. Just pointers. This is why branches are free." <strong>Common Questions:</strong> "Doesn't this waste space?" → "No. Branches are just labels pointing to commits."
-            </div>
-        </div>
-
-        <!-- SLIDE 22b: Demo - Branches Are Cheap Step 2 -->
-        <div class="slide slide-teal">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Demo: Branches Are Cheap ⭐</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 2: Break Code on Experimental Branch</p>
-
-                <div style="max-width: 1100px; margin: 0 auto;">
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">Switch to Experimental Branch</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git checkout crazy-refactor<br>Switched to branch 'crazy-refactor'</div>
-                    </div>
-
-                    <div class="code-step" style="margin: 25px auto; border-left-color: #ef4444;">
-                        <div class="code-step-label" style="color: #ef4444;">⚠️ Intentionally Break Code</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ echo "CHAOS!!!" > src/Main.java<br>$ git add src/Main.java<br>$ git commit -m "Testing extreme changes"</div>
-                    </div>
-
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">View History on This Branch</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br><strong style="color: #ef4444;">xyz9999</strong> (HEAD -> crazy-refactor) Testing extreme changes<br>def5678 Initial commit</div>
-                    </div>
-
-                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e;">
-                        <p style="font-size: 1.2rem; margin-bottom: 0; color: #1a1a1a;">✅ The broken code is isolated on this branch. Main is untouched.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> This is the key moment. Say: "I'm intentionally breaking code. Watch what happens. This is safe because it's isolated on this branch." Show git log. Point out main is safe. <strong>Common Questions:</strong> "What if I commit this?" → "It stays on this branch. Main doesn't see it."
-            </div>
-        </div>
-
-        <!-- SLIDE 22c: Demo - Branches Are Cheap Step 3 -->
-        <div class="slide slide-teal">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Demo: Branches Are Cheap ⭐</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 3: Return to Main (Safe)</p>
-
-                <div style="max-width: 1100px; margin: 0 auto;">
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">Switch Back to Main</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git checkout main</div>
-                    </div>
-
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">Main History is Clean</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git log --oneline<br>def5678 (HEAD -> main) Initial commit<br><span style="color: #22c55e;"># No broken code here!</span></div>
-                    </div>
-
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">Check Working Directory</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ cat src/Main.java<br>public class Main {<br>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello Git");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><span style="color: #22c55e;"># Original code is intact!</span></div>
-                    </div>
-
-                    <div class="highlight-box" style="margin-top: 30px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.1);">
-                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;">✅ Main is completely safe. The broken code is isolated on the experimental branch.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Show the switch. Show main is clean. Say: "See? Main is untouched. The broken code exists only on crazy-refactor. This is isolation. This is safety." <strong>Common Questions:</strong> "Can I see the broken code again?" → "Yes, checkout crazy-refactor. It's still there."
-            </div>
-        </div>
-
-        <!-- SLIDE 22d: Demo - Branches Are Cheap Step 4 -->
-        <div class="slide slide-teal">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Demo: Branches Are Cheap ⭐</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Step 4: Delete Branch and Verify in Reflog</p>
-
-                <div style="max-width: 1100px; margin: 0 auto;">
-                    <div class="code-step" style="margin: 25px auto; border-left-color: #ef4444;">
-                        <div class="code-step-label" style="color: #ef4444;">🗑️ Delete the Branch</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8; font-weight: 600; color: #0891b2;">$ git branch -D crazy-refactor<br>Deleted branch crazy-refactor (was xyz9999)</div>
-                    </div>
-
-                    <div class="code-step" style="margin: 25px auto;">
-                        <div class="code-step-label">Branch is Gone from List</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git branch<br>* main<br>&nbsp;&nbsp;feature-experiment-1<br>&nbsp;&nbsp;feature-experiment-2<br><span style="color: #64748b;"># crazy-refactor is deleted</span></div>
-                    </div>
-
-                    <div class="code-step" style="margin: 25px auto; background: rgba(34, 197, 94, 0.1); border-left-color: #22c55e;">
-                        <div class="code-step-label" style="color: #22c55e;">✨ But Commits Are Still in Reflog!</div>
-                        <div class="code-step-content" style="font-size: 1.1rem; line-height: 1.8;">$ git reflog<br>def5678 HEAD@{0}: checkout: moving from crazy-refactor to main<br><strong style="color: #22c55e; font-size: 1.15rem;">xyz9999 HEAD@{1}: commit: Testing extreme changes  ← STILL HERE!</strong><br>def5678 HEAD@{2}: checkout: moving from main to crazy-refactor</div>
-                    </div>
-
-                    <div class="highlight-box" style="margin-top: 35px; text-align: center; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.15);">
-                        <p style="font-size: 1.5rem; margin-bottom: 0; color: #1a1a1a; font-weight: 700;">✅ DELETING A BRANCH ONLY DELETES THE POINTER.</p>
-                        <p style="font-size: 1.2rem; margin-top: 15px; margin-bottom: 0; color: #64748b;">Commits persist in reflog. Nothing is ever truly lost.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> This is THE moment. Delete the branch. Show it's gone. Then show reflog. Say: "The branch is deleted. But look—the commit is still in reflog. The branch was just a pointer. The commit is permanent." This proves branches are truly free. <strong>Timing:</strong> Take your time. Let this sink in.
-            </div>
-        </div>
-
-        <!-- SLIDE 22e: Check Your Understanding - Branches Are Cheap -->
-        <div class="slide slide-cyan">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Check Your Understanding</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Branches Are Cheap</p>
-
-                <div class="check-understanding">
-                    <h3>Quick Quiz</h3>
-                    <div class="question">1. What happens when you create a branch?</div>
-                    <div class="answer">→ Answer: Git creates a pointer to the current commit. No data is copied. It's instant and free.</div>
-
-                    <div class="question">2. If you delete a branch, are the commits lost?</div>
-                    <div class="answer">→ Answer: No. The branch pointer is deleted, but commits remain in reflog. You can recover them forever.</div>
-
-                    <div class="question">3. How many branches can you create?</div>
-                    <div class="answer">→ Answer: As many as you want. Branches are just pointers—they cost nothing. Experiment freely.</div>
-
-                    <div class="question">4. What happens if you break code on an experimental branch?</div>
-                    <div class="answer">→ Answer: The broken code stays isolated on that branch. Main and other branches are unaffected. Just delete the branch if you don't want it.</div>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
-                    <div style="display: flex; align-items: start; gap: 15px;">
-                        <span style="font-size: 2rem; line-height: 1;">📝</span>
-                        <div>
-                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
-                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Branches are free. Experiment fearlessly. Delete without guilt. Commits persist in reflog.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
                     <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore stash—your pause button for uncommitted work</p>
                 </div>
             </div>
@@ -2357,7 +1934,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 23: Real-World Scenario - Stash (NEW) -->
+        <!-- SLIDE 18: Real-World Scenario - Stash (NEW) -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2386,11 +1963,11 @@
             </div>
         </div>
 
-        <!-- SLIDE 24: Superpower #5 - Stash -->
+        <!-- SLIDE 19: Superpower #4 - Stash -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Superpower #5: Stash</h2>
+                <h2>Superpower #4: Stash</h2>
                 <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">The Panic Button</p>
                 <div class="highlight-box">
                     <p style="color: #1a1a1a;"><strong>What it is:</strong> Temporarily save uncommitted work without committing. Perfect for context switching.</p>
@@ -2407,7 +1984,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 24a: Demo - Stash Step 1 -->
+        <!-- SLIDE 19a: Demo - Stash Step 1 -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2439,7 +2016,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 24b: Demo - Stash Step 2 -->
+        <!-- SLIDE 19b: Demo - Stash Step 2 -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2477,7 +2054,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 24c: Demo - Stash Step 3 -->
+        <!-- SLIDE 19c: Demo - Stash Step 3 -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2510,7 +2087,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 24d: Demo - Stash Step 4 -->
+        <!-- SLIDE 19d: Demo - Stash Step 4 -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2549,7 +2126,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 24e: Check Your Understanding - Stash -->
+        <!-- SLIDE 19e: Check Your Understanding - Stash -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2590,7 +2167,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 25: Real-World Scenario - Cherry-pick (NEW) -->
+        <!-- SLIDE 20: Real-World Scenario - Cherry-pick (NEW) -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2615,11 +2192,11 @@
             </div>
         </div>
 
-        <!-- SLIDE 26: Superpower #6 - Cherry-pick -->
+        <!-- SLIDE 21: Superpower #5 - Cherry-pick -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Superpower #6: Cherry-pick</h2>
+                <h2>Superpower #5: Cherry-pick</h2>
                 <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">Surgical Commit Recovery</p>
                 <div class="highlight-box">
                     <p style="color: #1a1a1a;"><strong>What it is:</strong> Pick ONE specific commit from anywhere in history and apply it to your current branch.</p>
@@ -2636,7 +2213,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 26a: Demo - Cherry-pick Step 1 -->
+        <!-- SLIDE 21a: Demo - Cherry-pick Step 1 -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2673,7 +2250,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 26b: Demo - Cherry-pick Step 2 -->
+        <!-- SLIDE 21b: Demo - Cherry-pick Step 2 -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2701,7 +2278,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 26c: Demo - Cherry-pick Step 3 -->
+        <!-- SLIDE 21c: Demo - Cherry-pick Step 3 -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2744,7 +2321,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 26d: Demo - Cherry-pick Step 4 -->
+        <!-- SLIDE 21d: Demo - Cherry-pick Step 4 -->
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2777,7 +2354,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 26e: Check Your Understanding - Cherry-pick -->
+        <!-- SLIDE 21e: Check Your Understanding - Cherry-pick -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2818,7 +2395,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 19: Common Mistakes & Recoveries (NEW) -->
+        <!-- SLIDE 22: Common Mistakes & Recoveries (NEW) -->
         <div class="slide slide-light">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2864,7 +2441,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 20: Professional Safety Rules -->
+        <!-- SLIDE 23: Professional Safety Rules -->
         <div class="slide slide-light">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2896,7 +2473,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 27: Emotional Closure -->
+        <!-- SLIDE 24: Emotional Closure -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2922,7 +2499,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 28: Q&A -->
+        <!-- SLIDE 25: Q&A -->
         <div class="slide slide-teal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2945,7 +2522,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 29: Quick Reference Card -->
+        <!-- SLIDE 26: Quick Reference Card -->
         <div class="slide slide-light quick-reference">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -2958,9 +2535,8 @@
                         <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4;">
                             <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; color: #1a1a1a;">Need to undo something?</p>
                             <ul style="font-size: 1rem; line-height: 1.8; margin-left: 20px; color: #1a1a1a;">
-                                <li><strong style="color: #22c55e;">Local branch?</strong> → <code>git reset</code></li>
-                                <li><strong style="color: #f59e0b;">Shared branch?</strong> → <code>git revert</code></li>
-                                <li><strong style="color: #06b6d4;">Not committed?</strong> → <code>git checkout [file]</code></li>
+                            <li><strong style="color: #22c55e;">Local branch?</strong> → <code>git reset</code></li>
+                            <li><strong style="color: #f59e0b;">Shared branch?</strong> → <code>git revert</code></li>
                             </ul>
                             <p style="font-size: 1rem; font-weight: 600; margin-top: 20px; margin-bottom: 10px; color: #1a1a1a;">Lost a commit?</p>
                             <p style="font-size: 1rem; margin: 0; color: #1a1a1a;">→ <code>git reflog</code> → Find hash → <code>git reset --hard [hash]</code></p>
@@ -2987,10 +2563,6 @@
                                 <tr>
                                     <td><code>git revert [commit]</code></td>
                                     <td>Undo commit (shared branch)</td>
-                                </tr>
-                                <tr>
-                                    <td><code>git checkout [file]</code></td>
-                                    <td>Discard uncommitted changes</td>
                                 </tr>
                                 <tr>
                                     <td><code>git checkout -b [branch]</code></td>
@@ -3027,7 +2599,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 30: Conclusion -->
+        <!-- SLIDE 27: Conclusion -->
         <div class="slide slide-dark">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
@@ -3038,10 +2610,10 @@
                     <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">🎯 Key Takeaways</h3>
                     <ul style="font-size: 1.2rem; line-height: 2; margin: 0; padding-left: 30px; text-align: left;">
                         <li><strong>Reflog is your safety net</strong> - Nothing is ever truly lost</li>
-                        <li><strong>Branches are free</strong> - Experiment without fear</li>
                         <li><strong>Local vs Shared matters</strong> - Reset locally, revert on shared branches</li>
                         <li><strong>Detached HEAD is safe</strong> - It's a playground, not a trap</li>
                         <li><strong>Stash is your pause button</strong> - Context switch with confidence</li>
+                        <li><strong>Cherry-pick is surgical</strong> - Select exactly what you need</li>
                     </ul>
                 </div>
 
@@ -3069,7 +2641,7 @@
     </div>
 
     <div class="slide-counter">
-        <span id="current">1</span> / <span id="total">54</span>
+        <span id="current">1</span> / <span id="total">44</span>
     </div>
 
     <div class="controls">
@@ -3128,10 +2700,9 @@
             const superpowers = [
                 { name: 'Reflog', slideRange: [7, 9] },
                 { name: 'Detached HEAD', slideRange: [10, 12] },
-                { name: 'Reset/Revert/Checkout', slideRange: [13, 20] },
-                { name: 'Branches', slideRange: [21, 22] },
-                { name: 'Stash', slideRange: [23, 24] },
-                { name: 'Cherry-pick', slideRange: [25, 26] }
+                { name: 'Reset/Revert', slideRange: [13, 16] },
+                { name: 'Stash', slideRange: [18, 19] },
+                { name: 'Cherry-pick', slideRange: [20, 21] }
             ];
             
             let html = '';

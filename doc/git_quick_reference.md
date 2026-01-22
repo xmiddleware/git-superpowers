@@ -3,7 +3,7 @@
 
 ---
 
-## THE 6 GIT SUPERPOWERS (At a Glance)
+## THE 5 GIT SUPERPOWERS (At a Glance)
 
 ### 1. Git Reflog — Absolute Recovery
 ```bash
@@ -22,23 +22,14 @@ git checkout main            # Or discard and return
 # SAFETY: Can always go back to main
 ```
 
-### 3. Reset vs Revert vs Checkout — The Decision Matrix
+### 3. Reset vs Revert — The Decision Matrix
 
 | Tool | Use Case | Safety | History |
 |------|----------|--------|---------|
 | **reset** | Undo commits locally | Local only | Rewrites history |
 | **revert** | Undo commits on shared branch | Shared safe | Adds new commit |
-| **checkout** | Discard uncommitted changes | File level | No history |
 
-### 4. Branches Are Cheap — Fearless Experimentation
-```bash
-git checkout -b experiment         # Create branch
-git branch -D experiment           # Delete (commits in reflog)
-# WHEN: Any new idea, any experiment
-# SAFETY: Delete guilt-free, commits persist
-```
-
-### 5. Stash — The Panic Button
+### 4. Stash — The Panic Button
 ```bash
 git stash                    # Save uncommitted work
 git stash pop               # Restore it later
@@ -46,7 +37,7 @@ git stash pop               # Restore it later
 # SAFETY: Work is preserved, can restore anytime
 ```
 
-### 6. Cherry-pick — Surgical Recovery
+### 5. Cherry-pick — Surgical Recovery
 ```bash
 git cherry-pick <commit>    # Take one commit and apply here
 # WHEN: One good commit is on the wrong branch
