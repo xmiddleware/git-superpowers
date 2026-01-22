@@ -805,31 +805,238 @@
             padding: 0;
         }
 
+        /* Progress Toggle Button */
+        .progress-toggle-btn {
+            position: fixed;
+            top: 60px;
+            right: 35px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 51;
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .progress-toggle-btn:hover {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(8, 145, 178, 0.5);
+        }
+
+        .progress-toggle-btn:active {
+            transform: translateY(0);
+        }
+
+        .progress-toggle-btn .icon {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .progress-toggle-btn.active .icon {
+            transform: rotate(180deg);
+        }
+
         /* Progress Indicator */
         .superpower-progress {
             position: fixed;
             top: 60px;
             right: 35px;
-            background: rgba(255,255,255,0.95);
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.98);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             z-index: 50;
+            font-size: 0.85rem;
+            max-width: 280px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, box-shadow 0.3s ease;
+            cursor: move;
+            user-select: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.95);
+        }
+
+        .superpower-progress.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .superpower-progress:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .superpower-progress.dragging {
+            cursor: grabbing;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+        }
+
+        .superpower-progress::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .superpower-progress::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 3px;
+        }
+
+        .superpower-progress::-webkit-scrollbar-thumb {
+            background: rgba(8, 145, 178, 0.3);
+            border-radius: 3px;
+        }
+
+        .superpower-progress::-webkit-scrollbar-thumb:hover {
+            background: rgba(8, 145, 178, 0.5);
+        }
+
+        .progress-header {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0891b2;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(8, 145, 178, 0.2);
+            cursor: move;
+        }
+
+        .progress-header .drag-handle {
+            cursor: grab;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .progress-header .drag-handle::before {
+            content: '⋮⋮';
+            color: rgba(8, 145, 178, 0.5);
             font-size: 0.9rem;
+            line-height: 1;
+        }
+
+        .progress-header .drag-handle:hover {
+            background: rgba(8, 145, 178, 0.1);
+        }
+
+        .progress-header .drag-handle:hover::before {
+            color: rgba(8, 145, 178, 0.8);
+        }
+
+        .progress-header .drag-handle:active {
+            cursor: grabbing;
+        }
+
+        .reset-button {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(8, 145, 178, 0.3);
+        }
+
+        .reset-button:hover {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(8, 145, 178, 0.4);
+        }
+
+        .reset-button:active {
+            transform: translateY(0);
         }
 
         .superpower-progress .progress-item {
-            margin: 5px 0;
+            margin: 4px 0;
             color: #64748b;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .superpower-progress .progress-item::before {
+            content: '▸';
+            position: absolute;
+            left: 8px;
+            color: #cbd5e1;
+            transition: all 0.2s ease;
+        }
+
+        .superpower-progress .progress-item:hover {
+            background: rgba(8, 145, 178, 0.08);
+            color: #0891b2;
+            transform: translateX(3px);
+        }
+
+        .superpower-progress .progress-item:hover::before {
+            color: #0891b2;
+            transform: translateX(2px);
         }
 
         .superpower-progress .progress-item.completed {
             color: #22c55e;
         }
 
+        .superpower-progress .progress-item.completed::before {
+            content: '✓';
+            color: #22c55e;
+        }
+
         .superpower-progress .progress-item.current {
             color: #0891b2;
             font-weight: 600;
+            background: rgba(8, 145, 178, 0.12);
+            border-left: 3px solid #0891b2;
+            padding-left: 21px;
+        }
+
+        .superpower-progress .progress-item.current::before {
+            content: '▶';
+            color: #0891b2;
+            font-weight: bold;
+        }
+
+        .progress-section {
+            margin: 8px 0;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(8, 145, 178, 0.1);
+        }
+
+        .progress-section:first-child {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
         }
 
         /* Common Mistakes Styles */
@@ -921,7 +1128,8 @@
             .slide-counter,
             .keyboard-hint,
             .logo,
-            .superpower-progress {
+            .superpower-progress,
+            .progress-toggle-btn {
                 display: none;
             }
         }
@@ -978,13 +1186,92 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* Responsive styles for progress indicator */
+        @media (max-width: 1200px) {
+            .superpower-progress {
+                max-width: 240px;
+                font-size: 0.8rem;
+                padding: 15px;
+            }
+
+            .progress-toggle-btn {
+                top: 50px;
+                right: 25px;
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .superpower-progress {
+                position: fixed !important;
+                max-width: 90%;
+                max-height: 60vh;
+                left: 50% !important;
+                transform: translateX(-50%) translateY(-10px) scale(0.95);
+                right: auto !important;
+            }
+
+            .superpower-progress.visible {
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+
+            .progress-toggle-btn {
+                top: 40px;
+                right: 15px;
+                padding: 10px 12px;
+            }
+
+            .progress-toggle-btn .btn-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .superpower-progress {
+                font-size: 0.75rem;
+                padding: 12px;
+                max-width: 95%;
+            }
+
+            .progress-header {
+                font-size: 0.9rem;
+            }
+
+            .reset-button {
+                padding: 5px 10px;
+                font-size: 0.7rem;
+            }
+
+            .superpower-progress .progress-item {
+                padding: 6px 8px;
+                padding-left: 20px;
+                font-size: 0.75rem;
+            }
+
+            .progress-toggle-btn {
+                padding: 10px;
+                border-radius: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="keyboard-hint">Use Arrow Keys or Buttons to Navigate • Speaker Notes Below</div>
     
+    <button id="progress-toggle-btn" class="progress-toggle-btn" onclick="toggleProgressPanel()" title="Toggle Learning Progress">
+        <span class="icon">📊</span>
+        <span class="btn-text">Progress</span>
+    </button>
+    
     <div id="superpower-progress" class="superpower-progress">
-        <div class="progress-item" style="font-weight: 600; margin-bottom: 8px; color: #0891b2;">Learning Progress</div>
+        <div class="progress-header">
+            <div class="drag-handle" title="Drag to move">
+                <span>Learning Progress</span>
+            </div>
+            <button class="reset-button" onclick="resetToStart()" title="Go to start">Reset</button>
+        </div>
         <div id="progress-items"></div>
     </div>
     
@@ -2651,9 +2938,16 @@
 
     <script>
         const STORAGE_KEY = 'git-superpowers-current-slide';
+        const PROGRESS_POSITION_KEY = 'git-superpowers-progress-position';
+        const PROGRESS_VISIBILITY_KEY = 'git-superpowers-progress-visible';
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
+        
+        // Progress panel state
+        let isProgressVisible = false;
+        let isDragging = false;
+        let dragOffset = { x: 0, y: 0 };
 
         // Load saved slide from localStorage
         function loadSavedSlide() {
@@ -2692,31 +2986,116 @@
             }
         }
 
-        // Update progress indicator showing which superpower is being covered
+        // Comprehensive list of all slides/sections - dynamically built from actual slides
+        function buildSlideSections() {
+            const slides = document.querySelectorAll('.slide');
+            const sections = [];
+            let currentSection = 'Introduction';
+            
+            slides.forEach((slide, index) => {
+                // Try to extract title from h1 or h2
+                const h1 = slide.querySelector('h1');
+                const h2 = slide.querySelector('h2');
+                let title = h1 ? h1.textContent.trim() : (h2 ? h2.textContent.trim() : `Slide ${index + 1}`);
+                
+                // Determine section based on title or slide index
+                if (title.includes('Reflog') || (index >= 5 && index <= 11)) {
+                    currentSection = 'Reflog';
+                } else if (title.includes('Detached HEAD') || (index >= 12 && index <= 18)) {
+                    currentSection = 'Detached HEAD';
+                } else if (title.includes('Reset') || title.includes('Revert') || (index >= 19 && index <= 24)) {
+                    currentSection = 'Reset/Revert';
+                } else if (title.includes('Stash') || (index >= 25 && index <= 31)) {
+                    currentSection = 'Stash';
+                } else if (title.includes('Cherry-pick') || (index >= 32 && index <= 38)) {
+                    currentSection = 'Cherry-pick';
+                } else if (index >= 39 && index <= 40) {
+                    currentSection = 'Best Practices';
+                } else if (index >= 41) {
+                    currentSection = 'Conclusion';
+                }
+                
+                // Shorten long titles
+                if (title.length > 35) {
+                    title = title.substring(0, 32) + '...';
+                }
+                
+                sections.push({
+                    name: title,
+                    slideIndex: index,
+                    section: currentSection
+                });
+            });
+            
+            return sections;
+        }
+        
+        let slideSections = [];
+
+        // Reset to start function
+        function resetToStart() {
+            showSlide(0);
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigate to specific slide
+        function navigateToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                showSlide(slideIndex);
+                // Smooth scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Update progress indicator showing all slides
         function updateProgressIndicator() {
             const progressContainer = document.getElementById('progress-items');
             if (!progressContainer) return;
             
-            const superpowers = [
-                { name: 'Reflog', slideRange: [7, 9] },
-                { name: 'Detached HEAD', slideRange: [10, 12] },
-                { name: 'Reset/Revert', slideRange: [13, 16] },
-                { name: 'Stash', slideRange: [18, 19] },
-                { name: 'Cherry-pick', slideRange: [20, 21] }
-            ];
+            // Rebuild slide sections if empty (shouldn't happen, but safety check)
+            if (!slideSections || slideSections.length === 0) {
+                slideSections = buildSlideSections();
+            }
+            
+            // Group slides by section
+            const sections = {};
+            slideSections.forEach((item) => {
+                // Only include slides that exist
+                if (item.slideIndex >= 0 && item.slideIndex < totalSlides) {
+                    if (!sections[item.section]) {
+                        sections[item.section] = [];
+                    }
+                    sections[item.section].push(item);
+                }
+            });
             
             let html = '';
-            superpowers.forEach((sp, index) => {
-                const slideNum = currentSlide + 1; // Convert to 1-based
-                let status = '';
-                if (slideNum >= sp.slideRange[0] && slideNum <= sp.slideRange[1]) {
-                    status = 'current';
-                } else if (slideNum > sp.slideRange[1]) {
-                    status = 'completed';
+            const currentSlideNum = currentSlide;
+            const sectionNames = Object.keys(sections);
+            
+            // Iterate through sections
+            sectionNames.forEach((sectionName, sectionIdx) => {
+                // Add section header (except for first section)
+                if (sectionIdx > 0) {
+                    html += `<div class="progress-section">${sectionName}</div>`;
                 }
                 
-                const className = status ? `progress-item ${status}` : 'progress-item';
-                html += `<div class="${className}">${index + 1}. ${sp.name}</div>`;
+                // Add items in this section
+                sections[sectionName].forEach((item) => {
+                    let status = '';
+                    if (currentSlideNum === item.slideIndex) {
+                        status = 'current';
+                    } else if (currentSlideNum > item.slideIndex) {
+                        status = 'completed';
+                    }
+                    
+                    const className = status ? `progress-item ${status}` : 'progress-item';
+                    const slideNumber = item.slideIndex + 1;
+                    // Escape HTML in title to prevent XSS
+                    const safeTitle = item.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+                    html += `<div class="${className}" onclick="navigateToSlide(${item.slideIndex})" title="Go to: ${safeTitle}">${slideNumber}. ${safeTitle}</div>`;
+                });
             });
             
             progressContainer.innerHTML = html;
@@ -2776,6 +3155,168 @@
             }
         }
 
+        // Progress Panel Toggle Functionality
+        function toggleProgressPanel() {
+            const progressPanel = document.getElementById('superpower-progress');
+            const toggleBtn = document.getElementById('progress-toggle-btn');
+            
+            isProgressVisible = !isProgressVisible;
+            
+            if (isProgressVisible) {
+                progressPanel.classList.add('visible');
+                toggleBtn.classList.add('active');
+                toggleBtn.querySelector('.btn-text').textContent = 'Hide';
+                loadProgressPosition();
+            } else {
+                progressPanel.classList.remove('visible');
+                toggleBtn.classList.remove('active');
+                toggleBtn.querySelector('.btn-text').textContent = 'Progress';
+            }
+            
+            // Save visibility state
+            localStorage.setItem(PROGRESS_VISIBILITY_KEY, isProgressVisible.toString());
+        }
+
+        // Drag functionality for progress panel
+        function initProgressDrag() {
+            const progressPanel = document.getElementById('superpower-progress');
+            const dragHandle = progressPanel.querySelector('.progress-header');
+            
+            if (!progressPanel || !dragHandle) return;
+            
+            dragHandle.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDrag);
+            
+            // Touch events for mobile
+            dragHandle.addEventListener('touchstart', startDragTouch, { passive: false });
+            document.addEventListener('touchmove', dragTouch, { passive: false });
+            document.addEventListener('touchend', stopDrag);
+        }
+
+        function startDrag(e) {
+            if (!isProgressVisible) return;
+            const progressPanel = document.getElementById('superpower-progress');
+            isDragging = true;
+            progressPanel.classList.add('dragging');
+            
+            const rect = progressPanel.getBoundingClientRect();
+            dragOffset.x = e.clientX - rect.left;
+            dragOffset.y = e.clientY - rect.top;
+            
+            e.preventDefault();
+        }
+
+        function startDragTouch(e) {
+            if (!isProgressVisible) return;
+            const progressPanel = document.getElementById('superpower-progress');
+            isDragging = true;
+            progressPanel.classList.add('dragging');
+            
+            const touch = e.touches[0];
+            const rect = progressPanel.getBoundingClientRect();
+            dragOffset.x = touch.clientX - rect.left;
+            dragOffset.y = touch.clientY - rect.top;
+            
+            e.preventDefault();
+        }
+
+        function drag(e) {
+            if (!isDragging || !isProgressVisible) return;
+            const progressPanel = document.getElementById('superpower-progress');
+            
+            const x = e.clientX - dragOffset.x;
+            const y = e.clientY - dragOffset.y;
+            
+            setProgressPosition(x, y);
+            e.preventDefault();
+        }
+
+        function dragTouch(e) {
+            if (!isDragging || !isProgressVisible) return;
+            const progressPanel = document.getElementById('superpower-progress');
+            const touch = e.touches[0];
+            
+            const x = touch.clientX - dragOffset.x;
+            const y = touch.clientY - dragOffset.y;
+            
+            setProgressPosition(x, y);
+            e.preventDefault();
+        }
+
+        function stopDrag() {
+            if (isDragging) {
+                isDragging = false;
+                const progressPanel = document.getElementById('superpower-progress');
+                if (progressPanel) {
+                    progressPanel.classList.remove('dragging');
+                    saveProgressPosition();
+                }
+            }
+        }
+
+        function setProgressPosition(x, y) {
+            const progressPanel = document.getElementById('superpower-progress');
+            const toggleBtn = document.getElementById('progress-toggle-btn');
+            if (!progressPanel) return;
+            
+            // Constrain to viewport
+            const maxX = window.innerWidth - progressPanel.offsetWidth;
+            const maxY = window.innerHeight - progressPanel.offsetHeight;
+            
+            // Ensure minimum distance from edges
+            const minMargin = 10;
+            const constrainedX = Math.max(minMargin, Math.min(x, maxX - minMargin));
+            const constrainedY = Math.max(minMargin, Math.min(y, maxY - minMargin));
+            
+            progressPanel.style.left = constrainedX + 'px';
+            progressPanel.style.top = constrainedY + 'px';
+            progressPanel.style.right = 'auto';
+        }
+
+        function saveProgressPosition() {
+            const progressPanel = document.getElementById('superpower-progress');
+            if (!progressPanel) return;
+            
+            const rect = progressPanel.getBoundingClientRect();
+            const position = {
+                x: rect.left,
+                y: rect.top
+            };
+            
+            localStorage.setItem(PROGRESS_POSITION_KEY, JSON.stringify(position));
+        }
+
+        function loadProgressPosition() {
+            const progressPanel = document.getElementById('superpower-progress');
+            if (!progressPanel) return;
+            
+            const saved = localStorage.getItem(PROGRESS_POSITION_KEY);
+            if (saved) {
+                try {
+                    const position = JSON.parse(saved);
+                    setProgressPosition(position.x, position.y);
+                } catch (e) {
+                    console.error('Failed to load progress position:', e);
+                }
+            }
+        }
+
+        function loadProgressVisibility() {
+            const saved = localStorage.getItem(PROGRESS_VISIBILITY_KEY);
+            if (saved === 'true') {
+                isProgressVisible = true;
+                const progressPanel = document.getElementById('superpower-progress');
+                const toggleBtn = document.getElementById('progress-toggle-btn');
+                if (progressPanel && toggleBtn) {
+                    progressPanel.classList.add('visible');
+                    toggleBtn.classList.add('active');
+                    toggleBtn.querySelector('.btn-text').textContent = 'Hide';
+                    loadProgressPosition();
+                }
+            }
+        }
+
         // Copy to clipboard functionality
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
@@ -2803,6 +3344,9 @@
         // Initialize
         document.getElementById('total').textContent = totalSlides;
         
+        // Build slide sections dynamically
+        slideSections = buildSlideSections();
+        
         // Load saved slide or start at beginning
         const savedSlideIndex = loadSavedSlide();
         showSlide(savedSlideIndex);
@@ -2810,6 +3354,12 @@
         
         // Initialize progress indicator
         updateProgressIndicator();
+        
+        // Initialize progress panel drag functionality
+        initProgressDrag();
+        
+        // Load saved progress panel visibility and position
+        loadProgressVisibility();
     </script>
 </body>
 </html>
