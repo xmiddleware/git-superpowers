@@ -60,7 +60,14 @@ This is a **production-ready, comprehensive Git Superpowers workshop** designed 
    - Audience response indicators
    - Recovery protocols
 
-8. **README.md** (THIS FILE)
+8. **git_merge_vs_rebase.md** (Reference)
+   - Comprehensive guide to merge vs rebase
+   - When to use each approach
+   - Practical examples and workflows
+   - Decision matrix and best practices
+   - Troubleshooting common scenarios
+
+9. **README.md** (THIS FILE)
    - Quick orientation guide
 
 ---
@@ -194,6 +201,7 @@ This is where fear dies. An audience member will see:
 | git_superpowers.html | Present | Live | The slides |
 | git_visual_guide.md | Reference | As needed | Visual overview |
 | git_advanced_tips.md | Reference | As needed | Troubleshooting |
+| git_merge_vs_rebase.md | Reference | As needed | Merge vs Rebase guide |
 
 ---
 
@@ -369,6 +377,7 @@ You'll know it worked when:
 5. **git_quick_reference.md** (print/phone) — Day of reference
 6. **git_visual_guide.md** (reference) — Visual clarification
 7. **git_advanced_tips.md** (reference) — Troubleshooting
+8. **git_merge_vs_rebase.md** (reference) — Merge vs Rebase guide
 
 ---
 
