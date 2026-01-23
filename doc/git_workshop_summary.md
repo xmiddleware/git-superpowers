@@ -3,7 +3,7 @@
 ## Summary Document
 **Prepared for: Nick Zavlagkas | Agile Actors**
 **Date: Friday Workshop**
-**Duration: 60 minutes | 44 slides | 5 live demos** (Focused on advanced recovery techniques)
+**Duration: 60 minutes | 44 slides | 6 live demos** (Focused on advanced recovery techniques)
 
 ---
 
@@ -106,7 +106,7 @@
 
 ### 48 Hours Before
 - [ ] Download all 5 files
-- [ ] Test opening git_superpowers.html in browser
+- [ ] Test opening index.html in browser
 - [ ] Verify Git is installed: `git --version`
 - [ ] Read this document (you're doing it!)
 

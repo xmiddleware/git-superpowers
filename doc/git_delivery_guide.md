@@ -7,7 +7,7 @@
 
 ### 1. Download & Open Presentation
 ```bash
-# The presentation file: git_superpowers.html
+# The presentation file: index.html
 # Open in browser: Chrome, Firefox, Safari, Edge
 # Controls: Arrow keys or buttons for navigation
 # Speaker notes appear at bottom of each slide
@@ -100,24 +100,56 @@ Date:   [timestamp]
   5. "It's back. Nothing is ever lost."
 - **Audience moment:** They'll see fear was unjustified.
 
+#### TRANSITION: From Reflog to Detached HEAD
+- **Message:** "Reflog proves you're safe. Now use that safety to explore fearlessly."
+- **Script:** "You know nothing is lost. Now let's use that confidence to experiment. Detached HEAD is your playground."
+- **Timing:** 1-2 minutes
+
 #### SLIDES 8-9: Superpower #2 - Detached HEAD
 - **Message:** "This is a playground. You can break everything safely."
 - **Demo:** Checkout old commit → modify code → create branch or discard
 - **Key insight:** "If you want to keep work, branch it. If you don't, discard it. Zero risk."
 
-#### SLIDES 13-16: Superpower #3 - Reset vs Revert
+#### TRANSITION: From Detached HEAD to Merge vs Rebase
+- **Message:** "You've explored safely. Now choose how to integrate your work."
+- **Script:** "You've experimented. You have work on a branch. How do you bring it together? That's where merge and rebase come in."
+- **Timing:** 1-2 minutes
+
+#### SLIDES 13-16: Superpower #3 - Merge vs Rebase
+- **THIS IS CRITICAL INTEGRATION STRATEGY**
+- **Merge:** Combines branches, preserves history (safe for shared branches)
+- **Rebase:** Replays commits, creates linear history (local branches only)
+- **Decision Matrix:** Shows when to use each integration method
+- **Demo both approaches** so they see when to use each
+
+#### TRANSITION: From Merge vs Rebase to Reset vs Revert
+- **Message:** "You know how to integrate. Now learn how to undo when needed."
+- **Script:** "You've integrated your work. But what if you made a mistake? What if you need to undo? That's where reset, revert, and checkout come in."
+- **Timing:** 1-2 minutes
+
+#### SLIDES 17-20: Superpower #4 - Reset vs Revert
 - **THIS IS CRITICAL DECISION FRAMEWORK**
 - **Reset:** Local history rewriting (safe on local only)
 - **Revert:** Create undo commit (safe on shared branches)
 - **Decision Matrix:** Shows when to use each tool
 - **Demo same mistake two ways** so they see when to use each
 
-#### SLIDE 18: Superpower #4 - Stash
+#### TRANSITION: From Reset vs Revert to Stash
+- **Message:** "You can undo commits. Now learn to pause uncommitted work."
+- **Script:** "You know how to undo commits. But what if you're halfway through work and need to switch? That's where stash comes in—the pause button."
+- **Timing:** 1-2 minutes
+
+#### SLIDE 21: Superpower #5 - Stash
 - **Context:** "Halfway through code. Emergency happens."
 - **Solution:** Stash → context switch → come back → unstash
 - **Message:** "Stash is psychological relief. Your work is safe."
 
-#### SLIDE 20: Superpower #5 - Cherry-pick
+#### TRANSITION: From Stash to Cherry-pick
+- **Message:** "You can pause work. Now learn to pick exactly what you need."
+- **Script:** "You can pause work with stash. But what if you only want one specific commit from another branch? That's cherry-pick—surgical precision."
+- **Timing:** 1-2 minutes
+
+#### SLIDE 22: Superpower #6 - Cherry-pick
 - **Use case:** "One good commit is on the wrong branch"
 - **Solution:** "Cherry-pick it to current branch"
 - **Message:** "Cherry-pick is selective, surgical recovery."
@@ -223,7 +255,50 @@ echo "We're back on main. The experiment is isolated."
 
 ---
 
-### Demo 4: Reset vs Revert vs Checkout (8 minutes)
+### Demo 4: Merge vs Rebase (6 minutes)
+```bash
+# Setup: Create a feature branch with commits
+git checkout -b feature-branch
+echo "Feature A" > feature.txt
+git add feature.txt
+git commit -m "Add feature A"
+echo "Feature B" > feature2.txt
+git add feature2.txt
+git commit -m "Add feature B"
+
+# Meanwhile, main gets updates
+git checkout main
+echo "Update" > main-update.txt
+git add main-update.txt
+git commit -m "Update main"
+
+# --- STRATEGY 1: Merge ---
+echo "Strategy 1: Merge (preserves history)"
+git merge feature-branch
+git log --oneline --graph --all
+echo "See the merge commit? History shows branches diverged and merged."
+
+# Reset for strategy 2
+git reset --hard HEAD~1
+
+# --- STRATEGY 2: Rebase ---
+echo "Strategy 2: Rebase (linear history)"
+git checkout feature-branch
+git rebase main
+git log --oneline --graph
+echo "See? Linear history. Looks like work was done sequentially."
+
+# Merge to main (fast-forward)
+git checkout main
+git merge feature-branch
+git log --oneline --graph
+echo "Fast-forward merge. Clean, linear history."
+```
+**Message:** "Merge preserves context. Rebase creates clean history. Choose based on your needs."
+
+---
+
+### Demo 5: Reset vs Revert vs Checkout (8 minutes)
 ```bash
 # Create a bad commit
 echo "BAD CODE" > src/Main.java
@@ -265,7 +340,7 @@ echo "File is clean. Unstaged changes are gone."
 
 ---
 
-### Demo 5: Stash & Cherry-pick (4 minutes)
+### Demo 6: Stash & Cherry-pick (4 minutes)
 ```bash
 # --- STASH DEMO ---
 echo "HALFWAY THROUGH" > src/Main.java

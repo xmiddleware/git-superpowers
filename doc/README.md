@@ -198,7 +198,7 @@ This is where fear dies. An audience member will see:
 | git_superpowers_setup.md | Tonight | 30 min | Create project |
 | git_delivery_guide.md | Tonight | Read once | Master content |
 | git_quick_reference.md | Day Of | Keep handy | Quick lookup |
-| git_superpowers.html | Present | Live | The slides |
+| index.html | Present | Live | The slides |
 | git_visual_guide.md | Reference | As needed | Visual overview |
 | git_advanced_tips.md | Reference | As needed | Troubleshooting |
 | git_merge_vs_rebase.md | Reference | As needed | Merge vs Rebase guide |
@@ -209,7 +209,7 @@ This is where fear dies. An audience member will see:
 
 ### 48 Hours Before:
 - [ ] Extract all files to "Git Workshop" folder
-- [ ] Open git_superpowers.html in browser (test it works)
+- [ ] Open index.html in browser (test it works)
 - [ ] Verify Git installed: `git --version`
 - [ ] Read git_workshop_summary.md
 
@@ -220,7 +220,7 @@ This is where fear dies. An audience member will see:
 - [ ] Verify git log shows your commit
 
 ### 2 Hours Before:
-- [ ] Run all 5 demos from git_quick_reference.md
+- [ ] Run all 6 demos from git_quick_reference.md
 - [ ] Test terminal font size
 - [ ] Open presentation, verify it works
 - [ ] Print git_quick_reference.md (or keep on phone)
@@ -233,15 +233,17 @@ This is where fear dies. An audience member will see:
 
 ---
 
-## 🎬 THE 5 DEMOS (Quick Summary)
+## 🎬 THE 6 DEMOS (Quick Summary)
 
 | Demo | Focus | Time | Key Message |
 |------|-------|------|-------------|
 | 1 | Project Setup | 2 min | "Snapshot is immutable" |
 | 2 ⭐ | Reflog Recovery | 7 min | "Nothing is ever lost" |
 | 3 | Detached HEAD | 6 min | "Safe exploration" |
-| 4 | Reset/Revert | 8 min | "Choose the right tool" |
-| 5 | Stash & Cherry-pick | 4 min | "Flexibility & precision" |
+| 4 | Merge vs Rebase | 6 min | "Integration strategy" |
+| 5 | Reset/Revert | 8 min | "Choose the right tool" |
+| 6 | Stash | 4 min | "The panic button" |
+| 7 | Cherry-pick | 4 min | "Surgical precision" |
 
 ---
 

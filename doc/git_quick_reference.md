@@ -3,7 +3,7 @@
 
 ---
 
-## THE 5 GIT SUPERPOWERS (At a Glance)
+## THE 6 GIT SUPERPOWERS (At a Glance)
 
 ### 1. Git Reflog — Absolute Recovery
 ```bash
@@ -22,14 +22,23 @@ git checkout main            # Or discard and return
 # SAFETY: Can always go back to main
 ```
 
-### 3. Reset vs Revert — The Decision Matrix
+### 3. Merge vs Rebase — Integration Strategy
+```bash
+git merge <branch>          # Combine branches (preserves history)
+git rebase <branch>         # Replay commits (linear history)
+# WHEN: Integrating work from one branch to another
+# SAFETY: Merge safe for shared, rebase for local only
+# DECISION: Merge preserves context, rebase creates clean history
+```
+
+### 4. Reset vs Revert — The Decision Matrix
 
 | Tool | Use Case | Safety | History |
 |------|----------|--------|---------|
 | **reset** | Undo commits locally | Local only | Rewrites history |
 | **revert** | Undo commits on shared branch | Shared safe | Adds new commit |
 
-### 4. Stash — The Panic Button
+### 5. Stash — The Panic Button
 ```bash
 git stash                    # Save uncommitted work
 git stash pop               # Restore it later
@@ -37,7 +46,7 @@ git stash pop               # Restore it later
 # SAFETY: Work is preserved, can restore anytime
 ```
 
-### 5. Cherry-pick — Surgical Recovery
+### 6. Cherry-pick — Surgical Recovery
 ```bash
 git cherry-pick <commit>    # Take one commit and apply here
 # WHEN: One good commit is on the wrong branch
@@ -84,7 +93,20 @@ git checkout -b experiment-branch    # Save as branch
 git checkout main                    # Or return clean
 ```
 
-### Demo 4: Reset/Revert/Checkout
+### Demo 4: Merge vs Rebase
+```bash
+# Merge approach
+git checkout main
+git merge feature-branch
+git log --oneline --graph --all  # Shows merge commit
+
+# Rebase approach
+git checkout feature-branch
+git rebase main
+git log --oneline --graph  # Shows linear history
+```
+
+### Demo 5: Reset/Revert/Checkout
 ```bash
 # Reset approach
 git reset --hard HEAD~1
@@ -96,16 +118,16 @@ git revert HEAD
 git checkout src/Main.java
 ```
 
-### Demo 5: Branches
+### Demo 6: Stash
 ```bash
-git checkout -b branch1 && git checkout -b branch2 && git checkout -b branch3
-echo "CHAOS" > src/Main.java && git add . && git commit -m "Chaos"
+echo "WIP" > src/Main.java && git stash
+git checkout -b hotfix
+# ... fix emergency ...
 git checkout main
-git branch -D branch3
-git reflog                # Commits still there!
+git stash pop
 ```
 
-### Demo 6: Stash & Cherry-pick
+### Demo 7: Cherry-pick
 ```bash
 # Stash
 echo "WIP" > src/Main.java && git stash
@@ -205,34 +227,37 @@ git branch -v                # Show branches
 
 ---
 
-## TIMING GUIDE (Updated for 28 Slides)
+## TIMING GUIDE (Updated for 6 Superpowers with Transitions)
 
 - **3 min:** Title & Welcome (Slide 1)
-- **4 min:** Project Setup Demo (Slide 2) ← MOVED EARLIER
+- **4 min:** Project Setup Demo (Slide 2)
 - **3 min:** Git Is Not Dangerous (Slide 3)
 - **3 min:** How Git Really Works (Slide 4)
-- **3 min:** Visual Git State Diagram (Slide 5) ← NEW
-- **2 min:** Debunk Myths (Slide 6)
-- **2 min:** Real-World Scenario - Reflog (Slide 7) ← NEW
-- **7 min:** Reflog Demo (Slides 8-9) ← KEY
-- **3 min:** Check Your Understanding (Slide 10) ← NEW
-- **2 min:** Real-World Scenario - Detached HEAD (Slide 11) ← NEW
-- **6 min:** Detached HEAD (Slides 12-13)
-- **2 min:** Real-World Scenario - Three Ways (Slide 14) ← NEW
-- **10 min:** Reset/Revert/Checkout + Matrix (Slides 15-18) ← BROKEN DOWN
-- **5 min:** Demo - Three Undo Strategies (Slide 19) ← ENHANCED
-- **2 min:** Real-World Scenario - Branches (Slide 20) ← NEW
-- **5 min:** Branches (Slide 21)
-- **2 min:** Real-World Scenario - Stash (Slide 22) ← NEW
-- **4 min:** Stash (Slide 23)
-- **2 min:** Real-World Scenario - Cherry-pick (Slide 24) ← NEW
-- **4 min:** Cherry-pick (Slide 25)
-- **4 min:** Common Mistakes (Slide 26) ← NEW
-- **3 min:** Professional Rules (Slide 27)
-- **2 min:** Emotional Closure (Slide 28)
-- **15 min:** Q&A (Slide 29)
+- **2 min:** Debunk Myths (Slide 5)
+- **2 min:** Real-World Scenario - Reflog (Slide 6)
+- **7 min:** Superpower #1: Reflog Demo (Slides 7-9) ← KEY MOMENT
+- **3 min:** Check Your Understanding - Reflog (Slide 10)
+- **1-2 min:** TRANSITION: You're Safe. Now Explore. (Slide 11)
+- **2 min:** Real-World Scenario - Detached HEAD (Slide 12)
+- **6 min:** Superpower #2: Detached HEAD Demo (Slides 13-14)
+- **1-2 min:** TRANSITION: Exploration Complete. Time to Integrate. (Slide 15)
+- **2 min:** Real-World Scenario - Merge vs Rebase (Slide 16)
+- **6 min:** Superpower #3: Merge vs Rebase Demo (Slides 17-19)
+- **1-2 min:** TRANSITION: Integration Done. Sometimes You Need to Undo. (Slide 20)
+- **2 min:** Real-World Scenario - Reset vs Revert (Slide 21)
+- **8 min:** Superpower #4: Reset/Revert/Checkout Demo (Slides 22-24)
+- **1-2 min:** TRANSITION: Undo Strategies Mastered. What About Mid-Work? (Slide 25)
+- **2 min:** Real-World Scenario - Stash (Slide 26)
+- **4 min:** Superpower #5: Stash Demo (Slide 27)
+- **1-2 min:** TRANSITION: Context Switching Handled. Now for Precision. (Slide 28)
+- **2 min:** Real-World Scenario - Cherry-pick (Slide 29)
+- **4 min:** Superpower #6: Cherry-pick Demo (Slide 30)
+- **4 min:** Common Mistakes & Recoveries (Slide 31)
+- **3 min:** Professional Rules (Slide 32)
+- **2 min:** Emotional Closure (Slide 33)
+- **15 min:** Q&A (Slide 34)
 
-**Total: ~75 minutes** (Extended due to enhanced content)
+**Total: ~75-80 minutes** (Includes transitions connecting superpowers)
 
 ---
 
@@ -299,7 +324,7 @@ You'll know the workshop worked when attendees say:
 ## QUICK LINKS
 
 **File References:**
-1. `git_superpowers.html` — Full presentation (open in browser)
+1. `index.html` — Full presentation (open in browser)
 2. `git_superpowers_setup.md` — Pre-workshop preparation
 3. `git_delivery_guide.md` — Complete delivery script
 4. `git_advanced_tips.md` — Troubleshooting & advanced tips
