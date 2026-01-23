@@ -1780,12 +1780,12 @@
             </div>
         </div>
 
-        <!-- TRANSITION: From Detached HEAD to Merge vs Rebase -->
+        <!-- TRANSITION: From Detached HEAD to Reset vs Revert -->
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Exploration Complete. Time to Integrate.</h2>
-                <p class="subtitle" style="margin-top: 40px; margin-bottom: 50px;">Connecting Your Work</p>
+                <h2>Exploration Complete. Sometimes You Need to Undo.</h2>
+                <p class="subtitle" style="margin-top: 40px; margin-bottom: 50px;">Recovery Strategies</p>
                 
                 <div class="highlight-box" style="margin-top: 30px; margin-bottom: 40px;">
                     <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">What We Just Learned</h3>
@@ -1795,344 +1795,15 @@
 
                 <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.15);">
                     <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">What's Next</h3>
-                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;"><strong>Merge vs Rebase</strong> — When your feature branch is ready, how do you integrate it? Two strategies, each with its place.</p>
-                </div>
-
-                <div style="margin-top: 50px; text-align: center;">
-                    <p style="font-size: 1.4rem; color: #0891b2; font-weight: 600;">You've explored safely. Now choose how to bring it all together.</p>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "You've experimented safely. Now you have work on a branch. How do you integrate it? That's where merge and rebase come in." <strong>Timing:</strong> 1-2 minutes.
-            </div>
-        </div>
-
-        <!-- SLIDE 13: Real-World Scenario - Merge vs Rebase (NEW) -->
-        <div class="slide slide-dark">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Real-World Scenario</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Integration Question</p>
-
-                <div class="scenario-box">
-                    <h3>💼 The Situation</h3>
-                    <p>You've finished your feature branch. It's time to integrate it into <code>main</code>.</p>
-                    <p style="margin-top: 15px;">You ask yourself: <strong>"Should I merge or rebase?"</strong></p>
-                    <p style="margin-top: 15px;">Both integrate your changes, but they do it differently:</p>
-                    <ul style="margin-left: 30px; margin-top: 15px;">
-                        <li><strong>Merge</strong> preserves the exact history—shows when branches diverged</li>
-                        <li><strong>Rebase</strong> creates linear history—looks like work was done sequentially</li>
-                    </ul>
-                    <p style="margin-top: 20px; font-weight: 600; color: #0891b2;">Which one should you use? It depends on your context.</p>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> This is one of the most common questions in Git. Set up the scenario: "You've finished your feature. Now what? Merge or rebase?" Both work, but they create different histories. The choice matters.
-            </div>
-        </div>
-
-        <!-- SLIDE 13b: Superpower #3 - Merge vs Rebase -->
-        <div class="slide slide-light">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Superpower #3: Merge vs Rebase</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Two Ways to Integrate Branches</p>
-
-                <div style="max-width: 1200px; margin: 0 auto;">
-                    <div class="two-column" style="grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
-                        <div>
-                            <h3 style="color: #22c55e; margin-bottom: 20px; font-size: 1.6rem;">Merge</h3>
-                            <div class="highlight-box" style="border-left-color: #22c55e; margin-bottom: 20px;">
-                                <p style="color: #1a1a1a; margin-bottom: 0;"><strong>What it does:</strong> Combines branches by creating a merge commit with two parents</p>
-                            </div>
-                            
-                            <div class="code-step" style="margin: 15px 0; border-left-color: #22c55e;">
-                                <div class="code-step-label" style="color: #22c55e;">Command</div>
-                                <div class="code-step-content" style="font-size: 1rem; line-height: 1.8;">
-                                    git checkout main<br>
-                                    git merge feature-branch
-                                </div>
-                            </div>
-
-                            <ul style="font-size: 1.1rem; line-height: 1.8; margin-top: 15px; padding-left: 25px;">
-                                <li>✅ Preserves exact history</li>
-                                <li>✅ Safe for shared branches</li>
-                                <li>✅ Shows branch context</li>
-                                <li>⚠️ Creates merge commits</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 style="color: #f59e0b; margin-bottom: 20px; font-size: 1.6rem;">Rebase</h3>
-                            <div class="highlight-box" style="border-left-color: #f59e0b; margin-bottom: 20px;">
-                                <p style="color: #1a1a1a; margin-bottom: 0;"><strong>What it does:</strong> Replays commits on top of target branch, creating linear history</p>
-                            </div>
-                            
-                            <div class="code-step" style="margin: 15px 0; border-left-color: #f59e0b;">
-                                <div class="code-step-label" style="color: #f59e0b;">Command</div>
-                                <div class="code-step-content" style="font-size: 1rem; line-height: 1.8;">
-                                    git checkout feature-branch<br>
-                                    git rebase main
-                                </div>
-                            </div>
-
-                            <ul style="font-size: 1.1rem; line-height: 1.8; margin-top: 15px; padding-left: 25px;">
-                                <li>✅ Linear, clean history</li>
-                                <li>✅ No merge commits</li>
-                                <li>✅ Easier to review</li>
-                                <li>⚠️ Rewrites history (local only!)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box" style="margin-top: 30px; text-align: center; border-left-color: #0891b2;">
-                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a; font-weight: 600;">💡 Key Difference:</p>
-                        <p style="font-size: 1.2rem; margin-top: 10px; margin-bottom: 0; color: #1a1a1a;">Merge preserves history. Rebase creates linear history. Both are valid—choose based on context.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Merge and rebase both integrate branches, but they create different histories. Merge preserves the exact story. Rebase creates a linear timeline. Neither is wrong—they serve different purposes." Show the side-by-side comparison. Point out the key difference: merge creates merge commits, rebase rewrites history.
-            </div>
-        </div>
-
-        <!-- SLIDE 13c: Demo - Merge vs Rebase: Visual Comparison -->
-        <div class="slide slide-cyan" id="merge-rebase-demo-slide">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Demo: Merge vs Rebase ⭐</h2>
-                <p class="subtitle" style="margin-top: 20px; margin-bottom: 20px;">Both solve the same problem: integrating changes from one branch into another</p>
-                <p class="subtitle" style="margin-top: 10px; margin-bottom: 30px; font-size: 1.1rem; color: #0891b2;">They just do it in very different ways</p>
-
-                <div style="max-width: 1400px; margin: 0 auto;">
-                    <!-- Starting State Section -->
-                    <div class="code-step" style="margin: 20px auto; max-width: 900px; background: rgba(6, 182, 212, 0.12); border-left: 4px solid #0891b2;">
-                        <div class="code-step-label" style="color: #0891b2; font-weight: 600; font-size: 1.1rem;">📊 Scenario: Forked History</div>
-                        <div class="code-step-content" style="font-size: 1.05rem; line-height: 2; font-family: 'Courier New', monospace; padding: 15px 0;">
-                            main:     A---B---C  (upstream changes)<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br>
-                            feature:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D---E---F  (your feature work)
-                        </div>
-                        <p style="font-size: 0.95rem; color: #666; margin-top: 10px; margin-bottom: 0; padding: 0 15px; font-style: italic;">You're working on a feature branch, and main has new commits. How do you integrate them?</p>
-                    </div>
-
-                    <!-- Two Column Layout for Graphs -->
-                    <div class="two-column" style="grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; align-items: start;">
-                        <!-- Merge Graph -->
-                        <div>
-                            <h4 style="color: #22c55e; margin-bottom: 15px; text-align: center; font-size: 1.4rem; font-weight: 600;">🔄 The Merge Option</h4>
-                            <p style="text-align: center; font-size: 0.95rem; color: #666; margin-bottom: 15px; font-style: italic;">Non-destructive: existing branches are not changed</p>
-                            <div class="code-step" style="margin: 15px 0; border-left-color: #22c55e; border-left-width: 4px;">
-                                <div class="code-step-label" style="color: #22c55e; font-weight: 600;">Commands</div>
-                                <div class="code-step-content" style="font-size: 1rem; line-height: 2; font-family: 'Courier New', monospace;">
-                                    $ git checkout feature<br>
-                                    $ git merge main
-                                </div>
-                            </div>
-                            <div class="highlight-box" style="margin-top: 15px; border-left-color: #22c55e; border-left-width: 4px; background: rgba(34, 197, 94, 0.12); padding: 15px;">
-                                <p style="font-size: 1.05rem; margin: 5px 0; color: #1a1a1a; line-height: 1.6;">
-                                    <strong style="color: #22c55e;">✓ Creates merge commit M:</strong> Has two parents (C and F)<br>
-                                    <strong style="color: #22c55e;">✓ Non-destructive:</strong> Preserves exact history as it happened<br>
-                                    <strong style="color: #22c55e;">✓ Safe for shared branches:</strong> Shows complete development story<br>
-                                    <strong style="color: #22c55e;">⚠️ Trade-off:</strong> Can create many merge commits if main is very active
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Rebase Graph -->
-                        <div>
-                            <h4 style="color: #f59e0b; margin-bottom: 15px; text-align: center; font-size: 1.4rem; font-weight: 600;">📏 The Rebase Option</h4>
-                            <p style="text-align: center; font-size: 0.95rem; color: #666; margin-bottom: 15px; font-style: italic;">Replays your commits on top of main, creating linear history</p>
-                            <div class="code-step" style="margin: 15px 0; border-left-color: #f59e0b; border-left-width: 4px;">
-                                <div class="code-step-label" style="color: #f59e0b; font-weight: 600;">Commands</div>
-                                <div class="code-step-content" style="font-size: 1rem; line-height: 2; font-family: 'Courier New', monospace;">
-                                    $ git checkout feature<br>
-                                    $ git rebase main<br>
-                                    <span style="color: #999; font-size: 0.9rem;"># (Then merge back to main)</span><br>
-                                    $ git checkout main<br>
-                                    $ git merge feature  <span style="color: #22c55e;"># Fast-forward!</span>
-                                </div>
-                            </div>
-                            <div class="code-step" style="margin: 15px 0; border-left-color: #f59e0b; border-left-width: 4px; background: rgba(255,255,255,0.95);">
-                                <div class="code-step-label" style="color: #f59e0b; font-weight: 600;">Rebase Result: Linear History</div>
-                                <div class="code-step-content" style="font-size: 1.05rem; line-height: 2; font-family: 'Courier New', monospace; padding: 15px 0;">
-                                    main:     A---B---C---D'---E'---F'  (linear history)<br>
-                                    <span style="color: #64748b; font-size: 0.9rem;"># D', E', F' are new commits (replayed on top of C)</span><br>
-                                    <span style="color: #64748b; font-size: 0.9rem;"># Original D, E, F remain in reflog</span>
-                                </div>
-                            </div>
-                            <div class="highlight-box" style="margin-top: 15px; border-left-color: #f59e0b; border-left-width: 4px; background: rgba(245, 158, 11, 0.12); padding: 15px;">
-                                <p style="font-size: 1.05rem; margin: 5px 0; color: #1a1a1a; line-height: 1.6;">
-                                    <strong style="color: #f59e0b;">✓ Linear history:</strong> No merge commits, clean timeline<br>
-                                    <strong style="color: #f59e0b;">✓ Commits replayed:</strong> D', E', F' are new (replayed on top of C)<br>
-                                    <strong style="color: #f59e0b;">✓ Fast-forward merge:</strong> After rebase, merge is simple<br>
-                                    <strong style="color: #ef4444;">🚨 Golden Rule:</strong> <strong>Only on local/private branches!</strong> Never rebase public/shared branches
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Key Differences Summary -->
-                    <div class="highlight-box" style="margin-top: 35px; border-left-color: #0891b2; border-left-width: 5px; background: rgba(6, 182, 212, 0.12); padding: 25px;">
-                        <p style="font-size: 1.4rem; margin-bottom: 20px; color: #1a1a1a; font-weight: 600; text-align: center;">💡 Key Differences & When to Use Each</p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
-                            <div style="padding: 18px; background: rgba(34, 197, 94, 0.08); border-radius: 6px; border: 2px solid rgba(34, 197, 94, 0.3);">
-                                <p style="font-size: 1.2rem; margin: 0 0 12px 0; color: #22c55e; font-weight: 600;">Merge: Non-Destructive</p>
-                                <p style="font-size: 1.05rem; margin: 8px 0; color: #1a1a1a; line-height: 1.7;">
-                                    <strong>How it works:</strong> Creates merge commit with <strong>two parents</strong><br>
-                                    <strong>History:</strong> Preserves exact branch context<br>
-                                    <strong>Use when:</strong><br>
-                                    • Working on <strong>shared/public branches</strong> (main, develop)<br>
-                                    • You want to preserve the <strong>complete development story</strong><br>
-                                    • Team prefers merge workflow<br>
-                                    <strong style="color: #22c55e;">✓ Always safe</strong> - never rewrites history
-                                </p>
-                            </div>
-                            <div style="padding: 18px; background: rgba(245, 158, 11, 0.08); border-radius: 6px; border: 2px solid rgba(245, 158, 11, 0.3);">
-                                <p style="font-size: 1.2rem; margin: 0 0 12px 0; color: #f59e0b; font-weight: 600;">Rebase: Linear History</p>
-                                <p style="font-size: 1.05rem; margin: 8px 0; color: #1a1a1a; line-height: 1.7;">
-                                    <strong>How it works:</strong> Replays commits on top → creates <strong>linear history</strong><br>
-                                    <strong>History:</strong> Looks like sequential work (no merge commits)<br>
-                                    <strong>Use when:</strong><br>
-                                    • Working on <strong>local/private branches</strong> (only you use it)<br>
-                                    • Before merging to main (clean up feature branch)<br>
-                                    • You want clean, easy-to-review history<br>
-                                    <strong style="color: #ef4444;">🚨 Golden Rule:</strong> <strong>Never rebase public/shared branches!</strong>
-                                </p>
-                            </div>
-                        </div>
-                        <div style="margin-top: 20px; padding: 15px; background: rgba(239, 68, 68, 0.1); border-radius: 6px; border: 2px solid rgba(239, 68, 68, 0.3);">
-                            <p style="font-size: 1.15rem; margin: 0; color: #1a1a1a; line-height: 1.6;">
-                                <strong style="color: #ef4444; font-size: 1.2rem;">⚠️ Remember:</strong> Both are valid! Choose based on your context. 
-                                If you're unsure or others might have pulled your branch → <strong>use merge</strong>. 
-                                When in doubt, merge is safer.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "Both merge and rebase solve the same problem—integrating changes from one branch into another. They just do it differently. Look at the merge graph: See that merge commit M? It has two parents—C and F. That's how merge preserves the exact history. The rebase graph shows linear history—all commits in a straight line. Rebase replays your commits on top of main, creating new commits D', E', F'. The original D, E, F are in reflog but not in the branch history. Key point: Merge is non-destructive and safe for shared branches. Rebase creates clean history but only works on local/private branches. The golden rule: Never rebase public branches!" <strong>Timing:</strong> 5-6 minutes. Emphasize the golden rule and when to use each approach.
-            </div>
-        </div>
-
-        <!-- SLIDE 13d: Decision Matrix - Merge vs Rebase -->
-        <div class="slide slide-charcoal">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Decision Matrix: Merge vs Rebase</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">When to use each approach</p>
-
-                <div style="max-width: 1100px; margin: 0 auto;">
-                    <div class="column-card" style="margin: 20px auto; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.08);">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-                            <span style="font-size: 2rem;">✅</span>
-                            <h4 style="margin: 0; color: #22c55e; font-size: 1.4rem;">Use Merge When:</h4>
-                        </div>
-                        <ul style="font-size: 1.15rem; line-height: 1.8; margin: 10px 0 0 25px; color: #1a1a1a;">
-                            <li>Working on <strong style="color: #22c55e;">shared/public branches</strong> (main, develop)</li>
-                            <li>You want to <strong>preserve branch context</strong> (show when features were integrated)</li>
-                            <li>Team prefers <strong>merge workflow</strong> (standardized approach)</li>
-                            <li>You want to see the <strong>full development story</strong> (parallel development)</li>
-                        </ul>
-                    </div>
-
-                    <div class="column-card" style="margin: 20px auto; border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-                            <span style="font-size: 2rem;">⚠️</span>
-                            <h4 style="margin: 0; color: #f59e0b; font-size: 1.4rem;">Use Rebase When:</h4>
-                        </div>
-                        <ul style="font-size: 1.15rem; line-height: 1.8; margin: 10px 0 0 25px; color: #1a1a1a;">
-                            <li>Working on <strong style="color: #f59e0b;">local/private branches</strong> (only you use it)</li>
-                            <li>You want <strong>clean, linear history</strong> (easier to read and review)</li>
-                            <li>Before merging to main (clean up your feature branch)</li>
-                            <li>Interactive rebase for cleanup (combine commits, reword messages)</li>
-                        </ul>
-                    </div>
-
-                    <div class="highlight-box" style="margin-top: 40px; border-left-color: #ef4444; background: rgba(239, 68, 68, 0.1);">
-                        <div style="display: flex; align-items: start; gap: 15px;">
-                            <span style="font-size: 2rem; line-height: 1;">🚨</span>
-                            <div>
-                                <p style="font-size: 1.3rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">The Golden Rule:</p>
-                                <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;"><strong style="color: #ef4444;">NEVER rebase shared branches!</strong> Rebase only on local/private branches. Merge is always safe for shared branches.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "This is your cheat sheet. Print it. Memorize it. The golden rule: Never rebase shared branches. Rebase only on YOUR branches. Merge is always safe for shared branches." <strong>Common Questions:</strong> "What if I'm not sure?" → "If others might have pulled it, use merge. When in doubt, merge is safer."
-            </div>
-        </div>
-
-        <!-- SLIDE 13e: Check Your Understanding - Merge vs Rebase -->
-        <div class="slide slide-cyan">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Check Your Understanding</h2>
-                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Merge vs Rebase</p>
-
-                <div class="check-understanding">
-                    <h3>Quick Quiz</h3>
-                    <div class="question">1. What's the key difference between merge and rebase?</div>
-                    <div class="answer">→ Answer: Merge preserves exact history and creates merge commits. Rebase rewrites history to create linear timeline (local branches only).</div>
-
-                    <div class="question">2. When should you use merge vs rebase?</div>
-                    <div class="answer">→ Answer: Merge for shared branches (main, develop) or when you want to preserve branch context. Rebase for local/private branches when you want clean linear history.</div>
-
-                    <div class="question">3. Can you rebase a shared branch like main?</div>
-                    <div class="answer">→ Answer: Technically yes, but DON'T. Rebasing shared branches rewrites history that teammates depend on. Use merge for shared branches.</div>
-
-                    <div class="question">4. What happens to original commits after rebase?</div>
-                    <div class="answer">→ Answer: Original commits are removed from branch history, but they remain in reflog. You can recover them using `git reflog` and `git reset --hard [hash]`.</div>
-
-                    <div class="question">5. Which creates merge commits?</div>
-                    <div class="answer">→ Answer: Merge creates merge commits (commits with two parents). Rebase does not—it creates linear history without merge commits.</div>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
-                    <div style="display: flex; align-items: start; gap: 15px;">
-                        <span style="font-size: 2rem; line-height: 1;">📝</span>
-                        <div>
-                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
-                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Merge preserves history (safe for shared). Rebase creates linear history (local only). Choose based on context and team preferences.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
-                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore three ways to undo commits—reset, revert, and checkout</p>
-                </div>
-            </div>
-            <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
-            </div>
-        </div>
-
-        <!-- TRANSITION: From Merge vs Rebase to Reset vs Revert -->
-        <div class="slide slide-light">
-            <div class="logo">Agile Actors</div>
-            <div class="slide-content">
-                <h2>Integration Done. Sometimes You Need to Undo.</h2>
-                <p class="subtitle" style="margin-top: 40px; margin-bottom: 50px;">Recovery Strategies</p>
-                
-                <div class="highlight-box" style="margin-top: 30px; margin-bottom: 40px;">
-                    <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">What We Just Learned</h3>
-                    <p style="font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a;"><strong>Merge vs Rebase</strong> — Two ways to integrate branches. Merge preserves history, rebase creates linear history.</p>
-                    <p style="font-size: 1.2rem; margin: 0; color: #64748b;">The choice depends on whether the branch is shared or local.</p>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.15);">
-                    <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">What's Next</h3>
                     <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;"><strong>Reset vs Revert</strong> — Sometimes you need to undo changes. Three tools for three different situations: reset (local), revert (shared), and checkout (unstaged).</p>
                 </div>
 
                 <div style="margin-top: 50px; text-align: center;">
-                    <p style="font-size: 1.4rem; color: #0891b2; font-weight: 600;">You know how to integrate. Now learn how to undo when needed.</p>
+                    <p style="font-size: 1.4rem; color: #0891b2; font-weight: 600;">You've explored safely. Now learn how to undo when needed.</p>
                 </div>
             </div>
             <div class="speaker-note">
-                <strong>SPEAKER NOTE:</strong> "You've integrated your work. But what if you made a mistake? What if you need to undo? That's where reset, revert, and checkout come in." <strong>Timing:</strong> 1-2 minutes.
+                <strong>SPEAKER NOTE:</strong> "You've experimented safely. But what if you made a mistake? What if you need to undo? That's where reset, revert, and checkout come in." <strong>Timing:</strong> 1-2 minutes.
             </div>
         </div>
 
@@ -2164,7 +1835,7 @@
         <div class="slide slide-light">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Superpower #4: Reset vs Revert</h2>
+                <h2>Superpower #3: Reset vs Revert</h2>
                 <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Two Ways to Undo Commits</p>
 
                 <div style="max-width: 1200px; margin: 0 auto;">
@@ -2495,7 +2166,7 @@
         <div class="slide slide-cyan">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Superpower #5: Stash</h2>
+                <h2>Superpower #4: Stash</h2>
                 <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">The Panic Button</p>
                 <div class="highlight-box">
                     <p style="color: #1a1a1a;"><strong>What it is:</strong> Temporarily save uncommitted work without committing. Perfect for context switching.</p>
@@ -2674,7 +2345,7 @@
         <div class="slide slide-charcoal">
             <div class="logo">Agile Actors</div>
             <div class="slide-content">
-                <h2>Superpower #6: Cherry-pick</h2>
+                <h2>Superpower #5: Cherry-pick</h2>
                 <p class="subtitle" style="margin-top: 30px; margin-bottom: 50px;">Surgical Commit Recovery</p>
                 <div class="highlight-box">
                     <p style="color: #1a1a1a;"><strong>What it is:</strong> Pick ONE specific commit from anywhere in history and apply it to your current branch.</p>
@@ -2780,6 +2451,335 @@
                         <div>
                             <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
                             <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Cherry-pick is surgical. Select exactly what you need. One commit. One branch. Precision.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(6, 182, 212, 0.1); border-radius: 8px; border-left: 4px solid #06b6d4;">
+                    <p style="font-size: 1.1rem; margin: 0; color: #0891b2; font-weight: 600;">➡️ Next: We'll explore merge vs rebase—two ways to integrate branches</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> Use this as a checkpoint. Ask these questions out loud. See if hands go up. If confused, repeat the concept. This ensures understanding before moving on. <strong>Timing:</strong> 2-3 minutes. Don't rush.
+            </div>
+        </div>
+
+        <!-- TRANSITION: From Cherry-pick to Merge vs Rebase -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Precision Complete. Time to Integrate.</h2>
+                <p class="subtitle" style="margin-top: 40px; margin-bottom: 50px;">Connecting Your Work</p>
+                
+                <div class="highlight-box" style="margin-top: 30px; margin-bottom: 40px;">
+                    <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">What We Just Learned</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 15px; color: #1a1a1a;"><strong>Cherry-pick</strong> lets you select specific commits and apply them precisely where you need them.</p>
+                    <p style="font-size: 1.2rem; margin: 0; color: #64748b;">Surgical precision for commit recovery and selective integration.</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.15);">
+                    <h3 style="margin-top: 0; margin-bottom: 20px; color: #0891b2;">What's Next</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a;"><strong>Merge vs Rebase</strong> — When your feature branch is ready, how do you integrate it? Two strategies, each with its place.</p>
+                </div>
+
+                <div style="margin-top: 50px; text-align: center;">
+                    <p style="font-size: 1.4rem; color: #0891b2; font-weight: 600;">You've mastered precision. Now choose how to bring it all together.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "You've learned precision recovery. Now you have work on a branch. How do you integrate it? That's where merge and rebase come in." <strong>Timing:</strong> 1-2 minutes.
+            </div>
+        </div>
+
+        <!-- SLIDE: Real-World Scenario - Merge vs Rebase -->
+        <div class="slide slide-dark">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Real-World Scenario</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">The Integration Question</p>
+
+                <div class="scenario-box">
+                    <h3>💼 The Situation</h3>
+                    <p>You've finished your feature branch. It's time to integrate it into <code>main</code>.</p>
+                    <p style="margin-top: 15px;">You ask yourself: <strong>"Should I merge or rebase?"</strong></p>
+                    <p style="margin-top: 15px;">Both integrate your changes, but they do it differently:</p>
+                    <ul style="margin-left: 30px; margin-top: 15px;">
+                        <li><strong>Merge</strong> preserves the exact history—shows when branches diverged</li>
+                        <li><strong>Rebase</strong> creates linear history—looks like work was done sequentially</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-weight: 600; color: #0891b2;">Which one should you use? It depends on your context.</p>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> This is one of the most common questions in Git. Set up the scenario: "You've finished your feature. Now what? Merge or rebase?" Both work, but they create different histories. The choice matters.
+            </div>
+        </div>
+
+        <!-- SLIDE: Superpower #6 - Merge vs Rebase -->
+        <div class="slide slide-light">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Superpower #6: Merge vs Rebase</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Two Ways to Integrate Branches</p>
+
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div class="two-column" style="grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                        <div>
+                            <h3 style="color: #22c55e; margin-bottom: 20px; font-size: 1.6rem;">Merge</h3>
+                            <div class="highlight-box" style="border-left-color: #22c55e; margin-bottom: 20px;">
+                                <p style="color: #1a1a1a; margin-bottom: 0;"><strong>What it does:</strong> Combines branches by creating a merge commit with two parents</p>
+                            </div>
+                            
+                            <div class="code-step" style="margin: 15px 0; border-left-color: #22c55e;">
+                                <div class="code-step-label" style="color: #22c55e;">Command</div>
+                                <div class="code-step-content" style="font-size: 1rem; line-height: 1.8;">
+                                    git checkout main<br>
+                                    git merge feature-branch
+                                </div>
+                            </div>
+
+                            <ul style="font-size: 1.1rem; line-height: 1.8; margin-top: 15px; padding-left: 25px;">
+                                <li>✅ Preserves exact history</li>
+                                <li>✅ Safe for shared branches</li>
+                                <li>✅ Shows branch context</li>
+                                <li>⚠️ Creates merge commits</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="color: #f59e0b; margin-bottom: 20px; font-size: 1.6rem;">Rebase</h3>
+                            <div class="highlight-box" style="border-left-color: #f59e0b; margin-bottom: 20px;">
+                                <p style="color: #1a1a1a; margin-bottom: 0;"><strong>What it does:</strong> Replays commits on top of target branch, creating linear history</p>
+                            </div>
+                            
+                            <div class="code-step" style="margin: 15px 0; border-left-color: #f59e0b;">
+                                <div class="code-step-label" style="color: #f59e0b;">Command</div>
+                                <div class="code-step-content" style="font-size: 1rem; line-height: 1.8;">
+                                    git checkout feature-branch<br>
+                                    git rebase main
+                                </div>
+                            </div>
+
+                            <ul style="font-size: 1.1rem; line-height: 1.8; margin-top: 15px; padding-left: 25px;">
+                                <li>✅ Linear, clean history</li>
+                                <li>✅ No merge commits</li>
+                                <li>✅ Easier to review</li>
+                                <li>⚠️ Rewrites history (local only!)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px; text-align: center; border-left-color: #0891b2;">
+                        <p style="font-size: 1.3rem; margin-bottom: 0; color: #1a1a1a; font-weight: 600;">💡 Key Difference:</p>
+                        <p style="font-size: 1.2rem; margin-top: 10px; margin-bottom: 0; color: #1a1a1a;">Merge preserves history. Rebase creates linear history. Both are valid—choose based on context.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "Merge and rebase both integrate branches, but they create different histories. Merge preserves the exact story. Rebase creates a linear timeline. Neither is wrong—they serve different purposes." Show the side-by-side comparison. Point out the key difference: merge creates merge commits, rebase rewrites history.
+            </div>
+        </div>
+
+        <!-- SLIDE: Demo - Merge vs Rebase: Visual Comparison -->
+        <div class="slide slide-cyan" id="merge-rebase-demo-slide">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Demo: Merge vs Rebase ⭐</h2>
+                <p class="subtitle" style="margin-top: 20px; margin-bottom: 20px;">Both solve the same problem: integrating changes from one branch into another</p>
+                <p class="subtitle" style="margin-top: 10px; margin-bottom: 30px; font-size: 1.1rem; color: #0891b2;">They just do it in very different ways</p>
+
+                <div style="max-width: 1400px; margin: 0 auto;">
+                    <!-- Starting State Section -->
+                    <div class="code-step" style="margin: 20px auto; max-width: 900px; background: rgba(6, 182, 212, 0.12); border-left: 4px solid #0891b2;">
+                        <div class="code-step-label" style="color: #0891b2; font-weight: 600; font-size: 1.1rem;">📊 Scenario: Forked History</div>
+                        <div class="code-step-content" style="font-size: 1.05rem; line-height: 2; font-family: 'Courier New', monospace; padding: 15px 0;">
+                            main:     A---B---C  (upstream changes)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br>
+                            feature:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D---E---F  (your feature work)
+                        </div>
+                        <p style="font-size: 0.95rem; color: #666; margin-top: 10px; margin-bottom: 0; padding: 0 15px; font-style: italic;">You're working on a feature branch, and main has new commits. How do you integrate them?</p>
+                    </div>
+
+                    <!-- Two Column Layout for Graphs -->
+                    <div class="two-column" style="grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; align-items: start;">
+                        <!-- Merge Graph -->
+                        <div>
+                            <h4 style="color: #22c55e; margin-bottom: 15px; text-align: center; font-size: 1.4rem; font-weight: 600;">🔄 The Merge Option</h4>
+                            <p style="text-align: center; font-size: 0.95rem; color: #666; margin-bottom: 15px; font-style: italic;">Non-destructive: existing branches are not changed</p>
+                            <div class="code-step" style="margin: 15px 0; border-left-color: #22c55e; border-left-width: 4px;">
+                                <div class="code-step-label" style="color: #22c55e; font-weight: 600;">Commands</div>
+                                <div class="code-step-content" style="font-size: 1rem; line-height: 2; font-family: 'Courier New', monospace;">
+                                    $ git checkout feature<br>
+                                    $ git merge main
+                                </div>
+                            </div>
+                            <div class="highlight-box" style="margin-top: 15px; border-left-color: #22c55e; border-left-width: 4px; background: rgba(34, 197, 94, 0.12); padding: 15px;">
+                                <p style="font-size: 1.05rem; margin: 5px 0; color: #1a1a1a; line-height: 1.6;">
+                                    <strong style="color: #22c55e;">✓ Creates merge commit M:</strong> Has two parents (C and F)<br>
+                                    <strong style="color: #22c55e;">✓ Non-destructive:</strong> Preserves exact history as it happened<br>
+                                    <strong style="color: #22c55e;">✓ Safe for shared branches:</strong> Shows complete development story<br>
+                                    <strong style="color: #22c55e;">⚠️ Trade-off:</strong> Can create many merge commits if main is very active
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Rebase Graph -->
+                        <div>
+                            <h4 style="color: #f59e0b; margin-bottom: 15px; text-align: center; font-size: 1.4rem; font-weight: 600;">📏 The Rebase Option</h4>
+                            <p style="text-align: center; font-size: 0.95rem; color: #666; margin-bottom: 15px; font-style: italic;">Replays your commits on top of main, creating linear history</p>
+                            <div class="code-step" style="margin: 15px 0; border-left-color: #f59e0b; border-left-width: 4px;">
+                                <div class="code-step-label" style="color: #f59e0b; font-weight: 600;">Commands</div>
+                                <div class="code-step-content" style="font-size: 1rem; line-height: 2; font-family: 'Courier New', monospace;">
+                                    $ git checkout feature<br>
+                                    $ git rebase main<br>
+                                    <span style="color: #999; font-size: 0.9rem;"># (Then merge back to main)</span><br>
+                                    $ git checkout main<br>
+                                    $ git merge feature  <span style="color: #22c55e;"># Fast-forward!</span>
+                                </div>
+                            </div>
+                            <div class="code-step" style="margin: 15px 0; border-left-color: #f59e0b; border-left-width: 4px; background: rgba(255,255,255,0.95);">
+                                <div class="code-step-label" style="color: #f59e0b; font-weight: 600;">Rebase Result: Linear History</div>
+                                <div class="code-step-content" style="font-size: 1.05rem; line-height: 2; font-family: 'Courier New', monospace; padding: 15px 0;">
+                                    main:     A---B---C---D'---E'---F'  (linear history)<br>
+                                    <span style="color: #64748b; font-size: 0.9rem;"># D', E', F' are new commits (replayed on top of C)</span><br>
+                                    <span style="color: #64748b; font-size: 0.9rem;"># Original D, E, F remain in reflog</span>
+                                </div>
+                            </div>
+                            <div class="highlight-box" style="margin-top: 15px; border-left-color: #f59e0b; border-left-width: 4px; background: rgba(245, 158, 11, 0.12); padding: 15px;">
+                                <p style="font-size: 1.05rem; margin: 5px 0; color: #1a1a1a; line-height: 1.6;">
+                                    <strong style="color: #f59e0b;">✓ Linear history:</strong> No merge commits, clean timeline<br>
+                                    <strong style="color: #f59e0b;">✓ Commits replayed:</strong> D', E', F' are new (replayed on top of C)<br>
+                                    <strong style="color: #f59e0b;">✓ Fast-forward merge:</strong> After rebase, merge is simple<br>
+                                    <strong style="color: #ef4444;">🚨 Golden Rule:</strong> <strong>Only on local/private branches!</strong> Never rebase public/shared branches
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Differences Summary -->
+                    <div class="highlight-box" style="margin-top: 35px; border-left-color: #0891b2; border-left-width: 5px; background: rgba(6, 182, 212, 0.12); padding: 25px;">
+                        <p style="font-size: 1.4rem; margin-bottom: 20px; color: #1a1a1a; font-weight: 600; text-align: center;">💡 Key Differences & When to Use Each</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                            <div style="padding: 18px; background: rgba(34, 197, 94, 0.08); border-radius: 6px; border: 2px solid rgba(34, 197, 94, 0.3);">
+                                <p style="font-size: 1.2rem; margin: 0 0 12px 0; color: #22c55e; font-weight: 600;">Merge: Non-Destructive</p>
+                                <p style="font-size: 1.05rem; margin: 8px 0; color: #1a1a1a; line-height: 1.7;">
+                                    <strong>How it works:</strong> Creates merge commit with <strong>two parents</strong><br>
+                                    <strong>History:</strong> Preserves exact branch context<br>
+                                    <strong>Use when:</strong><br>
+                                    • Working on <strong>shared/public branches</strong> (main, develop)<br>
+                                    • You want to preserve the <strong>complete development story</strong><br>
+                                    • Team prefers merge workflow<br>
+                                    <strong style="color: #22c55e;">✓ Always safe</strong> - never rewrites history
+                                </p>
+                            </div>
+                            <div style="padding: 18px; background: rgba(245, 158, 11, 0.08); border-radius: 6px; border: 2px solid rgba(245, 158, 11, 0.3);">
+                                <p style="font-size: 1.2rem; margin: 0 0 12px 0; color: #f59e0b; font-weight: 600;">Rebase: Linear History</p>
+                                <p style="font-size: 1.05rem; margin: 8px 0; color: #1a1a1a; line-height: 1.7;">
+                                    <strong>How it works:</strong> Replays commits on top → creates <strong>linear history</strong><br>
+                                    <strong>History:</strong> Looks like sequential work (no merge commits)<br>
+                                    <strong>Use when:</strong><br>
+                                    • Working on <strong>local/private branches</strong> (only you use it)<br>
+                                    • Before merging to main (clean up feature branch)<br>
+                                    • You want clean, easy-to-review history<br>
+                                    <strong style="color: #ef4444;">🚨 Golden Rule:</strong> <strong>Never rebase public/shared branches!</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(239, 68, 68, 0.1); border-radius: 6px; border: 2px solid rgba(239, 68, 68, 0.3);">
+                            <p style="font-size: 1.15rem; margin: 0; color: #1a1a1a; line-height: 1.6;">
+                                <strong style="color: #ef4444; font-size: 1.2rem;">⚠️ Remember:</strong> Both are valid! Choose based on your context. 
+                                If you're unsure or others might have pulled your branch → <strong>use merge</strong>. 
+                                When in doubt, merge is safer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "Both merge and rebase solve the same problem—integrating changes from one branch into another. They just do it differently. Look at the merge graph: See that merge commit M? It has two parents—C and F. That's how merge preserves the exact history. The rebase graph shows linear history—all commits in a straight line. Rebase replays your commits on top of main, creating new commits D', E', F'. The original D, E, F are in reflog but not in the branch history. Key point: Merge is non-destructive and safe for shared branches. Rebase creates clean history but only works on local/private branches. The golden rule: Never rebase public branches!" <strong>Timing:</strong> 5-6 minutes. Emphasize the golden rule and when to use each approach.
+            </div>
+        </div>
+
+        <!-- SLIDE: Decision Matrix - Merge vs Rebase -->
+        <div class="slide slide-charcoal">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Decision Matrix: Merge vs Rebase</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">When to use each approach</p>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <div class="column-card" style="margin: 20px auto; border-left-color: #22c55e; background: rgba(34, 197, 94, 0.08);">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                            <span style="font-size: 2rem;">✅</span>
+                            <h4 style="margin: 0; color: #22c55e; font-size: 1.4rem;">Use Merge When:</h4>
+                        </div>
+                        <ul style="font-size: 1.15rem; line-height: 1.8; margin: 10px 0 0 25px; color: #1a1a1a;">
+                            <li>Working on <strong style="color: #22c55e;">shared/public branches</strong> (main, develop)</li>
+                            <li>You want to <strong>preserve branch context</strong> (show when features were integrated)</li>
+                            <li>Team prefers <strong>merge workflow</strong> (standardized approach)</li>
+                            <li>You want to see the <strong>full development story</strong> (parallel development)</li>
+                        </ul>
+                    </div>
+
+                    <div class="column-card" style="margin: 20px auto; border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.08);">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                            <span style="font-size: 2rem;">⚠️</span>
+                            <h4 style="margin: 0; color: #f59e0b; font-size: 1.4rem;">Use Rebase When:</h4>
+                        </div>
+                        <ul style="font-size: 1.15rem; line-height: 1.8; margin: 10px 0 0 25px; color: #1a1a1a;">
+                            <li>Working on <strong style="color: #f59e0b;">local/private branches</strong> (only you use it)</li>
+                            <li>You want <strong>clean, linear history</strong> (easier to read and review)</li>
+                            <li>Before merging to main (clean up your feature branch)</li>
+                            <li>Interactive rebase for cleanup (combine commits, reword messages)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 40px; border-left-color: #ef4444; background: rgba(239, 68, 68, 0.1);">
+                        <div style="display: flex; align-items: start; gap: 15px;">
+                            <span style="font-size: 2rem; line-height: 1;">🚨</span>
+                            <div>
+                                <p style="font-size: 1.3rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">The Golden Rule:</p>
+                                <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;"><strong style="color: #ef4444;">NEVER rebase shared branches!</strong> Rebase only on local/private branches. Merge is always safe for shared branches.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-note">
+                <strong>SPEAKER NOTE:</strong> "This is your cheat sheet. Print it. Memorize it. The golden rule: Never rebase shared branches. Rebase only on YOUR branches. Merge is always safe for shared branches." <strong>Common Questions:</strong> "What if I'm not sure?" → "If others might have pulled it, use merge. When in doubt, merge is safer."
+            </div>
+        </div>
+
+        <!-- SLIDE: Check Your Understanding - Merge vs Rebase -->
+        <div class="slide slide-cyan">
+            <div class="logo">Agile Actors</div>
+            <div class="slide-content">
+                <h2>Check Your Understanding</h2>
+                <p class="subtitle" style="margin-top: 30px; margin-bottom: 40px;">Merge vs Rebase</p>
+
+                <div class="check-understanding">
+                    <h3>Quick Quiz</h3>
+                    <div class="question">1. What's the key difference between merge and rebase?</div>
+                    <div class="answer">→ Answer: Merge preserves exact history and creates merge commits. Rebase rewrites history to create linear timeline (local branches only).</div>
+
+                    <div class="question">2. When should you use merge vs rebase?</div>
+                    <div class="answer">→ Answer: Merge for shared branches (main, develop) or when you want to preserve branch context. Rebase for local/private branches when you want clean linear history.</div>
+
+                    <div class="question">3. Can you rebase a shared branch like main?</div>
+                    <div class="answer">→ Answer: Technically yes, but DON'T. Rebasing shared branches rewrites history that teammates depend on. Use merge for shared branches.</div>
+
+                    <div class="question">4. What happens to original commits after rebase?</div>
+                    <div class="answer">→ Answer: Original commits are removed from branch history, but they remain in reflog. You can recover them using `git reflog` and `git reset --hard [hash]`.</div>
+
+                    <div class="question">5. Which creates merge commits?</div>
+                    <div class="answer">→ Answer: Merge creates merge commits (commits with two parents). Rebase does not—it creates linear history without merge commits.</div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 40px; border-left-color: #22c55e;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 2rem; line-height: 1;">📝</span>
+                        <div>
+                            <p style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a; font-weight: 600;">Key Takeaway:</p>
+                            <p style="font-size: 1.2rem; margin: 0; color: #1a1a1a;">Merge preserves history (safe for shared). Rebase creates linear history (local only). Choose based on context and team preferences.</p>
                         </div>
                     </div>
                 </div>
@@ -3137,50 +3137,50 @@
                          (titleLower.includes('check your understanding') && slideText.includes('detached'))) {
                     currentSection = 'Superpower #2: Detached HEAD';
                 }
-                // Transition: Detached HEAD to Merge vs Rebase
-                else if (titleLower.includes('exploration complete. time to integrate') || 
-                         titleLower.includes('connecting your work')) {
-                    currentSection = 'Superpower #3: Merge vs Rebase';
-                }
-                // Merge vs Rebase section
-                else if (titleLower.includes('merge vs rebase') || (titleLower.includes('merge') && titleLower.includes('rebase')) ||
-                         (titleLower.includes('real-world scenario') && slideText.includes('integration question')) ||
-                         (titleLower.includes('check your understanding') && slideText.includes('merge'))) {
-                    currentSection = 'Superpower #3: Merge vs Rebase';
-                }
-                // Transition: Merge vs Rebase to Reset vs Revert
-                else if (titleLower.includes('integration done. sometimes you need to undo') ||
+                // Transition: Detached HEAD to Reset vs Revert
+                else if (titleLower.includes('exploration complete. sometimes you need to undo') ||
                          titleLower.includes('recovery strategies')) {
-                    currentSection = 'Superpower #4: Reset/Revert';
+                    currentSection = 'Superpower #3: Reset/Revert';
                 }
                 // Reset/Revert section
                 else if (titleLower.includes('reset') || titleLower.includes('revert') || 
                          titleLower.includes('three ways to undo') || titleLower.includes('decision matrix') ||
                          titleLower.includes('undo strategies') ||
                          (titleLower.includes('check your understanding') && slideText.includes('reset'))) {
-                    currentSection = 'Superpower #4: Reset/Revert';
+                    currentSection = 'Superpower #3: Reset/Revert';
                 }
                 // Transition: Reset vs Revert to Stash
                 else if (titleLower.includes('undo strategies mastered. what about mid-work') ||
                          titleLower.includes('context switching')) {
-                    currentSection = 'Superpower #5: Stash';
+                    currentSection = 'Superpower #4: Stash';
                 }
                 // Stash section
                 else if (titleLower.includes('stash') || 
                          (titleLower.includes('real-world scenario') && slideText.includes('emergency')) ||
                          (titleLower.includes('check your understanding') && slideText.includes('stash'))) {
-                    currentSection = 'Superpower #5: Stash';
+                    currentSection = 'Superpower #4: Stash';
                 }
                 // Transition: Stash to Cherry-pick
                 else if (titleLower.includes('context switching handled. now for precision') ||
                          titleLower.includes('surgical recovery')) {
-                    currentSection = 'Superpower #6: Cherry-pick';
+                    currentSection = 'Superpower #5: Cherry-pick';
                 }
                 // Cherry-pick section
                 else if (titleLower.includes('cherry-pick') || titleLower.includes('cherrypick') ||
                          (titleLower.includes('real-world scenario') && slideText.includes('wrong branch')) ||
                          (titleLower.includes('check your understanding') && slideText.includes('cherry'))) {
-                    currentSection = 'Superpower #6: Cherry-pick';
+                    currentSection = 'Superpower #5: Cherry-pick';
+                }
+                // Transition: Cherry-pick to Merge vs Rebase
+                else if (titleLower.includes('precision complete. time to integrate') || 
+                         (titleLower.includes('connecting your work') && slideText.includes('cherry'))) {
+                    currentSection = 'Superpower #6: Merge vs Rebase';
+                }
+                // Merge vs Rebase section
+                else if (titleLower.includes('merge vs rebase') || (titleLower.includes('merge') && titleLower.includes('rebase')) ||
+                         (titleLower.includes('real-world scenario') && slideText.includes('integration question')) ||
+                         (titleLower.includes('check your understanding') && slideText.includes('merge'))) {
+                    currentSection = 'Superpower #6: Merge vs Rebase';
                 }
                 // Best Practices section
                 else if (titleLower.includes('common mistake') || titleLower.includes('professional safety') ||
@@ -3264,10 +3264,10 @@
                 'Introduction',
                 'Superpower #1: Reflog',
                 'Superpower #2: Detached HEAD',
-                'Superpower #3: Merge vs Rebase',
-                'Superpower #4: Reset/Revert',
-                'Superpower #5: Stash',
-                'Superpower #6: Cherry-pick',
+                'Superpower #3: Reset/Revert',
+                'Superpower #4: Stash',
+                'Superpower #5: Cherry-pick',
+                'Superpower #6: Merge vs Rebase',
                 'Best Practices',
                 'Conclusion'
             ];
